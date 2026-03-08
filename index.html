@@ -3,1294 +3,1686 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tangerine - Captação de Imagem e Vídeo</title>
+    <title>Tangerina Artes Visuais — Posicionamento Digital Estratégico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --orange: #FF8C42;
-            --dark-orange: #E67429;
-            --light-orange: #FFB380;
-            --white: #FFFFFF;
-            --gray: #2A2A2A;
-            --light-gray: #F5F5F5;
-            --medium-gray: #666666;
+            --burn: #DF5D38;
+            --cream: #FAECD8;
+            --amber: #F49629;
+            --teal: #A5D8D7;
+            --gold: #F0BF47;
+            --dark: #1A1410;
+            --mid: #5C4A3A;
+            --light: #FDF8F2;
         }
 
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            color: var(--gray);
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            color: var(--dark);
             overflow-x: hidden;
         }
 
-        /* Animações */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* ─── NOISE TEXTURE OVERLAY ─── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.4;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        @keyframes rotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.05);
-                opacity: 0.8;
-            }
-        }
-
-        @keyframes shimmer {
-            0% {
-                background-position: -1000px 0;
-            }
-            100% {
-                background-position: 1000px 0;
-            }
-        }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Header */
+        /* ─── HEADER ─── */
         header {
             position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 140, 66, 0.1);
-            animation: fadeIn 0.8s ease-out;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-        }
-
-        nav {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1.5rem 2rem;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.2rem 4rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: rgba(253, 248, 242, 0.88);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(223, 93, 56, 0.12);
+            transition: all 0.4s ease;
         }
 
-        .logo {
-            font-size: 1.6rem;
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+
+        .logo-dot {
+            width: 32px; height: 32px;
+            background: var(--burn);
+            border-radius: 50%;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .logo-dot::after {
+            content: '';
+            position: absolute;
+            top: 6px; left: 6px;
+            width: 12px; height: 12px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-size: 1.1rem;
             font-weight: 700;
-            color: var(--orange);
-            letter-spacing: -0.5px;
-            position: relative;
-            animation: slideInLeft 0.8s ease-out;
+            color: var(--dark);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--orange);
-            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        .logo-text span {
+            color: var(--burn);
         }
 
-        .logo:hover::after {
-            width: 100%;
-        }
-
-        .nav-links {
-            animation: fadeIn 1s ease-out 0.3s both;
+        nav {
             display: flex;
             align-items: center;
+            gap: 2.5rem;
         }
 
-        .nav-links a {
-            margin-left: 2.5rem;
-            color: var(--gray);
+        nav a {
             text-decoration: none;
+            font-size: 0.82rem;
             font-weight: 500;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--mid);
+            transition: color 0.2s;
         }
 
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: var(--orange);
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        nav a:hover { color: var(--burn); }
+
+        .btn-nav {
+            background: var(--burn);
+            color: #fff !important;
+            padding: 0.6rem 1.6rem;
+            border-radius: 100px;
+            font-weight: 600 !important;
+            transition: background 0.3s, transform 0.2s !important;
         }
 
-        .nav-links a:hover {
-            color: var(--orange);
+        .btn-nav:hover {
+            background: #c44d2a !important;
+            transform: translateY(-2px);
         }
 
-        .nav-links a:hover::before {
-            width: 100%;
-        }
-
-        .nav-links a.cta-btn::before {
-            display: none;
-        }
-
-        .cta-btn {
-            background: linear-gradient(135deg, var(--orange) 0%, var(--dark-orange) 100%);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
-        }
-
-        .cta-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .cta-btn:hover::before {
-            left: 100%;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(255, 140, 66, 0.4);
-            color: var(--white);
-        }
-
-        .cta-btn:active {
-            transform: translateY(-1px) scale(1.02);
-        }
-
-        /* Hero */
+        /* ─── HERO ─── */
         .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
-            display: flex;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             align-items: center;
-            padding-top: 80px;
+            padding: 8rem 4rem 4rem;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
+        .hero-bg {
             position: absolute;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(255, 140, 66, 0.2) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -200px;
-            right: -200px;
-            animation: float 6s ease-in-out infinite, pulse 4s ease-in-out infinite;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 70% 80% at 80% 50%, rgba(244, 150, 41, 0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 50% at 10% 80%, rgba(165, 216, 215, 0.18) 0%, transparent 60%);
         }
 
-        .hero::after {
-            content: '';
+        .hero-blob {
             position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 140, 66, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            bottom: -100px;
-            left: -100px;
-            animation: float 8s ease-in-out infinite reverse;
+            right: -5%;
+            top: 10%;
+            width: 55%;
+            aspect-ratio: 1;
+            background: var(--cream);
+            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+            z-index: 0;
+            animation: blobMorph 12s ease-in-out infinite;
+        }
+
+        @keyframes blobMorph {
+            0%, 100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; }
+            25% { border-radius: 40% 60% 70% 30% / 45% 55% 45% 55%; }
+            50% { border-radius: 55% 45% 35% 65% / 50% 40% 60% 50%; }
+            75% { border-radius: 30% 70% 55% 45% / 60% 35% 65% 40%; }
         }
 
         .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
             position: relative;
             z-index: 1;
+            max-width: 560px;
         }
 
-        .hero-text {
-            animation: slideInLeft 1s ease-out;
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(223, 93, 56, 0.1);
+            border: 1px solid rgba(223, 93, 56, 0.25);
+            color: var(--burn);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 2rem;
         }
 
-        .hero-text h1 {
-            font-size: 4rem;
+        .hero-tag::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: var(--burn);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.7); }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+            font-weight: 800;
             line-height: 1.1;
+            color: var(--dark);
             margin-bottom: 1.5rem;
-            color: var(--gray);
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.3s forwards;
+            letter-spacing: -0.02em;
         }
 
-        .hero-text h1 span {
-            color: var(--orange);
-            background: linear-gradient(135deg, var(--orange) 0%, var(--dark-orange) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .hero h1 em {
+            font-style: normal;
+            color: var(--burn);
             position: relative;
-            display: inline-block;
         }
 
-        .hero-text h1 span::after {
+        .hero h1 em::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--orange), var(--dark-orange));
-            transform: scaleX(0);
-            transform-origin: left;
-            animation: scaleInX 0.8s ease-out 1.5s forwards;
+            bottom: 2px; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--burn), var(--amber));
+            border-radius: 2px;
         }
 
-        @keyframes scaleInX {
-            to {
-                transform: scaleX(1);
-            }
-        }
-
-        .hero-text p {
-            font-size: 1.3rem;
-            color: var(--medium-gray);
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--mid);
+            line-height: 1.75;
             margin-bottom: 2.5rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.6s forwards;
+            font-weight: 400;
         }
 
-        .hero-text .cta-btn {
-            opacity: 0;
-            animation: fadeInUp 1s ease-out 0.9s forwards;
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
         }
+
+        .btn-primary {
+            background: var(--burn);
+            color: #fff;
+            padding: 0.9rem 2.2rem;
+            border-radius: 100px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 8px 24px rgba(223, 93, 56, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #c44d2a;
+            transform: translateY(-3px);
+            box-shadow: 0 14px 32px rgba(223, 93, 56, 0.4);
+        }
+
+        .btn-ghost {
+            color: var(--dark);
+            font-size: 0.88rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.2s;
+        }
+
+        .btn-ghost:hover { color: var(--burn); }
 
         .hero-visual {
             position: relative;
-            height: 500px;
-            animation: slideInRight 1s ease-out 0.5s both;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .video-placeholder {
+        .hero-reel {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--gray) 0%, var(--orange) 100%);
-            background-size: 200% 200%;
-            animation: gradient 8s ease infinite;
-            border-radius: 20px;
+            max-width: 480px;
+            aspect-ratio: 9/14;
+            background: linear-gradient(145deg, var(--burn) 0%, var(--amber) 50%, var(--gold) 100%);
+            border-radius: 24px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 40px 80px rgba(223, 93, 56, 0.25), 0 0 0 1px rgba(223, 93, 56, 0.15);
+            transform: rotate(2deg);
+            transition: transform 0.4s ease;
         }
 
-        .video-placeholder::before {
+        .hero-reel:hover { transform: rotate(0deg) scale(1.02); }
+
+        .hero-reel::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
-            background-size: 200% 200%;
-            animation: shimmer 3s infinite;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.5) 100%);
         }
 
-        .video-placeholder::after {
-            content: '▶';
+        .reel-play {
             position: absolute;
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 4rem;
-            color: var(--white);
-            opacity: 0.9;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            width: 64px; height: 64px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
         }
 
-        .video-placeholder:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+        .reel-label {
+            position: absolute;
+            bottom: 1.5rem; left: 1.5rem; right: 1.5rem;
+            color: #fff;
         }
 
-        .video-placeholder:hover::after {
-            transform: translate(-50%, -50%) scale(1.2);
-            opacity: 1;
+        .reel-label small {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+            margin-bottom: 0.3rem;
         }
 
-        /* Services */
-        .services {
-            padding: 8rem 2rem;
-            background: var(--white);
+        .reel-label strong {
+            font-size: 1rem;
+            font-weight: 600;
         }
 
-        .container {
-            max-width: 1400px;
+        /* ─── CLIENTS STRIP ─── */
+        .clients-strip {
+            background: var(--dark);
+            padding: 2rem 0;
+            overflow: hidden;
+        }
+
+        .clients-strip-inner {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            animation: marquee 22s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        .clients-strip span {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            flex-shrink: 0;
+            transition: color 0.2s;
+        }
+
+        .clients-strip span.highlight {
+            color: var(--amber);
+        }
+
+        .clients-strip .dot {
+            width: 4px; height: 4px;
+            background: var(--burn);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ─── SECTION COMMONS ─── */
+        section { padding: 7rem 4rem; }
+
+        .s-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--burn);
+            margin-bottom: 0.8rem;
+        }
+
+        .s-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .s-sub {
+            font-size: 1rem;
+            color: var(--mid);
+            max-width: 520px;
+            line-height: 1.7;
+        }
+
+        /* ─── ABOUT ─── */
+        .about {
+            background: var(--dark);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 60% at 90% 50%, rgba(223, 93, 56, 0.12) 0%, transparent 70%);
+        }
+
+        .about-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--gray);
+        .about .s-title { color: #fff; }
+
+        .about-text p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1.2rem;
         }
 
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--medium-gray);
+        .about-text p:last-child { margin-bottom: 0; }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .a-stat {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1.8rem;
+            transition: all 0.3s;
+        }
+
+        .a-stat:hover {
+            background: rgba(223, 93, 56, 0.1);
+            border-color: rgba(223, 93, 56, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .a-stat-num {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--amber);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .a-stat-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.55);
+            font-weight: 400;
+        }
+
+        /* ─── SERVICES ─── */
+        .services {
+            background: var(--light);
+            max-width: 100%;
+        }
+
+        .services-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .services-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
             margin-bottom: 4rem;
+            flex-wrap: wrap;
+            gap: 2rem;
         }
 
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
+            gap: 1.5rem;
         }
 
-        .service-card {
-            padding: 3rem;
-            background: var(--light-gray);
-            border-radius: 15px;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid transparent;
+        .svc-card {
+            background: #fff;
+            border: 1px solid rgba(223, 93, 56, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
 
-        .service-card::before {
+        .svc-card::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--dark-orange) 100%);
-            opacity: 0;
-            transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 0;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--burn), var(--amber));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
         }
 
-        .service-card > * {
-            position: relative;
-            z-index: 1;
+        .svc-card:hover::before { transform: scaleX(1); }
+
+        .svc-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 48px rgba(223, 93, 56, 0.1);
+            border-color: transparent;
         }
 
-        .service-card:hover::before {
-            opacity: 0.05;
-        }
-
-        .service-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            border-color: var(--orange);
-            background: var(--white);
-            box-shadow: 0 25px 50px rgba(255, 140, 66, 0.15);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--dark-orange) 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .svc-num {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: var(--burn);
+            opacity: 0.5;
             margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 20px rgba(255, 140, 66, 0.3);
         }
 
-        .service-card:hover .service-icon {
-            transform: rotateY(360deg) scale(1.1);
-            box-shadow: 0 12px 30px rgba(255, 140, 66, 0.4);
+        .svc-icon {
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            display: block;
         }
 
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--gray);
-            transition: color 0.3s;
+        .svc-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.01em;
         }
 
-        .service-card:hover h3 {
-            color: var(--orange);
-        }
-
-        .service-card p {
-            color: var(--medium-gray);
+        .svc-card p {
+            font-size: 0.85rem;
+            color: var(--mid);
             line-height: 1.7;
-            transition: color 0.3s;
         }
 
-        /* Portfolio */
+        /* ─── PORTFOLIO ─── */
         .portfolio {
-            padding: 8rem 2rem;
-            background: var(--light-gray);
+            background: var(--cream);
+        }
+
+        .portfolio-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
         }
 
-        .portfolio-item {
-            position: relative;
-            height: 400px;
-            border-radius: 15px;
+        .portfolio-grid .featured {
+            grid-column: span 2;
+        }
+
+        .p-item {
+            border-radius: 18px;
             overflow: hidden;
+            aspect-ratio: 4/3;
+            position: relative;
+            background: var(--dark);
             cursor: pointer;
-            background: var(--gray);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.4s ease;
         }
 
-        .portfolio-item::before {
-            content: '';
+        .p-item.featured { aspect-ratio: 16/9; }
+        .p-item.tall { aspect-ratio: 3/4; }
+
+        .p-item:hover { transform: scale(1.02); }
+
+        .p-item-bg {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
-            z-index: 1;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s ease;
         }
 
-        .portfolio-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-        }
+        .p-item:hover .p-item-bg { transform: scale(1.06); }
 
-        .portfolio-item:hover::before {
-            background: linear-gradient(180deg, rgba(255, 140, 66, 0.3) 0%, rgba(255, 140, 66, 0.95) 100%);
-        }
+        .p-item-bg.c1 { background: linear-gradient(135deg, #DF5D38 0%, #F49629 100%); }
+        .p-item-bg.c2 { background: linear-gradient(135deg, #A5D8D7 0%, #6BB8B7 100%); }
+        .p-item-bg.c3 { background: linear-gradient(135deg, #F0BF47 0%, #F49629 100%); }
+        .p-item-bg.c4 { background: linear-gradient(135deg, #1A1410 0%, #DF5D38 100%); }
+        .p-item-bg.c5 { background: linear-gradient(135deg, #FAECD8 0%, #F49629 100%); }
+        .p-item-bg.c6 { background: linear-gradient(135deg, #DF5D38 0%, #A5D8D7 100%); }
 
-        .portfolio-info {
+        .p-item-overlay {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 2rem;
-            color: var(--white);
-            z-index: 2;
-            transform: translateY(20px);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, transparent 60%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
         }
 
-        .portfolio-item:hover .portfolio-info {
-            transform: translateY(0);
+        .p-item-info h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.2rem;
         }
 
-        .portfolio-info h3 {
-            font-size: 1.8rem;
+        .p-item-info p {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.65);
+        }
+
+        .p-tag {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.7rem;
+            border-radius: 100px;
+        }
+
+        /* ─── STATS ─── */
+        .stats-section {
+            background: var(--burn);
+            padding: 5rem 4rem;
+        }
+
+        .stats-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .st-item {
+            text-align: center;
+            color: #fff;
+        }
+
+        .st-num {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1;
             margin-bottom: 0.5rem;
-            transform: translateY(10px);
-            opacity: 0.9;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: -0.03em;
         }
 
-        .portfolio-item:hover .portfolio-info h3 {
-            transform: translateY(0);
-            opacity: 1;
+        .st-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
         }
 
-        .portfolio-info p {
-            color: rgba(255, 255, 255, 0.8);
-            transform: translateY(10px);
-            opacity: 0;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
-        }
-
-        .portfolio-item:hover .portfolio-info p {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        /* Process */
+        /* ─── PROCESS ─── */
         .process {
-            padding: 8rem 2rem;
-            background: var(--white);
+            background: var(--light);
+        }
+
+        .process-inner {
+            max-width: 1300px;
+            margin: 0 auto;
         }
 
         .process-steps {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin-top: 4rem;
+            position: relative;
         }
 
-        .step {
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: 10%; right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--burn), transparent);
+        }
+
+        .p-step {
             text-align: center;
             position: relative;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .step:hover {
-            transform: translateY(-10px);
-        }
-
-        .step::after {
-            content: '→';
-            position: absolute;
-            right: -1rem;
-            top: 2rem;
-            font-size: 2rem;
-            color: var(--orange);
-            opacity: 0.3;
+        .p-step-num {
+            width: 56px; height: 56px;
+            background: #fff;
+            border: 2px solid rgba(223, 93, 56, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--burn);
+            margin: 0 auto 1.2rem;
+            position: relative;
+            z-index: 1;
             transition: all 0.3s;
         }
 
-        .step:hover::after {
-            opacity: 1;
-            transform: translateX(5px);
+        .p-step:hover .p-step-num {
+            background: var(--burn);
+            color: #fff;
+            border-color: var(--burn);
+            transform: scale(1.1);
         }
 
-        .step:last-child::after {
-            display: none;
-        }
-
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--dark-orange) 100%);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
+        .p-step h4 {
+            font-size: 0.88rem;
             font-weight: 700;
-            margin: 0 auto 1.5rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 8px 20px rgba(255, 140, 66, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .step-number::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: linear-gradient(45deg, var(--orange), var(--dark-orange), var(--orange));
-            background-size: 200% 200%;
-            animation: gradient 3s ease infinite;
-            opacity: 0;
-            transition: opacity 0.4s;
-            z-index: -1;
-            border-radius: 50%;
-        }
-
-        .step:hover .step-number {
-            transform: rotate(360deg) scale(1.1);
-            box-shadow: 0 12px 30px rgba(255, 140, 66, 0.5);
-        }
-
-        .step:hover .step-number::before {
-            opacity: 1;
-        }
-
-        .step h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--gray);
-            transition: color 0.3s;
-        }
-
-        .step:hover h3 {
-            color: var(--orange);
-        }
-
-        .step p {
-            color: var(--medium-gray);
-        }
-
-        /* Stats */
-        .stats {
-            padding: 6rem 2rem;
-            background: var(--gray);
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stats::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 140, 66, 0.1) 0%, transparent 50%);
-            animation: rotate 30s linear infinite;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .stat {
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .stat:hover {
-            transform: translateY(-10px) scale(1.05);
-        }
-
-        .stat-number {
-            font-size: 4rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--light-orange) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--dark);
             margin-bottom: 0.5rem;
-            transition: all 0.4s;
         }
 
-        .stat:hover .stat-number {
-            transform: scale(1.1);
-            filter: brightness(1.2);
+        .p-step p {
+            font-size: 0.75rem;
+            color: var(--mid);
+            line-height: 1.6;
         }
 
-        .stat-label {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.8);
-            transition: color 0.3s;
-        }
-
-        .stat:hover .stat-label {
-            color: var(--white);
-        }
-
-        /* Testimonials */
+        /* ─── TESTIMONIALS ─── */
         .testimonials {
-            padding: 8rem 2rem;
-            background: var(--white);
+            background: var(--dark);
+            color: #fff;
         }
 
-        .testimonial-card {
-            background: var(--light-gray);
-            padding: 3rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            border-left: 4px solid var(--orange);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        .testimonials-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .testimonials .s-title { color: #fff; }
+
+        .t-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3.5rem;
+        }
+
+        .t-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 2.2rem;
             position: relative;
-            overflow: hidden;
+            transition: all 0.3s;
         }
 
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 1rem;
-            right: 2rem;
-            font-size: 8rem;
-            color: var(--orange);
-            opacity: 0.1;
+        .t-card:hover {
+            background: rgba(223, 93, 56, 0.08);
+            border-color: rgba(223, 93, 56, 0.2);
+            transform: translateY(-6px);
+        }
+
+        .t-quote {
+            font-size: 3rem;
+            color: var(--burn);
+            opacity: 0.3;
             font-family: Georgia, serif;
-            transition: all 0.5s;
+            line-height: 1;
+            margin-bottom: 1rem;
         }
 
-        .testimonial-card:hover {
-            transform: translateX(10px);
-            background: var(--white);
-            box-shadow: 0 15px 40px rgba(255, 140, 66, 0.15);
-            border-left-width: 6px;
-        }
-
-        .testimonial-card:hover::before {
-            opacity: 0.2;
-            transform: scale(1.1);
-        }
-
-        .testimonial-text {
-            font-size: 1.2rem;
-            color: var(--gray);
-            margin-bottom: 2rem;
+        .t-text {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.75);
             line-height: 1.8;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 1.8rem;
+            font-style: italic;
         }
 
-        .testimonial-author {
+        .t-author {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
-        .author-avatar {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--dark-orange) 100%);
+        .t-avatar {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, var(--burn), var(--amber));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-size: 1.5rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+            color: #fff;
+            flex-shrink: 0;
         }
 
-        .testimonial-card:hover .author-avatar {
-            transform: rotate(360deg) scale(1.1);
-            box-shadow: 0 6px 20px rgba(255, 140, 66, 0.5);
+        .t-author-info strong {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #fff;
         }
 
-        .author-info h4 {
-            color: var(--gray);
-            margin-bottom: 0.3rem;
-            transition: color 0.3s;
+        .t-author-info span {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.45);
         }
 
-        .testimonial-card:hover .author-info h4 {
-            color: var(--orange);
+        /* ─── CLIENTS ─── */
+        .clients-section {
+            background: var(--cream);
         }
 
-        .author-info p {
-            color: var(--medium-gray);
-            font-size: 0.9rem;
+        .clients-inner {
+            max-width: 1300px;
+            margin: 0 auto;
         }
 
-        /* CTA Section */
-        .cta-section {
-            padding: 8rem 2rem;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--dark-orange) 100%);
-            background-size: 200% 200%;
-            animation: gradient 8s ease infinite;
-            color: var(--white);
+        .clients-header {
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 3.5rem;
         }
 
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -100px;
-            right: -100px;
-            animation: float 6s ease-in-out infinite;
+        .clients-header .s-label, .clients-header .s-title, .clients-header .s-sub {
+            margin-left: auto; margin-right: auto;
+            text-align: center;
         }
 
-        .cta-section::after {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            bottom: -100px;
-            left: -100px;
-            animation: float 8s ease-in-out infinite reverse;
+        .brands-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
         }
 
-        .cta-section .container {
-            position: relative;
-            z-index: 1;
+        .brand-pill {
+            background: #fff;
+            border: 1px solid rgba(223, 93, 56, 0.15);
+            border-radius: 100px;
+            padding: 0.6rem 1.4rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--mid);
+            transition: all 0.2s;
+            letter-spacing: 0.02em;
         }
 
-        .cta-section h2 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease-out;
+        .brand-pill:hover {
+            background: var(--burn);
+            color: #fff;
+            border-color: var(--burn);
+            transform: translateY(-2px);
         }
 
-        .cta-section p {
-            font-size: 1.3rem;
+        .brand-pill.global {
+            background: var(--dark);
+            color: rgba(255,255,255,0.85);
+            border-color: transparent;
+        }
+
+        .brand-pill.global:hover {
+            background: var(--burn);
+        }
+
+        /* ─── CTA ─── */
+        .cta-section {
+            background: var(--light);
+            text-align: center;
+        }
+
+        .cta-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-inner .s-title {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .cta-inner p {
+            font-size: 1rem;
+            color: var(--mid);
+            line-height: 1.7;
             margin-bottom: 2.5rem;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
-        .cta-section .cta-btn {
-            background: var(--white);
-            color: var(--orange);
-            font-size: 1.1rem;
-            padding: 1rem 3rem;
-            animation: fadeInUp 0.8s ease-out 0.4s both, pulse 2s ease-in-out 1.5s infinite;
+        .cta-inner .btn-primary {
+            font-size: 0.95rem;
+            padding: 1rem 2.6rem;
         }
 
-        .cta-section .cta-btn:hover {
-            background: var(--light-gray);
-            transform: translateY(-5px) scale(1.08);
-        }
-
-        /* Footer */
+        /* ─── FOOTER ─── */
         footer {
-            background: var(--gray);
-            color: var(--white);
-            padding: 4rem 2rem 2rem;
-            position: relative;
+            background: var(--dark);
+            color: rgba(255,255,255,0.6);
+            padding: 4rem 4rem 2.5rem;
         }
 
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--orange), transparent);
-        }
-
-        .footer-content {
-            max-width: 1400px;
+        .footer-inner {
+            max-width: 1300px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             margin-bottom: 3rem;
         }
 
-        .footer-brand h3 {
-            color: var(--orange);
-            font-size: 2rem;
-            margin-bottom: 1rem;
+        .footer-brand .logo-wrap {
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-brand .logo-text {
+            color: rgba(255,255,255,0.9);
         }
 
         .footer-brand p {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.7;
+            font-size: 0.82rem;
+            line-height: 1.75;
+            color: rgba(255,255,255,0.45);
         }
 
-        .footer-column h4 {
-            margin-bottom: 1.5rem;
-            color: var(--orange);
-            position: relative;
-            display: inline-block;
+        .footer-col h5 {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 1.2rem;
         }
 
-        .footer-column h4::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 30px;
-            height: 2px;
-            background: var(--orange);
-        }
-
-        .footer-column a {
+        .footer-col a {
             display: block;
-            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.55);
             text-decoration: none;
-            margin-bottom: 0.8rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            padding-left: 0;
+            margin-bottom: 0.6rem;
+            transition: color 0.2s;
         }
 
-        .footer-column a::before {
-            content: '→';
-            position: absolute;
-            left: -20px;
-            opacity: 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .footer-column a:hover {
-            color: var(--white);
-            padding-left: 20px;
-        }
-
-        .footer-column a:hover::before {
-            opacity: 1;
-            left: 0;
-        }
+        .footer-col a:hover { color: var(--amber); }
 
         .footer-bottom {
-            max-width: 1400px;
+            max-width: 1300px;
             margin: 0 auto;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            color: rgba(255, 255, 255, 0.5);
+            border-top: 1px solid rgba(255,255,255,0.07);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
         }
 
-        /* Responsive */
+        .footer-bottom a {
+            color: rgba(255,255,255,0.35);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-bottom a:hover { color: var(--amber); }
+
+        /* ─── SCROLL ANIMATIONS ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.in { opacity: 1; transform: translateY(0); }
+        .reveal.delay-1 { transition-delay: 0.1s; }
+        .reveal.delay-2 { transition-delay: 0.2s; }
+        .reveal.delay-3 { transition-delay: 0.3s; }
+        .reveal.delay-4 { transition-delay: 0.4s; }
+        .reveal.delay-5 { transition-delay: 0.5s; }
+
+        /* ─── PRICING ─── */
+        .pricing-section {
+            background: var(--dark);
+            color: #fff;
+        }
+
+        .pricing-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .pricing-section .s-title { color: #fff; }
+        .pricing-section .s-sub { color: rgba(255,255,255,0.55); }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            align-items: start;
+        }
+
+        .price-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .price-card:hover {
+            border-color: rgba(223, 93, 56, 0.25);
+            background: rgba(255,255,255,0.06);
+            transform: translateY(-4px);
+        }
+
+        .price-card.featured {
+            background: var(--burn);
+            border-color: transparent;
+        }
+
+        .price-card.featured:hover {
+            background: #c44d2a;
+            border-color: transparent;
+        }
+
+        .price-badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--amber);
+            background: rgba(240, 191, 71, 0.12);
+            border: 1px solid rgba(240, 191, 71, 0.25);
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-badge {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+            color: #fff;
+        }
+
+        .price-card-top h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .price-card-top p {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.6;
+        }
+
+        .price-card.featured .price-card-top p {
+            color: rgba(255,255,255,0.75);
+        }
+
+        .price-value {
+            display: flex;
+            align-items: baseline;
+            gap: 0.2rem;
+        }
+
+        .price-cur {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .price-num {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        .price-period {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.45);
+            font-weight: 400;
+        }
+
+        .price-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            flex: 1;
+        }
+
+        .price-features li {
+            font-size: 0.78rem;
+            padding: 0 0 0 1.4rem;
+            position: relative;
+        }
+
+        .price-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .price-features li.active {
+            color: rgba(255,255,255,0.85);
+        }
+
+        .price-features li.active::before { color: var(--amber); }
+
+        .price-features li.inactive {
+            color: rgba(255,255,255,0.2);
+        }
+
+        .price-features li.inactive::before {
+            content: '–';
+            color: rgba(255,255,255,0.15);
+        }
+
+        .price-card.featured .price-features li.active { color: rgba(255,255,255,0.95); }
+        .price-card.featured .price-features li.active::before { color: #fff; }
+        .price-card.featured .price-features li.inactive { color: rgba(255,255,255,0.3); }
+
+        .price-cta {
+            display: block;
+            text-align: center;
+            padding: 0.75rem 1rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            background: rgba(255,255,255,0.07);
+            color: rgba(255,255,255,0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.2s;
+        }
+
+        .price-cta:hover {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+        }
+
+        .featured-cta {
+            background: #fff;
+            color: var(--burn) !important;
+            border-color: transparent;
+        }
+
+        .featured-cta:hover {
+            background: var(--cream) !important;
+            transform: translateY(-2px);
+        }
+
+        /* ─── RESPONSIVE ─── */
         @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-visual {
-                display: none;
-            }
-
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .process-steps {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
+            section { padding: 5rem 2.5rem; }
+            header { padding: 1.2rem 2.5rem; }
+            .hero { grid-template-columns: 1fr; padding: 7rem 2.5rem 4rem; }
+            .hero-blob { display: none; }
+            .hero-visual { display: none; }
+            .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .portfolio-grid { grid-template-columns: 1fr 1fr; }
+            .portfolio-grid .featured { grid-column: span 2; }
+            .stats-inner { grid-template-columns: repeat(2, 1fr); }
+            .process-steps { grid-template-columns: repeat(3, 1fr); }
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+            
         }
 
         @media (max-width: 768px) {
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .process-steps {
-                grid-template-columns: 1fr;
-            }
-
-            .step::after {
-                display: none;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                display: none;
-            }
-        }
-
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Cursor personalizado premium */
-        body {
-            cursor: default;
-        }
-
-        a, button, .portfolio-item, .service-card {
-            cursor: pointer;
+            header { padding: 1rem 1.5rem; }
+            nav { display: none; }
+            section { padding: 4rem 1.5rem; }
+            .stats-section { padding: 4rem 1.5rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .services-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .portfolio-grid .featured { grid-column: span 1; }
+            .stats-inner { grid-template-columns: repeat(2, 1fr); }
+            .process-steps { grid-template-columns: repeat(2, 1fr); }
+            .process-steps::before { display: none; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            
+            .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+
+    <!-- HEADER -->
     <header>
+        <a href="#" class="logo-wrap">
+            <div class="logo-dot"></div>
+            <span class="logo-text">Tangeri<span>na</span></span>
+        </a>
         <nav>
-            <div class="logo">🍊TANGERINE</div>
-            <div class="nav-links">
-                <a href="#servicos">Serviços</a>
-                <a href="#portfolio">Portfólio</a>
-                <a href="#processo">Processo</a>
-                <a href="#contato" class="cta-btn">Fale Conosco</a>
-            </div>
+            <a href="#servicos">Serviços</a>
+            <a href="#portfolio">Portfólio</a>
+            <a href="#clientes">Clientes</a>
+            <a href="#pacotes">Pacotes</a>
+            <a href="#contato" class="btn-nav">Falar no WhatsApp</a>
         </nav>
     </header>
 
-    <!-- Hero -->
+    <!-- HERO -->
     <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-blob"></div>
+
         <div class="hero-content">
-            <div class="hero-text">
-                <h1>Captamos <span>momentos</span> que transformam marcas</h1>
-                <p>Produção de imagem e vídeo com excelência criativa para empresas que querem se destacar no digital</p>
-                <a href="#contato" class="cta-btn">Começar Projeto</a>
+            <div class="hero-tag">Posicionamento Estratégico Digital</div>
+            <h1>Posicionamento estratégico para marcas que querem <em>crescer</em>.</h1>
+            <p>Unimos análise, direção criativa e performance para transformar marcas em autoridade no digital.</p>
+            <div class="hero-ctas">
+                <a href="https://wa.me/5511934980464" target="_blank" class="btn-primary">
+                    Falar com a equipe →
+                </a>
+                <a href="#portfolio" class="btn-ghost">Ver portfólio ↓</a>
             </div>
-            <div class="hero-visual">
-                <div class="video-placeholder"></div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="hero-reel">
+                <div class="reel-play">▶</div>
+                <div class="reel-label">
+                    <small>Nosso trabalho</small>
+                    <strong>Reel Tangerina 2025</strong>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Services -->
+    <!-- CLIENTS MARQUEE -->
+    <div class="clients-strip">
+        <div class="clients-strip-inner">
+            <span class="highlight">Sephora</span><div class="dot"></div>
+            <span>NBA House</span><div class="dot"></div>
+            <span class="highlight">Disney Brasil</span><div class="dot"></div>
+            <span>P9 Beach Club</span><div class="dot"></div>
+            <span class="highlight">Aperol</span><div class="dot"></div>
+            <span>Sunglass Hut</span><div class="dot"></div>
+            <span class="highlight">Campari</span><div class="dot"></div>
+            <span>FEMSA</span><div class="dot"></div>
+            <span class="highlight">Centrum</span><div class="dot"></div>
+            <span>Aussie</span><div class="dot"></div>
+            <!-- duplicate for infinite scroll -->
+            <span class="highlight">Sephora</span><div class="dot"></div>
+            <span>NBA House</span><div class="dot"></div>
+            <span class="highlight">Disney Brasil</span><div class="dot"></div>
+            <span>P9 Beach Club</span><div class="dot"></div>
+            <span class="highlight">Aperol</span><div class="dot"></div>
+            <span>Sunglass Hut</span><div class="dot"></div>
+            <span class="highlight">Campari</span><div class="dot"></div>
+            <span>FEMSA</span><div class="dot"></div>
+            <span class="highlight">Centrum</span><div class="dot"></div>
+            <span>Aussie</span><div class="dot"></div>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about">
+        <div class="about-inner">
+            <div class="about-text">
+                <p class="s-label">Sobre nós</p>
+                <h2 class="s-title">Não entregamos serviços isolados. Entregamos um ecossistema.</h2>
+                <br>
+                <p>A Tangerina Artes Visuais é especializada em posicionamento digital e estruturação estratégica de marcas. Atuamos de forma integrada — diagnóstico, direção criativa, produção audiovisual, design e performance.</p>
+                <p>O trabalho é baseado em análise de cenário, objetivos claros e execução coordenada em todos os pontos de contato. Cada entrega fortalece a percepção de valor e autoridade da marca, com foco em crescimento sustentável no digital.</p>
+            </div>
+            <div class="about-stats">
+                <div class="a-stat reveal">
+                    <div class="a-stat-num">7+</div>
+                    <div class="a-stat-label">Anos de atuação</div>
+                </div>
+                <div class="a-stat reveal delay-1">
+                    <div class="a-stat-num">60+</div>
+                    <div class="a-stat-label">Clientes atendidos</div>
+                </div>
+                <div class="a-stat reveal delay-2">
+                    <div class="a-stat-num">10+</div>
+                    <div class="a-stat-label">Marcas globais</div>
+                </div>
+                <div class="a-stat reveal delay-3">
+                    <div class="a-stat-num">100%</div>
+                    <div class="a-stat-label">Visão integrada</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
     <section id="servicos" class="services">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">O que fazemos</h2>
-            <p class="section-subtitle animate-on-scroll">Soluções completas de audiovisual para sua marca</p>
-            
+        <div class="services-inner">
+            <div class="services-header">
+                <div>
+                    <p class="s-label">O que fazemos</p>
+                    <h2 class="s-title">Soluções completas<br>para sua marca</h2>
+                </div>
+                <p class="s-sub">Do planejamento à performance — atuação de ponta a ponta com coerência estética e foco em resultados.</p>
+            </div>
+
             <div class="services-grid">
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">🎥</div>
-                    <h3>Vídeos Promocionais</h3>
-                    <p>Conteúdo de alta qualidade que comunica sua mensagem de forma eficaz e envolvente</p>
+                <div class="svc-card reveal">
+                    <div class="svc-num">01</div>
+                    <span class="svc-icon">🔍</span>
+                    <h3>Planejamento & Diagnóstico</h3>
+                    <p>Análise do cenário atual, público e concorrência para estruturar uma estratégia personalizada com objetivos claros e plano de ação consistente.</p>
                 </div>
-                
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">📸</div>
-                    <h3>Fotografia Profissional</h3>
-                    <p>Sessões fotográficas corporativas, produtos e ambientes com tratamento de imagem completo</p>
+                <div class="svc-card reveal delay-1">
+                    <div class="svc-num">02</div>
+                    <span class="svc-icon">🎨</span>
+                    <h3>Design Gráfico Estratégico</h3>
+                    <p>Criação de peças estratégicas alinhadas à identidade da marca, focadas em clareza, estética e conversão.</p>
                 </div>
-                
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">⚡</div>
-                    <h3>Conteúdo para Redes</h3>
-                    <p>Vídeos curtos otimizados para Instagram, TikTok e Facebook que geram engajamento</p>
+                <div class="svc-card reveal delay-2">
+                    <div class="svc-num">03</div>
+                    <span class="svc-icon">🎥</span>
+                    <h3>Captação Audiovisual</h3>
+                    <p>Produção de fotos e vídeos de alto padrão, pensados para performance digital, percepção de autoridade e coerência com o posicionamento.</p>
                 </div>
-                
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">🎬</div>
-                    <h3>Vídeos Institucionais</h3>
-                    <p>Conte a história da sua empresa de forma autêntica e profissional</p>
+                <div class="svc-card reveal delay-1">
+                    <div class="svc-num">04</div>
+                    <span class="svc-icon">✂️</span>
+                    <h3>Edição de Vídeo</h3>
+                    <p>Material bruto transformado em conteúdo estratégico com ritmo, narrativa, identidade visual e foco em retenção.</p>
                 </div>
-                
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">🚁</div>
-                    <h3>Captação com Drone</h3>
-                    <p>Imagens aéreas cinematográficas para projetos que precisam de perspectivas únicas</p>
+                <div class="svc-card reveal delay-2">
+                    <div class="svc-num">05</div>
+                    <span class="svc-icon">📱</span>
+                    <h3>Gestão de Conteúdo</h3>
+                    <p>Publicação e gerenciamento nas redes sociais, com copywriting estratégico e direcionamento para melhor desempenho orgânico.</p>
                 </div>
-                
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">✨</div>
-                    <h3>Pós-Produção</h3>
-                    <p>Edição, motion graphics e finalização com atenção aos mínimos detalhes</p>
+                <div class="svc-card reveal delay-3">
+                    <div class="svc-num">06</div>
+                    <span class="svc-icon">📈</span>
+                    <h3>Gestão de Performance</h3>
+                    <p>Estruturação e otimização de campanhas pagas com análise de métricas, testes e decisões baseadas em dados para maximizar conversão.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio -->
+    <!-- PORTFOLIO -->
     <section id="portfolio" class="portfolio">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Trabalhos recentes</h2>
-            <p class="section-subtitle animate-on-scroll">Projetos que contam histórias</p>
-            
+        <div class="portfolio-inner">
+            <div class="portfolio-header">
+                <div>
+                    <p class="s-label">Portfólio</p>
+                    <h2 class="s-title">Projetos que constroem<br>autoridade</h2>
+                </div>
+                <a href="https://www.instagram.com/tangerina.film" target="_blank" class="btn-ghost">Ver mais no Instagram →</a>
+            </div>
+
             <div class="portfolio-grid">
-                <div class="portfolio-item animate-on-scroll">
-                    <div class="portfolio-info">
-                        <h3>Campanha E-commerce</h3>
-                        <p>Vídeo promocional + fotografia de produtos</p>
+                <div class="p-item featured reveal">
+                    <div class="p-item-bg c1"></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>NBA House</h4>
+                            <p>Cobertura audiovisual · Evento de grande visibilidade</p>
+                        </div>
                     </div>
+                    <span class="p-tag">Evento</span>
                 </div>
-                
-                <div class="portfolio-item animate-on-scroll">
-                    <div class="portfolio-info">
-                        <h3>Tech Startup</h3>
-                        <p>Vídeo institucional e conteúdo para redes sociais</p>
+                <div class="p-item reveal delay-1">
+                    <div class="p-item-bg c2"></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>Sephora Beauty Run</h4>
+                            <p>Captação + design · Copacabana Palace</p>
+                        </div>
                     </div>
+                    <span class="p-tag">Global</span>
                 </div>
-                
-                <div class="portfolio-item animate-on-scroll">
-                    <div class="portfolio-info">
-                        <h3>Evento Corporativo</h3>
-                        <p>Cobertura completa com fotografia e vídeo</p>
+                <div class="p-item reveal delay-2">
+                    <div class="p-item-bg c3"></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>P9 Beach Club</h4>
+                            <p>Produção visual com FEMSA</p>
+                        </div>
                     </div>
+                    <span class="p-tag">Ativação</span>
                 </div>
-                
-                <div class="portfolio-item animate-on-scroll">
-                    <div class="portfolio-info">
-                        <h3>Marca de Moda</h3>
-                        <p>Lookbook digital e conteúdo para Instagram</p>
+                <div class="p-item reveal">
+                    <div class="p-item-bg c4"></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>Disney Brasil</h4>
+                            <p>Conteúdo e posicionamento digital</p>
+                        </div>
                     </div>
+                    <span class="p-tag">Global</span>
+                </div>
+                <div class="p-item reveal delay-1">
+                    <div class="p-item-bg c5"></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>Centrum × Viva Mais Caraíva</h4>
+                            <p>Captação audiovisual · Evento</p>
+                        </div>
+                    </div>
+                    <span class="p-tag">Saúde</span>
+                </div>
+                <div class="p-item reveal delay-2">
+                    <div class="p-item-bg c6"></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>FAM nas Alturas</h4>
+                            <p>Produção completa de conteúdo</p>
+                        </div>
+                    </div>
+                    <span class="p-tag">Evento</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process -->
+    <!-- STATS -->
+    <div class="stats-section">
+        <div class="stats-inner">
+            <div class="st-item reveal">
+                <div class="st-num">7+</div>
+                <div class="st-label">Anos de experiência</div>
+            </div>
+            <div class="st-item reveal delay-1">
+                <div class="st-num">60+</div>
+                <div class="st-label">Clientes nacionais e regionais</div>
+            </div>
+            <div class="st-item reveal delay-2">
+                <div class="st-num">10+</div>
+                <div class="st-label">Marcas globais atendidas</div>
+            </div>
+            <div class="st-item reveal delay-3">
+                <div class="st-num">360°</div>
+                <div class="st-label">Atuação integrada de ponta a ponta</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROCESS -->
     <section id="processo" class="process">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Nosso processo</h2>
-            <p class="section-subtitle animate-on-scroll">Do briefing à entrega, cuidamos de tudo</p>
-            
+        <div class="process-inner">
+            <div style="text-align:center; margin-bottom: 0;">
+                <p class="s-label">Como trabalhamos</p>
+                <h2 class="s-title">Do briefing à entrega</h2>
+            </div>
             <div class="process-steps">
-                <div class="step animate-on-scroll">
-                    <div class="step-number">1</div>
-                    <h3>Briefing</h3>
-                    <p>Entendemos seus objetivos e desenvolvemos a estratégia criativa</p>
+                <div class="p-step reveal">
+                    <div class="p-step-num">01</div>
+                    <h4>Briefing</h4>
+                    <p>Entendemos seus objetivos, público e posicionamento atual</p>
                 </div>
-                
-                <div class="step animate-on-scroll">
-                    <div class="step-number">2</div>
-                    <h3>Produção</h3>
-                    <p>Captamos imagens e vídeos com equipamento profissional de ponta</p>
+                <div class="p-step reveal delay-1">
+                    <div class="p-step-num">02</div>
+                    <h4>Planejamento</h4>
+                    <p>Diagnóstico, estratégia e direção criativa personalizados</p>
                 </div>
-                
-                <div class="step animate-on-scroll">
-                    <div class="step-number">3</div>
-                    <h3>Edição</h3>
-                    <p>Finalizamos o material com cuidado aos detalhes e identidade da marca</p>
+                <div class="p-step reveal delay-2">
+                    <div class="p-step-num">03</div>
+                    <h4>Captação</h4>
+                    <p>Produção audiovisual e design de alto padrão</p>
                 </div>
-                
-                <div class="step animate-on-scroll">
-                    <div class="step-number">4</div>
-                    <h3>Entrega</h3>
-                    <p>Material otimizado e pronto para uso em todas as plataformas</p>
+                <div class="p-step reveal delay-3">
+                    <div class="p-step-num">04</div>
+                    <h4>Edição</h4>
+                    <p>Finalização com identidade, ritmo e foco em performance</p>
+                </div>
+                <div class="p-step reveal delay-4">
+                    <div class="p-step-num">05</div>
+                    <h4>Entrega</h4>
+                    <p>Publicação, gestão e acompanhamento de resultados</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats -->
-    <section class="stats">
-        <div class="stats-grid">
-            <div class="stat">
-                <div class="stat-number" data-target="250">0</div>
-                <div class="stat-label">Projetos Entregues</div>
-            </div>
-            
-            <div class="stat">
-                <div class="stat-number" data-target="98">0</div>
-                <div class="stat-label">Satisfação dos Clientes</div>
-            </div>
-            
-            <div class="stat">
-                <div class="stat-number" data-target="5">0</div>
-                <div class="stat-label">Anos de Experiência</div>
-            </div>
-            
-            <div class="stat">
-                <div class="stat-number" data-target="48">0</div>
-                <div class="stat-label">Tempo Médio de Entrega</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
+    <!-- TESTIMONIALS -->
     <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title animate-on-scroll">Depoimentos</h2>
-            <p class="section-subtitle animate-on-scroll">O que nossos clientes dizem</p>
-            
-            <div class="testimonial-card animate-on-scroll">
-                <p class="testimonial-text">"A Tangerine transformou nossa comunicação digital. Os vídeos capturam perfeitamente a essência da nossa marca e o engajamento nas redes sociais triplicou."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">MC</div>
-                    <div class="author-info">
-                        <h4>Maria Costa</h4>
-                        <p>CEO, TechStart</p>
+        <div class="testimonials-inner">
+            <p class="s-label">Depoimentos</p>
+            <h2 class="s-title">O que nossos clientes dizem</h2>
+            <div class="t-grid">
+                <div class="t-card reveal">
+                    <div class="t-quote">"</div>
+                    <p class="t-text">Vocês conseguiram deixar a marca com muito mais cara de posicionamento mesmo, não só post bonito. Depois dos conteúdos, a percepção mudou muito e começamos a receber mais mensagens perguntando sobre pedidos.</p>
+                    <div class="t-author">
+                        <div class="t-avatar">JP</div>
+                        <div class="t-author-info">
+                            <strong>Joyce Pansutti</strong>
+                            <span>Joy Cookie</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-card reveal delay-1">
+                    <div class="t-quote">"</div>
+                    <p class="t-text">A captação e os materiais ficaram exatamente como eu imaginava, mas mais profissional. A marca ficou mais madura e alinhada com o público que eu quero atingir.</p>
+                    <div class="t-author">
+                        <div class="t-avatar">AS</div>
+                        <div class="t-author-info">
+                            <strong>Andressa Silva</strong>
+                            <span>Savannah</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-card reveal delay-2">
+                    <div class="t-quote">"</div>
+                    <p class="t-text">Vocês realmente entenderam o que a gente precisava comunicar. A edição trouxe mais força pra marca e deixou tudo com uma unidade que antes não tinha.</p>
+                    <div class="t-author">
+                        <div class="t-avatar">JB</div>
+                        <div class="t-author-info">
+                            <strong>Juliana</strong>
+                            <span>Blume</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="testimonial-card animate-on-scroll">
-                <p class="testimonial-text">"Profissionalismo e criatividade em cada entrega. A equipe entende exatamente o que precisamos e sempre supera expectativas."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">RS</div>
-                    <div class="author-info">
-                        <h4>Ricardo Silva</h4>
-                        <p>Marketing Manager, Fashion Brand</p>
+        </div>
+    </section>
+
+    <!-- CLIENTS -->
+    <section id="clientes" class="clients-section">
+        <div class="clients-inner">
+            <div class="clients-header">
+                <p class="s-label">Marcas atendidas</p>
+                <h2 class="s-title">Confiança de marcas<br>locais e globais</h2>
+                <p class="s-sub" style="text-align:center; margin: 1rem auto 0;">De marcas regionais a multinacionais, entregamos estratégia e execução no mesmo nível de exigência.</p>
+            </div>
+            <div class="brands-grid reveal">
+                <span class="brand-pill global">Sephora</span>
+                <span class="brand-pill global">Disney Brasil</span>
+                <span class="brand-pill global">Aperol</span>
+                <span class="brand-pill global">Campari</span>
+                <span class="brand-pill global">Sunglass Hut</span>
+                <span class="brand-pill global">FEMSA</span>
+                <span class="brand-pill global">Centrum</span>
+                <span class="brand-pill global">Aussie</span>
+                <span class="brand-pill">NBA House</span>
+                <span class="brand-pill">P9 Beach Club</span>
+                <span class="brand-pill">FAM nas Alturas</span>
+                <span class="brand-pill">Marujo Beach Bar</span>
+                <span class="brand-pill">Go Organic Club</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pacotes" class="pricing-section">
+        <div class="pricing-inner">
+            <div style="text-align:center; margin-bottom: 3.5rem;">
+                <p class="s-label">Investimento</p>
+                <h2 class="s-title">Pacotes personalizados<br>para cada momento da marca</h2>
+                <p class="s-sub" style="text-align:center; margin: 1rem auto 0;">Os pacotes são enviados de forma personalizada após diagnóstico inicial. Converse com a equipe para entender qual faz mais sentido para o seu negócio.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Diária -->
+                <div class="price-card reveal">
+                    <div class="price-card-top">
+                        <span class="price-badge">Entrada</span>
+                        <h3>Diária de Captação</h3>
+                        <p>Para empresas que querem fortalecer presença com conteúdo visual de alto nível.</p>
                     </div>
+                    <div class="price-value">
+                        <span class="price-cur">R$</span>
+                        <span class="price-num">800</span>
+                        <span class="price-period">/diária</span>
+                    </div>
+                    <ul class="price-features">
+                        <li class="active">Captação Audiovisual</li>
+                        <li class="active">4 vídeos de até 1 min</li>
+                        <li class="inactive">Planejamento & Diagnóstico</li>
+                        <li class="inactive">Design Gráfico</li>
+                        <li class="inactive">Veiculação e Gestão</li>
+                        <li class="inactive">Gestão de Performance</li>
+                    </ul>
+                    <a href="https://wa.me/5511934980464" target="_blank" class="price-cta">Solicitar proposta</a>
+                </div>
+
+                <!-- Audiovisual -->
+                <div class="price-card reveal delay-1">
+                    <div class="price-card-top">
+                        <span class="price-badge">Popular</span>
+                        <h3>Audiovisual Estratégico</h3>
+                        <p>Foco exclusivo em imagem, conteúdo e percepção de autoridade.</p>
+                    </div>
+                    <div class="price-value">
+                        <span class="price-cur">R$</span>
+                        <span class="price-num">1.800</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                    <ul class="price-features">
+                        <li class="active">Planejamento & Diagnóstico</li>
+                        <li class="active">Captação Audiovisual</li>
+                        <li class="active">Edição de Vídeo</li>
+                        <li class="inactive">Design Gráfico</li>
+                        <li class="inactive">Veiculação e Gestão</li>
+                        <li class="inactive">Gestão de Performance</li>
+                    </ul>
+                    <a href="https://wa.me/5511934980464" target="_blank" class="price-cta">Solicitar proposta</a>
+                </div>
+
+                <!-- Estrutura -->
+                <div class="price-card reveal delay-2">
+                    <div class="price-card-top">
+                        <span class="price-badge">Completo</span>
+                        <h3>Estrutura de Marca & Conteúdo</h3>
+                        <p>Criação dos materiais + captação audiovisual, mantendo gestão interna.</p>
+                    </div>
+                    <div class="price-value">
+                        <span class="price-cur">R$</span>
+                        <span class="price-num">2.200</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                    <ul class="price-features">
+                        <li class="active">Planejamento & Diagnóstico</li>
+                        <li class="active">Design Gráfico</li>
+                        <li class="active">Captação Audiovisual</li>
+                        <li class="active">Edição de Vídeo</li>
+                        <li class="active">Veiculação e Gestão</li>
+                        <li class="inactive">Gestão de Performance</li>
+                    </ul>
+                    <a href="https://wa.me/5511934980464" target="_blank" class="price-cta">Solicitar proposta</a>
+                </div>
+
+                <!-- Posicionamento Completo -->
+                <div class="price-card featured reveal delay-3">
+                    <div class="price-card-top">
+                        <span class="price-badge highlight-badge">Mais vendido ✦</span>
+                        <h3>Posicionamento Completo & Performance</h3>
+                        <p>Todos os pilares do posicionamento de marca, da base à gestão contínua.</p>
+                    </div>
+                    <div class="price-value">
+                        <span class="price-cur">R$</span>
+                        <span class="price-num">3.000</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                    <ul class="price-features">
+                        <li class="active">Planejamento & Diagnóstico</li>
+                        <li class="active">Design Gráfico</li>
+                        <li class="active">Captação Audiovisual</li>
+                        <li class="active">Edição de Vídeo</li>
+                        <li class="active">Veiculação e Gestão</li>
+                        <li class="active">Gestão de Performance</li>
+                    </ul>
+                    <a href="https://wa.me/5511934980464" target="_blank" class="price-cta featured-cta">Solicitar proposta</a>
                 </div>
             </div>
         </div>
@@ -1298,128 +1690,81 @@
 
     <!-- CTA -->
     <section id="contato" class="cta-section">
-        <div class="container">
-            <h2>Pronto para criar algo incrível?</h2>
-            <p>Entre em contato e vamos conversar sobre seu próximo projeto</p>
-            <a href="mailto:contato@tangerine.com" class="cta-btn">Solicitar Orçamento</a>
+        <div class="cta-inner">
+            <p class="s-label" style="text-align:center;">Vamos conversar</p>
+            <h2 class="s-title">Pronto para transformar<br>sua marca em autoridade?</h2>
+            <p>Os pacotes são enviados de forma personalizada conforme o perfil e necessidade da sua marca. Entre em contato para um diagnóstico inicial sem compromisso.</p>
+            <a href="https://wa.me/5511934980464" target="_blank" class="btn-primary">
+                Falar no WhatsApp →
+            </a>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
+        <div class="footer-inner">
             <div class="footer-brand">
-                <h3>TANGERINE</h3>
-                <p>Criamos conteúdo audiovisual que conecta marcas com pessoas através de histórias autênticas e impactantes.</p>
+                <a href="#" class="logo-wrap">
+                    <div class="logo-dot"></div>
+                    <span class="logo-text" style="color:rgba(255,255,255,0.85)">Tangerina</span>
+                </a>
+                <p>Posicionamento digital e estruturação estratégica de marcas. Diagnóstico, criação, produção, gestão — tudo integrado, tudo com propósito.</p>
             </div>
-            
-            <div class="footer-column">
-                <h4>Serviços</h4>
-                <a href="#servicos">Vídeos Promocionais</a>
-                <a href="#servicos">Fotografia</a>
-                <a href="#servicos">Conteúdo para Redes</a>
-                <a href="#servicos">Captação com Drone</a>
+            <div class="footer-col">
+                <h5>Serviços</h5>
+                <a href="#servicos">Planejamento & Diagnóstico</a>
+                <a href="#servicos">Design Gráfico</a>
+                <a href="#servicos">Captação Audiovisual</a>
+                <a href="#servicos">Edição de Vídeo</a>
+                <a href="#servicos">Gestão de Performance</a>
             </div>
-            
-            <div class="footer-column">
-                <h4>Empresa</h4>
+            <div class="footer-col">
+                <h5>Empresa</h5>
                 <a href="#portfolio">Portfólio</a>
+                <a href="#clientes">Clientes</a>
                 <a href="#processo">Processo</a>
                 <a href="#contato">Contato</a>
             </div>
-            
-            <div class="footer-column">
-                <h4>Contato</h4>
-                <a href="mailto:contato@tangerine.com">contato@tangerine.com</a>
-                <a href="tel:+5511999999999">+55 11 99999-9999</a>
+            <div class="footer-col">
+                <h5>Contato</h5>
+                <a href="https://wa.me/5511934980464" target="_blank">WhatsApp Comercial</a>
+                <a href="https://instagram.com/tangerina.film" target="_blank">@tangerina.film</a>
+                <a href="#">CNPJ 33.015.533/0001-04</a>
             </div>
         </div>
-        
         <div class="footer-bottom">
-            <p>© 2026 Tangerine. Todos os direitos reservados.</p>
+            <span>© 2025 Tangerina Artes Visuais. Todos os direitos reservados.</span>
+            <a href="https://instagram.com/tangerina.film" target="_blank">Instagram</a>
         </div>
     </footer>
 
     <script>
-        // Animação ao scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 100);
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(el => observer.observe(el));
 
-        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-            observer.observe(el);
-        });
-
-        // Animação de contagem para números
-        function animateCounter(element) {
-            const target = parseInt(element.dataset.target);
-            const duration = 2000;
-            const increment = target / (duration / 16);
-            let current = 0;
-
-            const updateCounter = () => {
-                current += increment;
-                if (current < target) {
-                    element.textContent = Math.floor(current) + (element.parentElement.querySelector('.stat-label').textContent.includes('%') ? '%' : target > 100 ? '+' : target > 10 ? '+' : '');
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    element.textContent = target + (element.parentElement.querySelector('.stat-label').textContent.includes('%') ? '%' : target > 100 ? '+' : target > 10 ? 'h' : '+');
-                }
-            };
-
-            updateCounter();
-        }
-
-        // Observer para os números de estatísticas
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumbers = entry.target.querySelectorAll('.stat-number');
-                    statNumbers.forEach(num => {
-                        if (num.textContent === '0') {
-                            animateCounter(num);
-                        }
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        const statsSection = document.querySelector('.stats');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
-
-        // Parallax suave no hero
+        // Header shadow on scroll
+        const header = document.querySelector('header');
         window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero-visual');
-            if (hero && scrolled < window.innerHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
-            }
+            header.style.boxShadow = window.scrollY > 40
+                ? '0 4px 24px rgba(0,0,0,0.08)'
+                : 'none';
         });
 
-        // Smooth scroll para links de navegação
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const target = document.querySelector(a.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
