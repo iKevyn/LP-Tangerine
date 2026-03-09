@@ -61,21 +61,77 @@
             text-decoration: none;
         }
 
-        .logo-dot {
-            width: 32px; height: 32px;
-            background: var(--burn);
-            border-radius: 50%;
-            position: relative;
-            flex-shrink: 0;
+        .logo-img {
+            height: 52px;
+            width: auto;
+            object-fit: contain;
         }
 
-        .logo-dot::after {
-            content: '';
+        .logo-img-footer {
+            height: 48px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* esconde fallback se logo carregar */
+        .logo-img[src]:not([src=""]) + .logo-fallback { display: none; }
+        /* esconde img se src vazio */
+        .logo-img:not([src]), .logo-img[src=""] { display: none; }
+
+        .reel-deco-logo {
             position: absolute;
-            top: 6px; left: 6px;
-            width: 12px; height: 12px;
-            background: var(--gold);
-            border-radius: 50%;
+            top: 1.2rem; right: 1.2rem;
+            width: 48px;
+            opacity: 0.5;
+            filter: brightness(0) invert(1);
+        }
+        .reel-deco-logo:not([src]), .reel-deco-logo[src=""] { display: none; }
+
+        /* ─── DECORATIVE ORANGE ─── */
+        .deco-orange {
+            position: absolute;
+            background-image: url('https://lp-tangerine.vercel.app/LogoLaranja.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.07;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* hero — canto superior direito, cortada */
+        .hero .deco-orange {
+            width: 420px; height: 420px;
+            top: -80px; right: -100px;
+            background-position: center;
+            opacity: 0.06;
+        }
+
+        /* about (dark) — canto inferior esquerdo */
+        .about .deco-orange {
+            width: 360px; height: 360px;
+            bottom: -80px; left: -60px;
+            opacity: 0.08;
+            filter: brightness(0) invert(1);
+        }
+
+        /* cta — centralizada atrás */
+        .cta-section .deco-orange {
+            width: 500px; height: 500px;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.06;
+        }
+
+        /* pricing (dark) — canto superior direito */
+        .pricing-section .deco-orange {
+            width: 320px; height: 320px;
+            top: -60px; right: -60px;
+            opacity: 0.06;
+            filter: brightness(0) invert(1);
+        }
+
+        /* ─── logo decorativo (tangerina 3 ou 4) ─── */
+        .deco-logo {
+            /* Logo decorativa: substitua src pelo Tangerina (3) ou (4).png */
         }
 
         .logo-text {
@@ -1552,8 +1608,10 @@
     <!-- HEADER -->
     <header>
         <a href="#" class="logo-wrap">
-            <div class="logo-dot"></div>
-            <span class="logo-text">Tangeri<span>na</span></span>
+            <!-- Logo principal: substitua src pelo caminho do Tangerina (21).png -->
+            <img src="https://lp-tangerine.vercel.app/LogoPrincipal.png" alt="Tangerina" class="logo-img" id="logoMain">
+            <!-- Fallback texto enquanto não tiver o logo -->
+            <span class="logo-text logo-fallback">Tangeri<span>na</span></span>
         </a>
         <nav>
             <a href="#servicos">Serviços</a>
@@ -1595,6 +1653,8 @@
         <div class="hero-visual">
             <div class="hero-reel">
                 <div class="reel-play">▶</div>
+                    <!-- Logo decorativa: substitua src pelo Tangerina (3) ou (4).png -->
+                    <img src="https://lp-tangerine.vercel.app/LogoLaranja.png" alt="" class="reel-deco-logo" id="logoDeco">
                 <div class="reel-label">
                     <small>Nosso trabalho</small>
                     <strong>Reel Tangerina 2025</strong>
@@ -1632,6 +1692,7 @@
 
     <!-- ABOUT -->
     <section class="about">
+        <div class="deco-orange"></div>
         <div class="about-inner">
             <div class="about-text">
                 <p class="s-label">Sobre nós</p>
@@ -1953,6 +2014,7 @@
 
     <!-- PRICING -->
     <section id="pacotes" class="pricing-section">
+        <div class="deco-orange"></div>
         <div class="pricing-inner">
             <div style="text-align:center; margin-bottom: 3.5rem;">
                 <p class="s-label">Investimento</p>
@@ -2058,6 +2120,7 @@
 
     <!-- CTA -->
     <section id="contato" class="cta-section">
+        <div class="deco-orange"></div>
         <div class="cta-inner">
             <p class="s-label" style="text-align:center;">Vamos conversar</p>
             <h2 class="s-title">Pronto para transformar<br>sua marca em autoridade?</h2>
@@ -2073,8 +2136,9 @@
         <div class="footer-inner">
             <div class="footer-brand">
                 <a href="#" class="logo-wrap">
-                    <div class="logo-dot"></div>
-                    <span class="logo-text" style="color:rgba(255,255,255,0.85)">Tangerina</span>
+                    <!-- Logo principal branca: substitua src pelo caminho do Tangerina (21).png versão branca -->
+                    <img src="https://lp-tangerine.vercel.app/LogoPrincipal.png" alt="Tangerina" class="logo-img logo-img-footer" id="logoFooter">
+                    <span class="logo-text logo-fallback" style="color:rgba(255,255,255,0.85)">Tangerina</span>
                 </a>
                 <p>Posicionamento digital e estruturação estratégica de marcas. Diagnóstico, criação, produção, gestão — tudo integrado, tudo com propósito.</p>
             </div>
