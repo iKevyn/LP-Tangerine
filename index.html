@@ -358,14 +358,12 @@
             font-weight: 600;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.5);
+            color: rgba(255,255,255,0.75);
             flex-shrink: 0;
             transition: color 0.2s;
         }
 
-        .clients-strip span.highlight {
-            color: var(--amber);
-        }
+        .clients-strip span:hover { color: #fff; }
 
         .clients-strip .dot {
             width: 4px; height: 4px;
@@ -870,13 +868,13 @@
         }
 
         .brand-pill {
-            background: #fff;
-            border: 1px solid rgba(223, 93, 56, 0.15);
+            background: var(--dark);
+            border: 1px solid transparent;
             border-radius: 100px;
             padding: 0.6rem 1.4rem;
             font-size: 0.78rem;
             font-weight: 600;
-            color: var(--mid);
+            color: rgba(255,255,255,0.85);
             transition: all 0.2s;
             letter-spacing: 0.02em;
         }
@@ -884,7 +882,6 @@
         .brand-pill:hover {
             background: var(--burn);
             color: #fff;
-            border-color: var(--burn);
             transform: translateY(-2px);
         }
 
