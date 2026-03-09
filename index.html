@@ -79,10 +79,11 @@
 
         .reel-deco-logo {
             position: absolute;
-            top: 1.2rem; right: 1.2rem;
-            width: 48px;
-            opacity: 0.5;
+            bottom: 1.2rem; right: 1.2rem;
+            width: 64px;
+            opacity: 0.35;
             filter: brightness(0) invert(1);
+            z-index: 3;
         }
         .reel-deco-logo:not([src]), .reel-deco-logo[src=""] { display: none; }
 
@@ -127,6 +128,85 @@
             top: -60px; right: -60px;
             opacity: 0.06;
             filter: brightness(0) invert(1);
+        }
+
+        /* ─── PREMIUM EFFECTS ─── */
+
+        /* Cursor glow */
+        #cursor-glow {
+            position: fixed;
+            width: 320px; height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(223,93,56,0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s;
+        }
+
+        /* Stat count-up flash */
+        .a-stat-num.counting, .st-num.counting {
+            color: var(--burn);
+            transition: color 0.1s;
+        }
+
+        /* Price card shimmer on hover */
+        .price-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .price-card::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -75%;
+            width: 50%; height: 200%;
+            background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+            transform: skewX(-20deg);
+            transition: left 0.6s ease;
+            pointer-events: none;
+        }
+        .price-card:hover::after { left: 130%; }
+
+        /* Service card tilt */
+        .s-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            will-change: transform;
+        }
+
+        /* Testimonial card glow on hover */
+        .t-card:hover {
+            box-shadow: 0 8px 40px rgba(223,93,56,0.12);
+            border-color: rgba(223,93,56,0.2) !important;
+        }
+
+        /* Process step number pulse */
+        .p-step-num {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .p-step:hover .p-step-num {
+            transform: scale(1.15);
+            color: var(--burn);
+        }
+
+        /* Hero headline gradient animation */
+        .hero-accent {
+            background: linear-gradient(90deg, var(--burn), var(--amber), var(--burn));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s linear infinite;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* Marquee text hover pop */
+        .marquee-text:hover {
+            color: var(--amber) !important;
+            transform: scale(1.05);
+            transition: all 0.2s;
         }
 
         /* ─── logo decorativo (tangerina 3 ou 4) ─── */
@@ -199,21 +279,23 @@
 
         .hero-blob {
             position: absolute;
-            right: -5%;
-            top: 10%;
-            width: 55%;
+            right: 2%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48%;
             aspect-ratio: 1;
-            background: var(--cream);
-            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+            background-image: url('https://lp-tangerine.vercel.app/LogoLaranja.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.1;
             z-index: 0;
-            animation: blobMorph 12s ease-in-out infinite;
+            animation: blobFloat 8s ease-in-out infinite;
         }
 
-        @keyframes blobMorph {
-            0%, 100% { border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%; }
-            25% { border-radius: 40% 60% 70% 30% / 45% 55% 45% 55%; }
-            50% { border-radius: 55% 45% 35% 65% / 50% 40% 60% 50%; }
-            75% { border-radius: 30% 70% 55% 45% / 60% 35% 65% 40%; }
+        @keyframes blobFloat {
+            0%, 100% { transform: translateY(-50%) rotate(0deg); }
+            50% { transform: translateY(calc(-50% - 16px)) rotate(3deg); }
         }
 
         .hero-content {
@@ -1644,7 +1726,7 @@
 
         <div class="hero-content">
             <div class="hero-tag">Posicionamento Estratégico Digital</div>
-            <h1>Posicionamento estratégico para marcas que querem <em>crescer</em>.</h1>
+            <h1>Posicionamento estratégico para marcas que querem <em class="hero-accent">crescer</em>.</h1>
             <p>Unimos análise, direção criativa e performance para transformar marcas em autoridade no digital.</p>
             <div class="hero-ctas">
                 <a href="https://wa.me/5511934980464" target="_blank" class="btn-primary">
@@ -1706,19 +1788,19 @@
             </div>
             <div class="about-stats">
                 <div class="a-stat reveal">
-                    <div class="a-stat-num">7+</div>
+                    <div class="a-stat-num" data-count="7" data-suffix="+">7+</div>
                     <div class="a-stat-label">Anos de atuação</div>
                 </div>
                 <div class="a-stat reveal delay-1">
-                    <div class="a-stat-num">60+</div>
+                    <div class="a-stat-num" data-count="60" data-suffix="+">60+</div>
                     <div class="a-stat-label">Clientes atendidos</div>
                 </div>
                 <div class="a-stat reveal delay-2">
-                    <div class="a-stat-num">10+</div>
+                    <div class="a-stat-num" data-count="10" data-suffix="+">10+</div>
                     <div class="a-stat-label">Marcas globais</div>
                 </div>
                 <div class="a-stat reveal delay-3">
-                    <div class="a-stat-num">100%</div>
+                    <div class="a-stat-num" data-count="100" data-suffix="%">100%</div>
                     <div class="a-stat-label">Visão integrada</div>
                 </div>
             </div>
@@ -1872,19 +1954,19 @@
     <div class="stats-section">
         <div class="stats-inner">
             <div class="st-item reveal">
-                <div class="st-num">7+</div>
+                <div class="st-num" data-count="7" data-suffix="+">7+</div>
                 <div class="st-label">Anos de experiência</div>
             </div>
             <div class="st-item reveal delay-1">
-                <div class="st-num">60+</div>
+                <div class="st-num" data-count="60" data-suffix="+">60+</div>
                 <div class="st-label">Clientes nacionais e regionais</div>
             </div>
             <div class="st-item reveal delay-2">
-                <div class="st-num">10+</div>
+                <div class="st-num" data-count="10" data-suffix="+">10+</div>
                 <div class="st-label">Marcas globais atendidas</div>
             </div>
             <div class="st-item reveal delay-3">
-                <div class="st-num">360°</div>
+                <div class="st-num" data-suffix="°">360°</div>
                 <div class="st-label">Atuação integrada de ponta a ponta</div>
             </div>
         </div>
@@ -2251,6 +2333,62 @@
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
         reveals.forEach(el => observer.observe(el));
+
+        // ─── COUNT-UP ───
+        function countUp(el) {
+            const target = parseInt(el.dataset.count);
+            const suffix = el.dataset.suffix || '';
+            if (!target) return;
+            const duration = 1400;
+            const start = performance.now();
+            el.classList.add('counting');
+            const tick = (now) => {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.floor(ease * target) + suffix;
+                if (progress < 1) {
+                    requestAnimationFrame(tick);
+                } else {
+                    el.textContent = target + suffix;
+                    el.classList.remove('counting');
+                }
+            };
+            requestAnimationFrame(tick);
+        }
+
+        const countObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting && !e.target.dataset.counted) {
+                    e.target.dataset.counted = '1';
+                    countUp(e.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
+
+        // ─── CURSOR GLOW ───
+        const glow = document.createElement('div');
+        glow.id = 'cursor-glow';
+        document.body.appendChild(glow);
+        document.addEventListener('mousemove', (e) => {
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+        });
+
+        // ─── CARD TILT ───
+        document.querySelectorAll('.s-card, .t-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.transform = `perspective(600px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) scale(1.02)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
 
         // Header shadow on scroll
         const header = document.querySelector('header');
