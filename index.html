@@ -634,25 +634,28 @@
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 320px 280px;
             gap: 1.2rem;
         }
 
         .portfolio-grid .featured {
             grid-column: span 2;
+            grid-row: span 1;
         }
 
         .p-item {
             border-radius: 18px;
             overflow: hidden;
-            aspect-ratio: 4/3;
             position: relative;
             background: var(--dark);
             cursor: pointer;
             transition: transform 0.4s ease;
+            height: 100%;
+            width: 100%;
         }
 
-        .p-item.featured { aspect-ratio: 16/9; }
-        .p-item.tall { aspect-ratio: 3/4; }
+        .p-item.featured { aspect-ratio: unset; }
+        .p-item.tall { aspect-ratio: unset; }
 
         .p-item:hover { transform: scale(1.02); }
 
@@ -1517,7 +1520,7 @@
             .about-stats { grid-template-columns: repeat(2, 1fr); }
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-            .portfolio-grid { grid-template-columns: 1fr 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 260px 240px 240px; }
             .portfolio-grid .featured { grid-column: span 2; }
             .stats-section { padding: 4rem 2rem; }
             .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
@@ -1561,9 +1564,8 @@
             .svc-card { padding: 1.8rem; }
 
             /* Portfolio */
-            .portfolio-grid { grid-template-columns: 1fr; gap: 1rem; }
-            .portfolio-grid .featured { grid-column: span 1; aspect-ratio: 4/3; }
-            .p-item { aspect-ratio: 4/3; }
+            .portfolio-grid { grid-template-columns: 1fr; grid-template-rows: repeat(6, 220px); gap: 1rem; }
+            .portfolio-grid .featured { grid-column: span 1; }
 
             /* Stats */
             .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
