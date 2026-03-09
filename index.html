@@ -716,7 +716,7 @@
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: 320px 280px;
+            grid-template-rows: repeat(3, 280px);
             gap: 1.2rem;
         }
 
@@ -1420,6 +1420,9 @@
             transform: translateY(-2px);
         }
 
+        .p-play-btn.pdf-icon::before { content: '📄'; font-size: 1.4rem; }
+        .p-play-btn.pdf-icon span { display: none; }
+
         /* ─── PORTFOLIO PLAY BUTTON ─── */
         .p-play-btn {
             position: absolute;
@@ -1602,7 +1605,7 @@
             .about-stats { grid-template-columns: repeat(2, 1fr); }
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-            .portfolio-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 260px 240px 240px; }
+            .portfolio-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 260px 240px 240px 240px 240px; }
             .portfolio-grid .featured { grid-column: span 2; }
             .stats-section { padding: 4rem 2rem; }
             .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
@@ -1646,7 +1649,7 @@
             .svc-card { padding: 1.8rem; }
 
             /* Portfolio */
-            .portfolio-grid { grid-template-columns: 1fr; grid-template-rows: repeat(6, 220px); gap: 1rem; }
+            .portfolio-grid { grid-template-columns: 1fr; grid-template-rows: repeat(9, 220px); gap: 1rem; }
             .portfolio-grid .featured { grid-column: span 1; }
 
             /* Stats */
@@ -1870,7 +1873,8 @@
             </div>
 
             <div class="portfolio-grid">
-                <div class="p-item featured reveal" data-ig="https://www.instagram.com/reel/DI1iOjXxEjE/embed/">
+                <!-- ROW 1 -->
+                <div class="p-item reveal" data-embed="https://drive.google.com/file/d/1lyHijEjdESyxH3VIuATJ69RLgAdr2zXp/preview">
                     <div class="p-item-bg c1"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
@@ -1881,19 +1885,8 @@
                     </div>
                     <span class="p-tag">Evento</span>
                 </div>
-                <div class="p-item reveal delay-1" data-ig="https://www.instagram.com/reel/DMnKBDMM7XK/embed/">
+                <div class="p-item reveal delay-1" data-embed="https://www.instagram.com/reels/DI1iOjXxEjE/embed/">
                     <div class="p-item-bg c2"></div>
-                    <div class="p-play-btn"><span>▶</span></div>
-                    <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>Sephora Beauty Run</h4>
-                            <p>Captação + design · Copacabana Palace</p>
-                        </div>
-                    </div>
-                    <span class="p-tag">Global</span>
-                </div>
-                <div class="p-item reveal delay-2" data-ig="https://www.instagram.com/p/Cj8vppnuij2/embed/">
-                    <div class="p-item-bg c3"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
                         <div class="p-item-info">
@@ -1903,20 +1896,46 @@
                     </div>
                     <span class="p-tag">Ativação</span>
                 </div>
-                <div class="p-item reveal" data-href="https://www.instagram.com/tangerina.film">
-                    <div class="p-item-bg c4"></div>
-                    <div class="p-play-btn"><span>↗</span></div>
+
+                <!-- ROW 2 -->
+                <div class="p-item reveal" data-embed="https://www.instagram.com/reel/DMnKBDMM7XK/embed/">
+                    <div class="p-item-bg c3"></div>
+                    <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
                         <div class="p-item-info">
-                            <h4>Disney Brasil</h4>
-                            <p>Conteúdo e posicionamento digital</p>
+                            <h4>FAM nas Alturas</h4>
+                            <p>Produção completa de conteúdo</p>
+                        </div>
+                    </div>
+                    <span class="p-tag">Evento</span>
+                </div>
+                <div class="p-item reveal delay-1" data-embed="https://www.instagram.com/p/Cj8vppnuij2/embed/">
+                    <div class="p-item-bg c4"></div>
+                    <div class="p-play-btn"><span>▶</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>MC Connections</h4>
+                            <p>Captação e identidade visual</p>
+                        </div>
+                    </div>
+                    <span class="p-tag">Marca</span>
+                </div>
+                <div class="p-item reveal delay-2" data-embed="https://drive.google.com/file/d/1-kl-XF3U_2t7VETUv2PGvEXNPzNTOgD7/preview">
+                    <div class="p-item-bg c5"></div>
+                    <div class="p-play-btn"><span>▶</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>Sephora Beauty Run</h4>
+                            <p>Captação + design · Copacabana Palace</p>
                         </div>
                     </div>
                     <span class="p-tag">Global</span>
                 </div>
-                <div class="p-item reveal delay-1" data-href="https://www.instagram.com/tangerina.film">
-                    <div class="p-item-bg c5"></div>
-                    <div class="p-play-btn"><span>↗</span></div>
+
+                <!-- ROW 3 -->
+                <div class="p-item reveal" data-embed="https://drive.google.com/file/d/1lSFIZhVvgrNx3KpGiA45N5X2eSxs3bZJ/preview">
+                    <div class="p-item-bg c6"></div>
+                    <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
                         <div class="p-item-info">
                             <h4>Centrum × Viva Mais Caraíva</h4>
@@ -1925,16 +1944,38 @@
                     </div>
                     <span class="p-tag">Saúde</span>
                 </div>
-                <div class="p-item reveal delay-2" data-href="https://www.instagram.com/tangerina.film">
-                    <div class="p-item-bg c6"></div>
-                    <div class="p-play-btn"><span>↗</span></div>
+                <div class="p-item reveal delay-1" data-embed="https://drive.google.com/file/d/1YezR5WSzBNCM7t10gZZ4gpu6fftuMmC1/preview">
+                    <div class="p-item-bg c1"></div>
+                    <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
                         <div class="p-item-info">
-                            <h4>FAM nas Alturas</h4>
-                            <p>Produção completa de conteúdo</p>
+                            <h4>Go Organic Club</h4>
+                            <p>Conteúdo e posicionamento digital</p>
                         </div>
                     </div>
-                    <span class="p-tag">Evento</span>
+                    <span class="p-tag">Lifestyle</span>
+                </div>
+                <div class="p-item reveal delay-2" data-embed="https://drive.google.com/file/d/1z6ze-lV7y6Pf7h45QVDu9QB4EQd9jxD7/preview">
+                    <div class="p-item-bg c3"></div>
+                    <div class="p-play-btn pdf-icon"><span>▶</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>Aussie</h4>
+                            <p>Identidade visual · Apresentação de marca</p>
+                        </div>
+                    </div>
+                    <span class="p-tag">Global</span>
+                </div>
+                <div class="p-item reveal delay-3" data-embed="https://drive.google.com/file/d/1GxEKwfl1EOmrRV0VGomcVoKkePLPgj6A/preview">
+                    <div class="p-item-bg c2"></div>
+                    <div class="p-play-btn pdf-icon"><span>▶</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>Be Trullie</h4>
+                            <p>Desenvolvimento de identidade visual</p>
+                        </div>
+                    </div>
+                    <span class="p-tag">Branding</span>
                 </div>
             </div>
         </div>
@@ -2251,6 +2292,7 @@
         <div class="footer-bottom">
             <span>© 2026 Tangerina Artes Visuais. Todos os direitos reservados.</span>
             <a href="https://instagram.com/tangerina.film" target="_blank">Instagram</a>
+            <a href="https://webdevkevyn.vercel.app" target="_blank" style="color:rgba(255,255,255,0.25); transition: color 0.2s;">Desenvolvido por <strong style="color:rgba(255,255,255,0.45);">Kevyn.</strong></a>
         </div>
     </footer>
 
@@ -2281,8 +2323,8 @@
         igBackdrop.addEventListener('click', closeModal);
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-        document.querySelectorAll('.p-item[data-ig]').forEach(item => {
-            item.addEventListener('click', () => openModal(item.dataset.ig));
+        document.querySelectorAll('.p-item[data-embed]').forEach(item => {
+            item.addEventListener('click', () => openModal(item.dataset.embed));
         });
 
         document.querySelectorAll('.p-item[data-href]').forEach(item => {
