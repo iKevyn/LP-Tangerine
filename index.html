@@ -761,10 +761,15 @@
         .p-item-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, transparent 60%);
+            background: linear-gradient(0deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.15) 55%, transparent 100%);
             display: flex;
             align-items: flex-end;
             padding: 1.5rem;
+            transition: background 0.3s;
+        }
+
+        .p-item:hover .p-item-overlay {
+            background: linear-gradient(0deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 55%, transparent 100%);
         }
 
         .p-item-info h4 {
@@ -777,6 +782,27 @@
         .p-item-info p {
             font-size: 0.72rem;
             color: rgba(255,255,255,0.65);
+            margin-bottom: 0.7rem;
+        }
+
+        /* CTA inline abaixo do título */
+        .p-item-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--amber);
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .p-item:hover .p-item-cta {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .p-tag {
@@ -793,7 +819,36 @@
             border-radius: 100px;
         }
 
-        /* ─── STATS ─── */
+        /* Play button sempre visível */
+        .p-play-btn {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.85);
+            width: 56px; height: 56px;
+            background: rgba(255,255,255,0.18);
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: #fff;
+            z-index: 3;
+            opacity: 1;
+            transition: opacity 0.3s, transform 0.3s, background 0.3s, border-color 0.3s;
+            backdrop-filter: blur(4px);
+        }
+
+        .p-item:hover .p-play-btn {
+            transform: translate(-50%, -50%) scale(1);
+            background: rgba(255,255,255,0.95);
+            color: var(--burn);
+            border-color: transparent;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .p-play-btn.pdf-icon::before { content: '📄'; font-size: 1.2rem; }
+        .p-play-btn.pdf-icon span { display: none; }
         .stats-section {
             background: var(--burn);
             padding: 5rem 4rem;
@@ -1881,6 +1936,7 @@
                         <div class="p-item-info">
                             <h4>NBA House</h4>
                             <p>Cobertura audiovisual · Evento de grande visibilidade</p>
+                            <span class="p-item-cta">▶ Assistir vídeo</span>
                         </div>
                     </div>
                     <span class="p-tag">Evento</span>
@@ -1892,87 +1948,95 @@
                         <div class="p-item-info">
                             <h4>P9 Beach Club</h4>
                             <p>Produção visual com FEMSA</p>
+                            <span class="p-item-cta">▶ Assistir vídeo</span>
                         </div>
                     </div>
                     <span class="p-tag">Ativação</span>
                 </div>
-
-                <!-- ROW 2 -->
-                <div class="p-item reveal" data-embed="https://www.instagram.com/reel/DMnKBDMM7XK/embed/">
+                <div class="p-item reveal delay-2" data-embed="https://www.instagram.com/reel/DMnKBDMM7XK/embed/">
                     <div class="p-item-bg c3"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
                         <div class="p-item-info">
                             <h4>FAM nas Alturas</h4>
                             <p>Produção completa de conteúdo</p>
+                            <span class="p-item-cta">▶ Assistir vídeo</span>
                         </div>
                     </div>
                     <span class="p-tag">Evento</span>
                 </div>
-                <div class="p-item reveal delay-1" data-embed="https://www.instagram.com/p/Cj8vppnuij2/embed/">
+
+                <!-- ROW 2 -->
+                <div class="p-item reveal" data-embed="https://www.instagram.com/p/Cj8vppnuij2/embed/">
                     <div class="p-item-bg c4"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
                         <div class="p-item-info">
                             <h4>MC Connections</h4>
                             <p>Captação e identidade visual</p>
+                            <span class="p-item-cta">▶ Assistir vídeo</span>
                         </div>
                     </div>
                     <span class="p-tag">Marca</span>
                 </div>
-                <div class="p-item reveal delay-2" data-embed="https://drive.google.com/file/d/1-kl-XF3U_2t7VETUv2PGvEXNPzNTOgD7/preview">
+                <div class="p-item reveal delay-1" data-embed="https://drive.google.com/file/d/1-kl-XF3U_2t7VETUv2PGvEXNPzNTOgD7/preview">
                     <div class="p-item-bg c5"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
                         <div class="p-item-info">
                             <h4>Sephora Beauty Run</h4>
                             <p>Captação + design · Copacabana Palace</p>
+                            <span class="p-item-cta">▶ Assistir vídeo</span>
                         </div>
                     </div>
                     <span class="p-tag">Global</span>
                 </div>
-
-                <!-- ROW 3 -->
-                <div class="p-item reveal" data-embed="https://drive.google.com/file/d/1lSFIZhVvgrNx3KpGiA45N5X2eSxs3bZJ/preview">
+                <div class="p-item reveal delay-2" data-embed="https://drive.google.com/file/d/1lSFIZhVvgrNx3KpGiA45N5X2eSxs3bZJ/preview">
                     <div class="p-item-bg c6"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
                         <div class="p-item-info">
                             <h4>Centrum × Viva Mais Caraíva</h4>
                             <p>Captação audiovisual · Evento</p>
+                            <span class="p-item-cta">▶ Assistir vídeo</span>
                         </div>
                     </div>
                     <span class="p-tag">Saúde</span>
                 </div>
-                <div class="p-item reveal delay-1" data-embed="https://drive.google.com/file/d/1YezR5WSzBNCM7t10gZZ4gpu6fftuMmC1/preview">
+
+                <!-- ROW 3 -->
+                <div class="p-item reveal" data-embed="https://drive.google.com/file/d/1YezR5WSzBNCM7t10gZZ4gpu6fftuMmC1/preview">
                     <div class="p-item-bg c1"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
                         <div class="p-item-info">
                             <h4>Go Organic Club</h4>
                             <p>Conteúdo e posicionamento digital</p>
+                            <span class="p-item-cta">▶ Assistir vídeo</span>
                         </div>
                     </div>
                     <span class="p-tag">Lifestyle</span>
                 </div>
-                <div class="p-item reveal delay-2" data-embed="https://drive.google.com/file/d/1z6ze-lV7y6Pf7h45QVDu9QB4EQd9jxD7/preview">
+                <div class="p-item reveal delay-1" data-embed="https://drive.google.com/file/d/1z6ze-lV7y6Pf7h45QVDu9QB4EQd9jxD7/preview">
                     <div class="p-item-bg c3"></div>
                     <div class="p-play-btn pdf-icon"><span>▶</span></div>
                     <div class="p-item-overlay">
                         <div class="p-item-info">
                             <h4>Aussie</h4>
                             <p>Identidade visual · Apresentação de marca</p>
+                            <span class="p-item-cta">📄 Ver apresentação</span>
                         </div>
                     </div>
                     <span class="p-tag">Global</span>
                 </div>
-                <div class="p-item reveal delay-3" data-embed="https://drive.google.com/file/d/1GxEKwfl1EOmrRV0VGomcVoKkePLPgj6A/preview">
+                <div class="p-item reveal delay-2" data-embed="https://drive.google.com/file/d/1GxEKwfl1EOmrRV0VGomcVoKkePLPgj6A/preview">
                     <div class="p-item-bg c2"></div>
                     <div class="p-play-btn pdf-icon"><span>▶</span></div>
                     <div class="p-item-overlay">
                         <div class="p-item-info">
                             <h4>Be Trullie</h4>
                             <p>Desenvolvimento de identidade visual</p>
+                            <span class="p-item-cta">📄 Ver apresentação</span>
                         </div>
                     </div>
                     <span class="p-tag">Branding</span>
