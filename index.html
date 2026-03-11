@@ -10,6 +10,7 @@
 
         :root {
             --burn: #DF5D38;
+            --burn-deep: #C97E1A;
             --cream: #FAECD8;
             --amber: #F49629;
             --teal: #A5D8D7;
@@ -616,7 +617,7 @@
 
         /* ─── ABOUT ─── */
         .about {
-            background: var(--burn);
+            background: var(--burn-deep);
             color: #fff;
             position: relative;
             overflow: hidden;
@@ -826,7 +827,7 @@
 
         .p-item:hover .p-item-bg { transform: scale(1.06); }
 
-        .p-item-bg.bg-nba { background-image: url('CAPA CATEGORIA LP.png'); background-size: cover; background-position: center; }
+        .p-item-bg.bg-nba { background-image: url('CAPA CATEGORIA LP(1).png'); background-size: cover; background-position: center; }
 
         .p-item-bg.c1 { background: linear-gradient(135deg, #DF5D38 0%, #F49629 100%); }
         .p-item-bg.c2 { background: linear-gradient(135deg, #A5D8D7 0%, #6BB8B7 100%); }
@@ -1285,7 +1286,7 @@
 
         /* ─── FOOTER ─── */
         footer {
-            background: var(--burn);
+            background: var(--burn-deep);
             color: rgba(255,255,255,0.6);
             padding: 4rem 4rem 2.5rem;
         }
@@ -1369,7 +1370,7 @@
 
         /* ─── PRICING ─── */
         .pricing-section {
-            background: var(--burn);
+            background: var(--burn-deep);
             color: #fff;
             padding: 6rem 4rem;
         }
@@ -2433,7 +2434,9 @@
         <div class="footer-bottom">
             <span>© 2026 Tangerina Artes Visuais. Todos os direitos reservados.</span>
             <a href="https://instagram.com/tangerina.film" target="_blank">Instagram</a>
-            <a href="https://webdevkevyn.vercel.app" target="_blank" style="color:rgba(255,255,255,0.25); transition: color 0.2s;">Desenvolvido por <strong style="color:rgba(255,255,255,0.45);">Kevyn.</strong></a>
+            <a href="https://webdevkevyn.vercel.app" target="_blank" style="color:rgba(255,255,255,0.25); transition: color 0.3s; position: relative; text-decoration: none;">
+                Desenvolvido por <strong style="color:rgba(255,255,255,0.45); position:relative;">Kevyn.<span style="position:absolute; bottom:-2px; left:0; width:0; height:1px; background:#fff; transition: width 0.4s ease; display:block;" class="kevyn-line"></span></strong>
+            </a>
         </div>
     </footer>
 
@@ -2505,7 +2508,19 @@
             a.addEventListener('click', () => mobileNav.classList.remove('open'));
         });
 
-        // Scroll reveal
+        // Kevyn underline hover
+        const kevynLink = document.querySelector('a[href="https://webdevkevyn.vercel.app"]');
+        const kevynLine = document.querySelector('.kevyn-line');
+        if (kevynLink && kevynLine) {
+            kevynLink.addEventListener('mouseenter', () => {
+                kevynLine.style.width = '100%';
+                kevynLink.style.color = 'rgba(255,255,255,0.5)';
+            });
+            kevynLink.addEventListener('mouseleave', () => {
+                kevynLine.style.width = '0';
+                kevynLink.style.color = 'rgba(255,255,255,0.25)';
+            });
+        }
         const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => {
