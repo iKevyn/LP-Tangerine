@@ -130,6 +130,83 @@
             filter: brightness(0) invert(1);
         }
 
+        /* ─── OVERRIDES P/ FUNDO LARANJA (about, pricing, footer) ─── */
+
+        /* s-label branco nas seções laranja */
+        .about .s-label,
+        .pricing-section .s-label {
+            color: rgba(255,255,255,0.75);
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.25);
+        }
+
+        /* stats no about */
+        .about .a-stat {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.2);
+        }
+        .about .a-stat:hover {
+            background: rgba(255,255,255,0.22);
+            border-color: rgba(255,255,255,0.4);
+        }
+        .about .a-stat-num {
+            color: #fff;
+        }
+        .about .a-stat-label {
+            color: rgba(255,255,255,0.75);
+        }
+        .about .a-stat-num.counting {
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* pricing cards no fundo laranja */
+        .pricing-section .price-card {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.2);
+        }
+        .pricing-section .price-card:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.4);
+        }
+        .pricing-section .price-card.featured {
+            background: var(--dark);
+            border-color: transparent;
+        }
+        .pricing-section .price-card.featured:hover {
+            background: #2a1f18;
+        }
+        .pricing-section .price-badge {
+            color: #fff;
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+        }
+        .pricing-section .price-features li.active::before {
+            color: #fff;
+        }
+        .pricing-section .price-cta {
+            background: rgba(255,255,255,0.15);
+            border-color: rgba(255,255,255,0.3);
+            color: #fff;
+        }
+        .pricing-section .price-cta:hover {
+            background: rgba(255,255,255,0.25);
+        }
+        .pricing-section .featured-cta {
+            background: #fff;
+            color: var(--burn) !important;
+        }
+
+        /* deco-orange no fundo laranja: inverte p/ branco */
+        .about .deco-orange,
+        .pricing-section .deco-orange,
+        .cta-section .deco-orange {
+            filter: brightness(0) invert(1);
+            opacity: 0.06;
+        }
+
+        /* footer links */
+        .footer-bottom a:hover { color: #fff; }
+
         /* ─── PREMIUM EFFECTS ─── */
 
         /* Cursor glow */
@@ -541,7 +618,7 @@
 
         /* ─── ABOUT ─── */
         .about {
-            background: var(--dark);
+            background: var(--burn);
             color: #fff;
             position: relative;
             overflow: hidden;
@@ -750,6 +827,8 @@
         }
 
         .p-item:hover .p-item-bg { transform: scale(1.06); }
+
+        .p-item-bg.bg-nba { background-image: url('CAPA_CATEGORIA_LP.png'); background-size: cover; background-position: center; }
 
         .p-item-bg.c1 { background: linear-gradient(135deg, #DF5D38 0%, #F49629 100%); }
         .p-item-bg.c2 { background: linear-gradient(135deg, #A5D8D7 0%, #6BB8B7 100%); }
@@ -1208,7 +1287,7 @@
 
         /* ─── FOOTER ─── */
         footer {
-            background: var(--dark);
+            background: var(--burn);
             color: rgba(255,255,255,0.6);
             padding: 4rem 4rem 2.5rem;
         }
@@ -1233,7 +1312,7 @@
         .footer-brand p {
             font-size: 0.82rem;
             line-height: 1.75;
-            color: rgba(255,255,255,0.45);
+            color: rgba(255,255,255,0.8);
         }
 
         .footer-col h5 {
@@ -1241,35 +1320,35 @@
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.65);
             margin-bottom: 1.2rem;
         }
 
         .footer-col a {
             display: block;
             font-size: 0.82rem;
-            color: rgba(255,255,255,0.55);
+            color: rgba(255,255,255,0.85);
             text-decoration: none;
             margin-bottom: 0.6rem;
             transition: color 0.2s;
         }
 
-        .footer-col a:hover { color: var(--amber); }
+        .footer-col a:hover { color: #fff; }
 
         .footer-bottom {
             max-width: 1300px;
             margin: 0 auto;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.07);
+            border-top: 1px solid rgba(255,255,255,0.2);
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 0.75rem;
-            color: rgba(255,255,255,0.3);
+            color: rgba(255,255,255,0.6);
         }
 
         .footer-bottom a {
-            color: rgba(255,255,255,0.35);
+            color: rgba(255,255,255,0.7);
             text-decoration: none;
             transition: color 0.2s;
         }
@@ -1292,7 +1371,7 @@
 
         /* ─── PRICING ─── */
         .pricing-section {
-            background: var(--dark);
+            background: var(--burn);
             color: #fff;
             padding: 6rem 4rem;
         }
@@ -1303,7 +1382,7 @@
         }
 
         .pricing-section .s-title { color: #fff; }
-        .pricing-section .s-sub { color: rgba(255,255,255,0.55); }
+        .pricing-section .s-sub { color: rgba(255,255,255,0.8); }
 
         .pricing-grid {
             display: grid;
@@ -1580,7 +1659,7 @@
 
         .ig-modal-embed iframe {
             width: 100%;
-            height: 580px;
+            height: 680px;
             border: none;
             display: block;
         }
@@ -1840,7 +1919,7 @@
                 <p class="s-label">Sobre nós</p>
                 <h2 class="s-title">Não entregamos serviços isolados. Entregamos um ecossistema.</h2>
                 <br>
-                <p>A Tangerina Artes Visuais é especializada em posicionamento digital e estruturação estratégica de marcas. Atuamos de forma integrada — diagnóstico, direção criativa, produção audiovisual, design e performance.</p>
+                <p>A Tangerina Artes Visuais é especializada em posicionamento digital e estruturação estratégica de marcas. Atuamos de forma integrada: diagnóstico, direção criativa, produção audiovisual, design e performance.</p>
                 <p>O trabalho é baseado em análise de cenário, objetivos claros e execução coordenada em todos os pontos de contato. Cada entrega fortalece a percepção de valor e autoridade da marca, com foco em crescimento sustentável no digital.</p>
             </div>
             <div class="about-stats">
@@ -1872,7 +1951,7 @@
                     <p class="s-label">O que fazemos</p>
                     <h2 class="s-title">Soluções completas<br>para sua marca</h2>
                 </div>
-                <p class="s-sub">Do planejamento à performance — atuação de ponta a ponta com coerência estética e foco em resultados.</p>
+                <p class="s-sub">Do planejamento à performance, atuação de ponta a ponta com coerência estética e foco em resultados.</p>
             </div>
 
             <div class="services-grid">
@@ -1930,51 +2009,51 @@
             <div class="portfolio-grid">
                 <!-- ROW 1 -->
                 <div class="p-item reveal" data-embed="https://drive.google.com/file/d/1lyHijEjdESyxH3VIuATJ69RLgAdr2zXp/preview">
-                    <div class="p-item-bg c1"></div>
+                    <div class="p-item-bg bg-nba"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
                         <div class="p-item-info">
                             <h4>NBA House</h4>
-                            <p>Cobertura audiovisual · Evento de grande visibilidade</p>
+                            <p>Cobertura audiovisual, Evento de grande visibilidade</p>
                             <span class="p-item-cta">▶ Assistir vídeo</span>
                         </div>
                     </div>
                     <span class="p-tag">Evento</span>
                 </div>
-                <div class="p-item reveal delay-1" data-embed="https://www.instagram.com/reels/DI1iOjXxEjE/embed/">
+                <div class="p-item reveal delay-1" data-href="https://www.instagram.com/reel/DI1iOjXxEjE/">
                     <div class="p-item-bg c2"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
                         <div class="p-item-info">
                             <h4>P9 Beach Club</h4>
                             <p>Produção visual com FEMSA</p>
-                            <span class="p-item-cta">▶ Assistir vídeo</span>
+                            <span class="p-item-cta">▶ Ver no Instagram</span>
                         </div>
                     </div>
                     <span class="p-tag">Ativação</span>
                 </div>
-                <div class="p-item reveal delay-2" data-embed="https://www.instagram.com/reel/DMnKBDMM7XK/embed/">
+                <div class="p-item reveal delay-2" data-href="https://www.instagram.com/reel/DMnKBDMM7XK/">
                     <div class="p-item-bg c3"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
                         <div class="p-item-info">
                             <h4>FAM nas Alturas</h4>
                             <p>Produção completa de conteúdo</p>
-                            <span class="p-item-cta">▶ Assistir vídeo</span>
+                            <span class="p-item-cta">▶ Ver no Instagram</span>
                         </div>
                     </div>
                     <span class="p-tag">Evento</span>
                 </div>
 
                 <!-- ROW 2 -->
-                <div class="p-item reveal" data-embed="https://www.instagram.com/p/Cj8vppnuij2/embed/">
+                <div class="p-item reveal" data-href="https://www.instagram.com/p/Cj8vppnuij2/">
                     <div class="p-item-bg c4"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
                         <div class="p-item-info">
                             <h4>MC Connections</h4>
                             <p>Captação e identidade visual</p>
-                            <span class="p-item-cta">▶ Assistir vídeo</span>
+                            <span class="p-item-cta">▶ Ver no Instagram</span>
                         </div>
                     </div>
                     <span class="p-tag">Marca</span>
@@ -1985,7 +2064,7 @@
                     <div class="p-item-overlay">
                         <div class="p-item-info">
                             <h4>Sephora Beauty Run</h4>
-                            <p>Captação + design · Copacabana Palace</p>
+                            <p>Captação + design, Copacabana Palace</p>
                             <span class="p-item-cta">▶ Assistir vídeo</span>
                         </div>
                     </div>
@@ -1997,7 +2076,7 @@
                     <div class="p-item-overlay">
                         <div class="p-item-info">
                             <h4>Centrum × Viva Mais Caraíva</h4>
-                            <p>Captação audiovisual · Evento</p>
+                            <p>Captação audiovisual, Evento</p>
                             <span class="p-item-cta">▶ Assistir vídeo</span>
                         </div>
                     </div>
@@ -2023,7 +2102,7 @@
                     <div class="p-item-overlay">
                         <div class="p-item-info">
                             <h4>Aussie</h4>
-                            <p>Identidade visual · Apresentação de marca</p>
+                            <p>Identidade visual, Apresentação de marca</p>
                             <span class="p-item-cta">📄 Ver apresentação</span>
                         </div>
                     </div>
@@ -2329,7 +2408,7 @@
                     <img src="https://lp-tangerine.vercel.app/LogoPrincipal.png" alt="Tangerina" class="logo-img logo-img-footer" id="logoFooter">
                     <span class="logo-text logo-fallback" style="color:rgba(255,255,255,0.85)">Tangerina</span>
                 </a>
-                <p>Posicionamento digital e estruturação estratégica de marcas. Diagnóstico, criação, produção, gestão — tudo integrado, tudo com propósito.</p>
+                <p>Posicionamento digital e estruturação estratégica de marcas. Diagnóstico, criação, produção e gestão integrados com propósito.</p>
             </div>
             <div class="footer-col">
                 <h5>Serviços</h5>
