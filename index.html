@@ -40,6 +40,9 @@
             opacity: 0.4;
         }
 
+        .mobile-br { display: none; }
+        @media (max-width: 768px) { .mobile-br { display: block; } }
+
         /* ─── HEADER ─── */
         header {
             position: fixed;
@@ -688,9 +691,13 @@
 
         /* ─── SERVICES ─── */
         .services {
-            background: var(--light);
+            background: var(--dark);
             max-width: 100%;
         }
+
+        .services .s-label { color: var(--amber); }
+        .services .s-title { color: #fff; }
+        .services .s-sub { color: rgba(255,255,255,0.6); }
 
         .services-inner {
             max-width: 1300px;
@@ -713,8 +720,8 @@
         }
 
         .svc-card {
-            background: #fff;
-            border: 1px solid rgba(223, 93, 56, 0.1);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: 20px;
             padding: 2.5rem;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -737,18 +744,22 @@
 
         .svc-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 24px 48px rgba(223, 93, 56, 0.1);
-            border-color: transparent;
+            box-shadow: 0 24px 48px rgba(0,0,0,0.3);
+            background: rgba(255,255,255,0.07);
+            border-color: rgba(223,93,56,0.3);
         }
 
         .svc-num {
             font-size: 0.65rem;
             font-weight: 700;
             letter-spacing: 0.12em;
-            color: var(--burn);
-            opacity: 0.5;
+            color: var(--amber);
+            opacity: 0.7;
             margin-bottom: 1.5rem;
         }
+
+        .svc-card h3 { color: #fff; }
+        .svc-card p { color: rgba(255,255,255,0.6); }
 
         .svc-icon {
             font-size: 2rem;
@@ -759,14 +770,14 @@
         .svc-card h3 {
             font-size: 1rem;
             font-weight: 700;
-            color: var(--dark);
+            color: #fff;
             margin-bottom: 0.8rem;
             letter-spacing: -0.01em;
         }
 
         .svc-card p {
             font-size: 0.85rem;
-            color: var(--mid);
+            color: rgba(255,255,255,0.6);
             line-height: 1.7;
         }
 
@@ -792,7 +803,7 @@
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(3, 280px);
+            grid-auto-rows: 280px;
             gap: 1.2rem;
         }
 
@@ -827,7 +838,7 @@
 
         .p-item:hover .p-item-bg { transform: scale(1.06); }
 
-        .p-item-bg.bg-nba { background-image: url('CAPA CATEGORIA LP (1).png'); background-size: cover; background-position: center; }
+        .p-item-bg.bg-nba { background-image: url('CAPA_CATEGORIA_LP.png'); background-size: cover; background-position: center; }
 
         .p-item-bg.c1 { background: linear-gradient(135deg, #DF5D38 0%, #F49629 100%); }
         .p-item-bg.c2 { background: linear-gradient(135deg, #A5D8D7 0%, #6BB8B7 100%); }
@@ -971,29 +982,37 @@
         }
 
         .process-steps {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
             margin-top: 4rem;
             position: relative;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .process-steps::before {
             content: '';
             position: absolute;
-            top: 2rem;
-            left: 10%; right: 10%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--burn), transparent);
+            left: 27px;
+            top: 28px; bottom: 28px;
+            width: 2px;
+            background: linear-gradient(180deg, transparent, var(--burn) 20%, var(--amber) 80%, transparent);
         }
 
         .p-step {
-            text-align: center;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 1.2rem 0;
+            text-align: left;
             position: relative;
         }
 
         .p-step-num {
             width: 56px; height: 56px;
+            flex-shrink: 0;
             background: #fff;
             border: 2px solid rgba(223, 93, 56, 0.2);
             border-radius: 50%;
@@ -1003,7 +1022,6 @@
             font-size: 0.85rem;
             font-weight: 800;
             color: var(--burn);
-            margin: 0 auto 1.2rem;
             position: relative;
             z-index: 1;
             transition: all 0.3s;
@@ -1016,15 +1034,17 @@
             transform: scale(1.1);
         }
 
+        .p-step-content { padding-top: 0.8rem; }
+
         .p-step h4 {
-            font-size: 0.88rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: var(--dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .p-step p {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--mid);
             line-height: 1.6;
         }
@@ -1254,6 +1274,62 @@
             .logo-carousel-wrap::before,
             .logo-carousel-wrap::after { width: 60px; }
             .logo-item { width: 110px; height: 60px; }
+        }
+
+        /* ─── MAIS CLIENTES ─── */
+        .mais-clientes {
+            background: var(--cream);
+            padding: 0 4rem 6rem;
+        }
+        .mais-clientes-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .mc-intro {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 3rem 0 2.5rem;
+            border-top: 1px solid rgba(223,93,56,0.15);
+        }
+        .mc-intro .s-label {
+            margin: 0;
+            white-space: nowrap;
+        }
+        .mc-subtitle {
+            font-size: 0.9rem;
+            color: var(--mid);
+            opacity: 0.8;
+            margin: 0;
+        }
+        .mc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .mc-col {
+            background: rgba(255,255,255,0.6);
+            border: 1px solid rgba(223,93,56,0.1);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+        }
+        .mc-col h5 {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--burn);
+            margin-bottom: 0.75rem;
+        }
+        .mc-col p {
+            font-size: 0.85rem;
+            color: var(--mid);
+            line-height: 1.8;
+        }
+        @media (max-width: 768px) {
+            .mais-clientes { padding: 0 1.5rem 4rem; }
+            .mc-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .mc-intro { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
         }
 
         /* ─── CTA ─── */
@@ -1742,7 +1818,7 @@
             .portfolio-grid .featured { grid-column: span 2; }
             .stats-section { padding: 4rem 2rem; }
             .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-            .process-steps { grid-template-columns: repeat(3, 1fr); }
+            .process-steps { max-width: 100%; }
             .pricing-grid { grid-template-columns: repeat(2, 1fr); }
             .t-grid { grid-template-columns: 1fr 1fr; gap: 1.2rem; }
             .footer-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
@@ -1763,11 +1839,11 @@
             .stats-section { padding: 3.5rem 1.5rem; }
 
             /* Hero */
-            .hero { padding: 6rem 1.5rem 4rem; min-height: auto; }
+            .hero { padding: 6rem 1.5rem 4rem; min-height: auto; text-align: center; }
             .hero h1 { font-size: 2rem; }
             .hero p { font-size: 0.95rem; }
             .hero-tag { font-size: 0.65rem; }
-            .hero-ctas { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+            .hero-ctas { flex-direction: column; align-items: center; gap: 0.8rem; }
             .btn-primary { width: 100%; text-align: center; justify-content: center; }
 
             /* About */
@@ -1790,8 +1866,8 @@
             .st-num { font-size: 2.5rem; }
 
             /* Process */
-            .process-steps { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-            .process-steps::before { display: none; }
+            .process-steps { max-width: 100%; }
+            .process-steps::before { display: block; }
 
             /* Testimonials */
             .t-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -1820,7 +1896,7 @@
             .hero h1 { font-size: 1.75rem; }
             .about-stats { grid-template-columns: 1fr 1fr; }
             .stats-inner { grid-template-columns: 1fr 1fr; }
-            .process-steps { grid-template-columns: 1fr; }
+            .process-steps { max-width: 100%; padding: 0 0.5rem; }
         }
     </style>
 </head>
@@ -1861,8 +1937,8 @@
 
         <div class="hero-content">
             <div class="hero-tag">Posicionamento Estratégico Digital</div>
-            <h1>Posicionamento estratégico para marcas que querem <em class="hero-accent">crescer</em>.</h1>
-            <p>Unimos análise, direção criativa e performance para transformar marcas em autoridade no digital.</p>
+            <h1>Posicionamento estratégico<br class="mobile-br"> para marcas que querem<br class="mobile-br"> <em class="hero-accent">crescer</em>.</h1>
+            <p>Unimos análise, direção criativa<br class="mobile-br"> e performance para transformar marcas<br class="mobile-br"> em autoridade no digital.</p>
             <div class="hero-ctas">
                 <a href="https://wa.me/5511934980464" target="_blank" class="btn-primary">
                     Falar com a equipe →
@@ -1918,8 +1994,7 @@
                 <p class="s-label">Sobre nós</p>
                 <h2 class="s-title">Não entregamos serviços isolados. Entregamos um ecossistema.</h2>
                 <br>
-                <p>A Tangerina Artes Visuais é especializada em posicionamento digital e estruturação estratégica de marcas. Atuamos de forma integrada: diagnóstico, direção criativa, produção audiovisual, design e performance.</p>
-                <p>O trabalho é baseado em análise de cenário, objetivos claros e execução coordenada em todos os pontos de contato. Cada entrega fortalece a percepção de valor e autoridade da marca, com foco em crescimento sustentável no digital.</p>
+                <p>A Tangerina Artes Visuais é especializada em posicionamento digital e estruturação estratégica de marcas. Cada projeto é conduzido de forma integrada, do diagnóstico à performance, com foco em construir autoridade real e crescimento sustentável no digital.</p>
             </div>
             <div class="about-stats">
                 <div class="a-stat reveal">
@@ -1962,199 +2037,38 @@
                 </div>
                 <div class="svc-card reveal delay-1">
                     <div class="svc-num">02</div>
-                    <span class="svc-icon">🎨</span>
-                    <h3>Design Gráfico Estratégico</h3>
-                    <p>Criação de peças estratégicas alinhadas à identidade da marca, focadas em clareza, estética e conversão.</p>
-                </div>
-                <div class="svc-card reveal delay-2">
-                    <div class="svc-num">03</div>
                     <span class="svc-icon">🎥</span>
                     <h3>Captação Audiovisual</h3>
                     <p>Produção de fotos e vídeos de alto padrão, pensados para performance digital, percepção de autoridade e coerência com o posicionamento.</p>
                 </div>
+                <div class="svc-card reveal delay-2">
+                    <div class="svc-num">03</div>
+                    <span class="svc-icon">🎨</span>
+                    <h3>Design Gráfico Estratégico</h3>
+                    <p>Criação de peças estratégicas alinhadas à identidade da marca, focadas em clareza, estética e conversão.</p>
+                </div>
                 <div class="svc-card reveal delay-1">
                     <div class="svc-num">04</div>
-                    <span class="svc-icon">✂️</span>
-                    <h3>Edição de Vídeo</h3>
-                    <p>Material bruto transformado em conteúdo estratégico com ritmo, narrativa, identidade visual e foco em retenção.</p>
-                </div>
-                <div class="svc-card reveal delay-2">
-                    <div class="svc-num">05</div>
                     <span class="svc-icon">📱</span>
                     <h3>Gestão de Conteúdo</h3>
                     <p>Publicação e gerenciamento nas redes sociais, com copywriting estratégico e direcionamento para melhor desempenho orgânico.</p>
                 </div>
-                <div class="svc-card reveal delay-3">
-                    <div class="svc-num">06</div>
+                <div class="svc-card reveal delay-2">
+                    <div class="svc-num">05</div>
                     <span class="svc-icon">📈</span>
                     <h3>Gestão de Performance</h3>
                     <p>Estruturação e otimização de campanhas pagas com análise de métricas, testes e decisões baseadas em dados para maximizar conversão.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="portfolio">
-        <div class="portfolio-inner">
-            <div class="portfolio-header">
-                <div>
-                    <p class="s-label">Portfólio</p>
-                    <h2 class="s-title">Projetos que constroem<br>autoridade</h2>
-                </div>
-                <a href="https://www.instagram.com/tangerina.film" target="_blank" class="btn-ghost">Ver mais no Instagram →</a>
-            </div>
-
-            <div class="portfolio-grid">
-                <!-- ROW 1 -->
-                <div class="p-item reveal" data-embed="https://drive.google.com/file/d/1lyHijEjdESyxH3VIuATJ69RLgAdr2zXp/preview">
-                    <div class="p-item-bg bg-nba"></div>
-                    <div class="p-play-btn"><span>▶</span></div>
-                    <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>NBA House</h4>
-                            <p>Cobertura audiovisual, Evento de grande visibilidade</p>
-                            <span class="p-item-cta">▶ Assistir vídeo</span>
-                        </div>
-                    </div>
-                    <span class="p-tag">Evento</span>
-                </div>
-                <div class="p-item reveal delay-1" data-href="https://www.instagram.com/reel/DI1iOjXxEjE/">
-                    <div class="p-item-bg c2"></div>
-                    <div class="p-play-btn"><span>▶</span></div>
-                    <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>P9 Beach Club</h4>
-                            <p>Produção visual com FEMSA</p>
-                            <span class="p-item-cta">▶ Ver no Instagram</span>
-                        </div>
-                    </div>
-                    <span class="p-tag">Ativação</span>
-                </div>
-                <div class="p-item reveal delay-2" data-href="https://www.instagram.com/reel/DMnKBDMM7XK/">
-                    <div class="p-item-bg c3"></div>
-                    <div class="p-play-btn"><span>▶</span></div>
-                    <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>FAM nas Alturas</h4>
-                            <p>Produção completa de conteúdo</p>
-                            <span class="p-item-cta">▶ Ver no Instagram</span>
-                        </div>
-                    </div>
-                    <span class="p-tag">Evento</span>
-                </div>
-
-                <!-- ROW 2 -->
-                <div class="p-item reveal" data-href="https://www.instagram.com/p/Cj8vppnuij2/">
-                    <div class="p-item-bg c4"></div>
-                    <div class="p-play-btn"><span>▶</span></div>
-                    <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>MC Connections</h4>
-                            <p>Captação e identidade visual</p>
-                            <span class="p-item-cta">▶ Ver no Instagram</span>
-                        </div>
-                    </div>
-                    <span class="p-tag">Marca</span>
-                </div>
-                <div class="p-item reveal delay-1" data-embed="https://drive.google.com/file/d/1-kl-XF3U_2t7VETUv2PGvEXNPzNTOgD7/preview">
-                    <div class="p-item-bg c5"></div>
-                    <div class="p-play-btn"><span>▶</span></div>
-                    <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>Sephora Beauty Run</h4>
-                            <p>Captação + design, Copacabana Palace</p>
-                            <span class="p-item-cta">▶ Assistir vídeo</span>
-                        </div>
-                    </div>
-                    <span class="p-tag">Global</span>
-                </div>
-                <div class="p-item reveal delay-2" data-embed="https://drive.google.com/file/d/1lSFIZhVvgrNx3KpGiA45N5X2eSxs3bZJ/preview">
-                    <div class="p-item-bg c6"></div>
-                    <div class="p-play-btn"><span>▶</span></div>
-                    <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>Centrum × Viva Mais Caraíva</h4>
-                            <p>Captação audiovisual, Evento</p>
-                            <span class="p-item-cta">▶ Assistir vídeo</span>
-                        </div>
-                    </div>
-                    <span class="p-tag">Saúde</span>
-                </div>
-
-                <!-- ROW 3 -->
-                <div class="p-item reveal" data-embed="https://drive.google.com/file/d/1YezR5WSzBNCM7t10gZZ4gpu6fftuMmC1/preview">
-                    <div class="p-item-bg c1"></div>
-                    <div class="p-play-btn"><span>▶</span></div>
-                    <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>Go Organic Club</h4>
-                            <p>Conteúdo e posicionamento digital</p>
-                            <span class="p-item-cta">▶ Assistir vídeo</span>
-                        </div>
-                    </div>
-                    <span class="p-tag">Lifestyle</span>
-                </div>
-                <div class="p-item reveal delay-1" data-embed="https://drive.google.com/file/d/1z6ze-lV7y6Pf7h45QVDu9QB4EQd9jxD7/preview">
-                    <div class="p-item-bg c3"></div>
-                    <div class="p-play-btn pdf-icon"><span>▶</span></div>
-                    <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>Aussie</h4>
-                            <p>Identidade visual, Apresentação de marca</p>
-                            <span class="p-item-cta">📄 Ver apresentação</span>
-                        </div>
-                    </div>
-                    <span class="p-tag">Global</span>
-                </div>
-                <div class="p-item reveal delay-2" data-embed="https://drive.google.com/file/d/1GxEKwfl1EOmrRV0VGomcVoKkePLPgj6A/preview">
-                    <div class="p-item-bg c2"></div>
-                    <div class="p-play-btn pdf-icon"><span>▶</span></div>
-                    <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>Be Trullie</h4>
-                            <p>Desenvolvimento de identidade visual</p>
-                            <span class="p-item-cta">📄 Ver apresentação</span>
-                        </div>
-                    </div>
-                    <span class="p-tag">Branding</span>
+                <div class="svc-card reveal delay-3">
+                    <div class="svc-num">06</div>
+                    <span class="svc-icon">📊</span>
+                    <h3>Relatório de Métricas</h3>
+                    <p>Análise periódica de resultados com relatórios claros e acionáveis para orientar decisões estratégicas e evolução contínua da marca.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- INSTAGRAM MODAL -->
-    <div class="ig-modal" id="igModal">
-        <div class="ig-modal-backdrop" id="igBackdrop"></div>
-        <div class="ig-modal-box">
-            <button class="ig-modal-close" id="igClose">✕</button>
-            <div class="ig-modal-embed" id="igEmbed"></div>
-        </div>
-    </div>
-
-    <!-- STATS -->
-    <div class="stats-section">
-        <div class="stats-inner">
-            <div class="st-item reveal">
-                <div class="st-num" data-count="7" data-suffix="+">7+</div>
-                <div class="st-label">Anos de experiência</div>
-            </div>
-            <div class="st-item reveal delay-1">
-                <div class="st-num" data-count="60" data-suffix="+">60+</div>
-                <div class="st-label">Clientes nacionais e regionais</div>
-            </div>
-            <div class="st-item reveal delay-2">
-                <div class="st-num" data-count="10" data-suffix="+">10+</div>
-                <div class="st-label">Marcas globais atendidas</div>
-            </div>
-            <div class="st-item reveal delay-3">
-                <div class="st-num" data-suffix="°">360°</div>
-                <div class="st-label">Atuação integrada de ponta a ponta</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- PROCESS -->
     <section id="processo" class="process">
         <div class="process-inner">
             <div style="text-align:center; margin-bottom: 0;">
@@ -2164,115 +2078,44 @@
             <div class="process-steps">
                 <div class="p-step reveal">
                     <div class="p-step-num">01</div>
-                    <h4>Briefing</h4>
-                    <p>Entendemos seus objetivos, público e posicionamento atual</p>
+                    <div class="p-step-content">
+                        <h4>Briefing</h4>
+                        <p>Entendemos seus objetivos, público e posicionamento atual</p>
+                    </div>
                 </div>
                 <div class="p-step reveal delay-1">
                     <div class="p-step-num">02</div>
-                    <h4>Planejamento</h4>
-                    <p>Diagnóstico, estratégia e direção criativa personalizados</p>
+                    <div class="p-step-content">
+                        <h4>Planejamento</h4>
+                        <p>Diagnóstico, estratégia e direção criativa personalizados</p>
+                    </div>
                 </div>
                 <div class="p-step reveal delay-2">
                     <div class="p-step-num">03</div>
-                    <h4>Captação</h4>
-                    <p>Produção audiovisual e design de alto padrão</p>
+                    <div class="p-step-content">
+                        <h4>Captação Audiovisual</h4>
+                        <p>Produção audiovisual de alto padrão alinhada ao posicionamento</p>
+                    </div>
                 </div>
                 <div class="p-step reveal delay-3">
                     <div class="p-step-num">04</div>
-                    <h4>Edição</h4>
-                    <p>Finalização com identidade, ritmo e foco em performance</p>
+                    <div class="p-step-content">
+                        <h4>Artes Gráficas</h4>
+                        <p>Criação de materiais visuais com identidade e foco em conversão</p>
+                    </div>
                 </div>
                 <div class="p-step reveal delay-4">
                     <div class="p-step-num">05</div>
-                    <h4>Entrega</h4>
-                    <p>Publicação, gestão e acompanhamento de resultados</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="testimonials">
-        <div class="testimonials-inner">
-            <p class="s-label">Depoimentos</p>
-            <h2 class="s-title">O que nossos clientes dizem</h2>
-            <div class="t-grid">
-                <div class="t-card reveal">
-                    <div class="t-quote">"</div>
-                    <p class="t-text">Vocês conseguiram deixar a marca com muito mais cara de posicionamento mesmo, não só post bonito. Depois dos conteúdos, a percepção mudou muito e começamos a receber mais mensagens perguntando sobre pedidos.</p>
-                    <div class="t-author">
-                        <div class="t-avatar">JP</div>
-                        <div class="t-author-info">
-                            <strong>Joyce Pansutti</strong>
-                            <span>Joy Cookie</span>
-                        </div>
+                    <div class="p-step-content">
+                        <h4>Gestão do Orgânico e Performance</h4>
+                        <p>Publicação, gestão de conteúdo e otimização de campanhas pagas</p>
                     </div>
                 </div>
-                <div class="t-card reveal delay-1">
-                    <div class="t-quote">"</div>
-                    <p class="t-text">A captação e os materiais ficaram exatamente como eu imaginava, mas mais profissional. A marca ficou mais madura e alinhada com o público que eu quero atingir.</p>
-                    <div class="t-author">
-                        <div class="t-avatar">AS</div>
-                        <div class="t-author-info">
-                            <strong>Andressa Silva</strong>
-                            <span>Savannah</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-card reveal delay-2">
-                    <div class="t-quote">"</div>
-                    <p class="t-text">Vocês realmente entenderam o que a gente precisava comunicar. A edição trouxe mais força pra marca e deixou tudo com uma unidade que antes não tinha.</p>
-                    <div class="t-author">
-                        <div class="t-avatar">JB</div>
-                        <div class="t-author-info">
-                            <strong>Juliana</strong>
-                            <span>Blume</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CLIENTS -->
-    <section id="clientes" class="clients-section">
-        <div class="clients-inner">
-            <div class="clients-header">
-                <p class="s-label">Marcas atendidas</p>
-                <h2 class="s-title">Confiança de marcas<br>locais e globais</h2>
-                <p class="s-sub" style="text-align:center; margin: 1rem auto 0;">De marcas regionais a multinacionais, entregamos estratégia e execução no mesmo nível de exigência.</p>
-            </div>
-            <div class="logo-carousel-wrap">
-                <div class="logo-carousel">
-                    <div class="logo-track">
-                        <!-- Troque o src de cada img pelo logo real da marca -->
-                        <div class="logo-item"><img src="" alt="Sephora" data-label="Sephora"></div>
-                        <div class="logo-item"><img src="" alt="Disney Brasil" data-label="Disney Brasil"></div>
-                        <div class="logo-item"><img src="" alt="Aperol" data-label="Aperol"></div>
-                        <div class="logo-item"><img src="" alt="Campari" data-label="Campari"></div>
-                        <div class="logo-item"><img src="" alt="Sunglass Hut" data-label="Sunglass Hut"></div>
-                        <div class="logo-item"><img src="" alt="FEMSA" data-label="FEMSA"></div>
-                        <div class="logo-item"><img src="" alt="Centrum" data-label="Centrum"></div>
-                        <div class="logo-item"><img src="" alt="Aussie" data-label="Aussie"></div>
-                        <div class="logo-item"><img src="" alt="NBA House" data-label="NBA House"></div>
-                        <div class="logo-item"><img src="" alt="P9 Beach Club" data-label="P9 Beach Club"></div>
-                        <div class="logo-item"><img src="" alt="FAM nas Alturas" data-label="FAM nas Alturas"></div>
-                        <div class="logo-item"><img src="" alt="Marujo Beach Bar" data-label="Marujo Beach Bar"></div>
-                        <div class="logo-item"><img src="" alt="Go Organic Club" data-label="Go Organic Club"></div>
-                        <!-- duplicado para loop infinito -->
-                        <div class="logo-item"><img src="" alt="Sephora" data-label="Sephora"></div>
-                        <div class="logo-item"><img src="" alt="Disney Brasil" data-label="Disney Brasil"></div>
-                        <div class="logo-item"><img src="" alt="Aperol" data-label="Aperol"></div>
-                        <div class="logo-item"><img src="" alt="Campari" data-label="Campari"></div>
-                        <div class="logo-item"><img src="" alt="Sunglass Hut" data-label="Sunglass Hut"></div>
-                        <div class="logo-item"><img src="" alt="FEMSA" data-label="FEMSA"></div>
-                        <div class="logo-item"><img src="" alt="Centrum" data-label="Centrum"></div>
-                        <div class="logo-item"><img src="" alt="Aussie" data-label="Aussie"></div>
-                        <div class="logo-item"><img src="" alt="NBA House" data-label="NBA House"></div>
-                        <div class="logo-item"><img src="" alt="P9 Beach Club" data-label="P9 Beach Club"></div>
-                        <div class="logo-item"><img src="" alt="FAM nas Alturas" data-label="FAM nas Alturas"></div>
-                        <div class="logo-item"><img src="" alt="Marujo Beach Bar" data-label="Marujo Beach Bar"></div>
-                        <div class="logo-item"><img src="" alt="Go Organic Club" data-label="Go Organic Club"></div>
+                <div class="p-step reveal delay-5">
+                    <div class="p-step-num">06</div>
+                    <div class="p-step-content">
+                        <h4>Entrega</h4>
+                        <p>Relatório de resultados e acompanhamento contínuo da marca</p>
                     </div>
                 </div>
             </div>
@@ -2380,6 +2223,312 @@
                         <li class="active">Gestão de Performance</li>
                     </ul>
                     <a href="https://wa.me/5511934980464" target="_blank" class="price-cta featured-cta">Solicitar proposta</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="portfolio">
+        <div class="portfolio-inner">
+            <div class="portfolio-header">
+                <div>
+                    <p class="s-label">PORTFÓLIO</p>
+                    <h2 class="s-title">Projetos que constroem<br>autoridade</h2>
+                </div>
+                <a href="https://www.instagram.com/tangerina.film" target="_blank" class="btn-ghost">Ver mais no Instagram →</a>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="p-item reveal" data-embed="https://drive.google.com/file/d/1lyHijEjdESyxH3VIuATJ69RLgAdr2zXp/preview">
+                    <div class="p-item-bg bg-nba"></div>
+                    <div class="p-play-btn"><span>▶</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>NBA House SP</h4>
+                            <p>Direção e cobertura audiovisual</p>
+                            <span class="p-item-cta">▶ Assistir vídeo</span>
+                        </div>
+                    </div>
+                    <span class="p-tag">Evento</span>
+                </div>
+                <div class="p-item reveal delay-1" data-href="https://www.instagram.com/reel/DI1iOjXxEjE/">
+                    <div class="p-item-bg c2"></div>
+                    <div class="p-play-btn"><span>▶</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>P9 Beach Club com FEMSA</h4>
+                            <p>Cobertura audiovisual e edição final</p>
+                            <span class="p-item-cta">▶ Ver no Instagram</span>
+                        </div>
+                    </div>
+                    <span class="p-tag">Ativação</span>
+                </div>
+                <div class="p-item reveal delay-2" data-href="https://www.instagram.com/reel/DMnKBDMM7XK/">
+                    <div class="p-item-bg c3"></div>
+                    <div class="p-play-btn"><span>▶</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>FAM nas Alturas</h4>
+                            <p>Criação visual, gráfica e cenografia</p>
+                            <span class="p-item-cta">▶ Ver no Instagram</span>
+                        </div>
+                    </div>
+                    <span class="p-tag">Evento</span>
+                </div>
+
+                <div class="p-item reveal" data-href="https://www.instagram.com/tangerina.film">
+                    <div class="p-item-bg c4"></div>
+                    <div class="p-play-btn"><span>↗</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>Sunglass Hut</h4>
+                            <p>Cenografia, direção de arte e ativação de marca</p>
+                            <span class="p-item-cta">↗ Ver mais</span>
+                        </div>
+                    </div>
+                    <span class="p-tag">Global</span>
+                </div>
+                <div class="p-item reveal delay-1" data-embed="https://drive.google.com/file/d/1-kl-XF3U_2t7VETUv2PGvEXNPzNTOgD7/preview">
+                    <div class="p-item-bg c5"></div>
+                    <div class="p-play-btn"><span>▶</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>Sephora Beauty Run</h4>
+                            <p>Direção e captação audiovisual</p>
+                            <span class="p-item-cta">▶ Assistir vídeo</span>
+                        </div>
+                    </div>
+                    <span class="p-tag">Global</span>
+                </div>
+                <div class="p-item reveal delay-2" data-embed="https://drive.google.com/file/d/1lSFIZhVvgrNx3KpGiA45N5X2eSxs3bZJ/preview">
+                    <div class="p-item-bg c6"></div>
+                    <div class="p-play-btn"><span>▶</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>Centrum no Viva Mais Caraíva</h4>
+                            <p>Criação visual, gráfica e impressa</p>
+                            <span class="p-item-cta">▶ Assistir vídeo</span>
+                        </div>
+                    </div>
+                    <span class="p-tag">Saúde</span>
+                </div>
+
+                <div class="p-item reveal" data-embed="https://drive.google.com/file/d/1YezR5WSzBNCM7t10gZZ4gpu6fftuMmC1/preview">
+                    <div class="p-item-bg c1"></div>
+                    <div class="p-play-btn"><span>▶</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>Go Organic Club</h4>
+                            <p>Planejamento estratégico e cobertura audiovisual</p>
+                            <span class="p-item-cta">▶ Assistir vídeo</span>
+                        </div>
+                    </div>
+                    <span class="p-tag">Lifestyle</span>
+                </div>
+                <div class="p-item reveal delay-1" data-href="https://www.instagram.com/tangerina.film">
+                    <div class="p-item-bg c3"></div>
+                    <div class="p-play-btn"><span>↗</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>Marujo Beach Bar</h4>
+                            <p>Fotografia gastronômica</p>
+                            <span class="p-item-cta">↗ Ver mais</span>
+                        </div>
+                    </div>
+                    <span class="p-tag">Gastronomia</span>
+                </div>
+                <div class="p-item reveal delay-2" data-href="https://www.instagram.com/p/Cj8vppnuij2/">
+                    <div class="p-item-bg c2"></div>
+                    <div class="p-play-btn"><span>↗</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>MC Connections</h4>
+                            <p>Captação e identidade visual</p>
+                            <span class="p-item-cta">↗ Ver no Instagram</span>
+                        </div>
+                    </div>
+                    <span class="p-tag">Marca</span>
+                </div>
+
+                <div class="p-item reveal" data-embed="https://drive.google.com/file/d/1z6ze-lV7y6Pf7h45QVDu9QB4EQd9jxD7/preview">
+                    <div class="p-item-bg c4"></div>
+                    <div class="p-play-btn pdf-icon"><span>▶</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>Aussie Verão</h4>
+                            <p>Proposta comercial</p>
+                            <span class="p-item-cta">📄 Ver apresentação</span>
+                        </div>
+                    </div>
+                    <span class="p-tag">Global</span>
+                </div>
+                <div class="p-item reveal delay-1" data-embed="https://drive.google.com/file/d/1GxEKwfl1EOmrRV0VGomcVoKkePLPgj6A/preview">
+                    <div class="p-item-bg c5"></div>
+                    <div class="p-play-btn pdf-icon"><span>▶</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>Be Trulli</h4>
+                            <p>Interface aplicativo e proposta comercial</p>
+                            <span class="p-item-cta">📄 Ver apresentação</span>
+                        </div>
+                    </div>
+                    <span class="p-tag">Branding</span>
+                </div>
+                <div class="p-item reveal delay-2" data-href="https://www.instagram.com/tangerina.film">
+                    <div class="p-item-bg c6"></div>
+                    <div class="p-play-btn"><span>▶</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info">
+                            <h4>Cia do Vinho</h4>
+                            <p>Vídeo produto</p>
+                            <span class="p-item-cta">↗ Ver mais</span>
+                        </div>
+                    </div>
+                    <span class="p-tag">Lifestyle</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIS CLIENTES — continuação do portfólio -->
+    <section class="mais-clientes">
+        <div class="mais-clientes-inner">
+            <div class="mc-intro reveal">
+                <p class="s-label">Também atendemos</p>
+                <p class="mc-subtitle">Outras marcas que já confiaram na Tangerina</p>
+            </div>
+            <div class="mc-grid">
+                <div class="mc-col reveal">
+                    <h5>Nacionais</h5>
+                    <p>Aperol, Campari, Disney Brasil, Evento Body</p>
+                </div>
+                <div class="mc-col reveal delay-1">
+                    <h5>E-commerces</h5>
+                    <p>Blume Co, Mio Capelli, El Capitan, Vello, Lotus, Baby Penguin, Sevven Cosméticos, Rejuntei</p>
+                </div>
+                <div class="mc-col reveal delay-2">
+                    <h5>Locais</h5>
+                    <p>Seu Dito Restaurante e Bar, Espaço Boulevard, Bela Vista Eventos, Colégio Monteiro Lobato</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSTAGRAM MODAL -->
+    <div class="ig-modal" id="igModal">
+        <div class="ig-modal-backdrop" id="igBackdrop"></div>
+        <div class="ig-modal-box">
+            <button class="ig-modal-close" id="igClose">✕</button>
+            <div class="ig-modal-embed" id="igEmbed"></div>
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-section">
+        <div class="stats-inner">
+            <div class="st-item reveal">
+                <div class="st-num" data-count="7" data-suffix="+">7+</div>
+                <div class="st-label">Anos de experiência</div>
+            </div>
+            <div class="st-item reveal delay-1">
+                <div class="st-num" data-count="60" data-suffix="+">60+</div>
+                <div class="st-label">Clientes nacionais e regionais</div>
+            </div>
+            <div class="st-item reveal delay-2">
+                <div class="st-num" data-count="10" data-suffix="+">10+</div>
+                <div class="st-label">Marcas globais atendidas</div>
+            </div>
+            <div class="st-item reveal delay-3">
+                <div class="st-num" data-suffix="°">360°</div>
+                <div class="st-label">Atuação integrada de ponta a ponta</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="testimonials-inner">
+            <p class="s-label">Depoimentos</p>
+            <h2 class="s-title">O que nossos clientes dizem</h2>
+            <div class="t-grid">
+                <div class="t-card reveal">
+                    <div class="t-quote">"</div>
+                    <p class="t-text">Vocês conseguiram deixar a marca com muito mais cara de posicionamento mesmo, não só post bonito. Depois dos conteúdos, a percepção mudou muito e começamos a receber mais mensagens perguntando sobre pedidos.</p>
+                    <div class="t-author">
+                        <div class="t-avatar">JP</div>
+                        <div class="t-author-info">
+                            <strong>Joyce Pansutti</strong>
+                            <span>Joy Cookie</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-card reveal delay-1">
+                    <div class="t-quote">"</div>
+                    <p class="t-text">A captação e os materiais ficaram exatamente como eu imaginava, mas mais profissional. A marca ficou mais madura e alinhada com o público que eu quero atingir.</p>
+                    <div class="t-author">
+                        <div class="t-avatar">AS</div>
+                        <div class="t-author-info">
+                            <strong>Andressa Silva</strong>
+                            <span>Savannah</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-card reveal delay-2">
+                    <div class="t-quote">"</div>
+                    <p class="t-text">Vocês realmente entenderam o que a gente precisava comunicar. A edição trouxe mais força pra marca e deixou tudo com uma unidade que antes não tinha.</p>
+                    <div class="t-author">
+                        <div class="t-avatar">JB</div>
+                        <div class="t-author-info">
+                            <strong>Juliana</strong>
+                            <span>Blume</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENTS -->
+    <section id="clientes" class="clients-section">
+        <div class="clients-inner">
+            <div class="clients-header">
+                <p class="s-label">Marcas atendidas</p>
+                <h2 class="s-title">Confiança de marcas<br>locais e globais</h2>
+                <p class="s-sub" style="text-align:center; margin: 1rem auto 0;">De marcas regionais a multinacionais, entregamos estratégia e execução no mesmo nível de exigência.</p>
+            </div>
+            <div class="logo-carousel-wrap">
+                <div class="logo-carousel">
+                    <div class="logo-track">
+                        <!-- Troque o src de cada img pelo logo real da marca -->
+                        <div class="logo-item"><img src="" alt="Sephora" data-label="Sephora"></div>
+                        <div class="logo-item"><img src="" alt="Disney Brasil" data-label="Disney Brasil"></div>
+                        <div class="logo-item"><img src="" alt="Aperol" data-label="Aperol"></div>
+                        <div class="logo-item"><img src="" alt="Campari" data-label="Campari"></div>
+                        <div class="logo-item"><img src="" alt="Sunglass Hut" data-label="Sunglass Hut"></div>
+                        <div class="logo-item"><img src="" alt="FEMSA" data-label="FEMSA"></div>
+                        <div class="logo-item"><img src="" alt="Centrum" data-label="Centrum"></div>
+                        <div class="logo-item"><img src="" alt="Aussie" data-label="Aussie"></div>
+                        <div class="logo-item"><img src="" alt="NBA House" data-label="NBA House"></div>
+                        <div class="logo-item"><img src="" alt="P9 Beach Club" data-label="P9 Beach Club"></div>
+                        <div class="logo-item"><img src="" alt="FAM nas Alturas" data-label="FAM nas Alturas"></div>
+                        <div class="logo-item"><img src="" alt="Marujo Beach Bar" data-label="Marujo Beach Bar"></div>
+                        <div class="logo-item"><img src="" alt="Go Organic Club" data-label="Go Organic Club"></div>
+                        <!-- duplicado para loop infinito -->
+                        <div class="logo-item"><img src="" alt="Sephora" data-label="Sephora"></div>
+                        <div class="logo-item"><img src="" alt="Disney Brasil" data-label="Disney Brasil"></div>
+                        <div class="logo-item"><img src="" alt="Aperol" data-label="Aperol"></div>
+                        <div class="logo-item"><img src="" alt="Campari" data-label="Campari"></div>
+                        <div class="logo-item"><img src="" alt="Sunglass Hut" data-label="Sunglass Hut"></div>
+                        <div class="logo-item"><img src="" alt="FEMSA" data-label="FEMSA"></div>
+                        <div class="logo-item"><img src="" alt="Centrum" data-label="Centrum"></div>
+                        <div class="logo-item"><img src="" alt="Aussie" data-label="Aussie"></div>
+                        <div class="logo-item"><img src="" alt="NBA House" data-label="NBA House"></div>
+                        <div class="logo-item"><img src="" alt="P9 Beach Club" data-label="P9 Beach Club"></div>
+                        <div class="logo-item"><img src="" alt="FAM nas Alturas" data-label="FAM nas Alturas"></div>
+                        <div class="logo-item"><img src="" alt="Marujo Beach Bar" data-label="Marujo Beach Bar"></div>
+                        <div class="logo-item"><img src="" alt="Go Organic Club" data-label="Go Organic Club"></div>
+                    </div>
                 </div>
             </div>
         </div>
