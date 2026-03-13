@@ -1358,8 +1358,22 @@
             .mc-intro { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
         }
 
-        /* ─── CTA ─── */
-        .cta-section {
+        /* ─── PORTFOLIO MOBILE SCROLL REVEAL ─── */
+        @media (hover: none) {
+            .p-item-overlay {
+                background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+            }
+            .p-item.p-visible .p-item-overlay {
+                opacity: 1;
+            }
+            .p-item.p-visible .p-item-info-text {
+                transform: translateY(0);
+            }
+            .p-item.p-visible .p-item-cta {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
             background: var(--light);
             text-align: center;
         }
@@ -2691,6 +2705,20 @@
         }, { threshold: 0.5 });
 
         document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
+
+        // ─── PORTFOLIO MOBILE SCROLL REVEAL ───
+        if (window.matchMedia('(hover: none)').matches) {
+            const portfolioObserver = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('p-visible');
+                    } else {
+                        e.target.classList.remove('p-visible');
+                    }
+                });
+            }, { threshold: 0.55 });
+            document.querySelectorAll('.p-item').forEach(el => portfolioObserver.observe(el));
+        }
 
         // ─── CURSOR GLOW ───
         const glow = document.createElement('div');
