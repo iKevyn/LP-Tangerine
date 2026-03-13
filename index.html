@@ -2716,7 +2716,10 @@
                         e.target.classList.remove('p-visible');
                     }
                 });
-            }, { threshold: 0.55 });
+            }, {
+                threshold: 0,
+                rootMargin: '-28% 0px -28% 0px'
+            });
             document.querySelectorAll('.p-item').forEach(el => portfolioObserver.observe(el));
         }
 
