@@ -854,43 +854,64 @@
         .p-item-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(0deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.15) 55%, transparent 100%);
+            background: linear-gradient(0deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.2) 40%, transparent 100%);
             display: flex;
             align-items: flex-end;
-            padding: 1.5rem;
-            transition: background 0.3s;
+            padding: 1.2rem 1.5rem;
+            opacity: 0;
+            transition: opacity 0.35s ease;
         }
 
         .p-item:hover .p-item-overlay {
-            background: linear-gradient(0deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 55%, transparent 100%);
+            opacity: 1;
+        }
+
+        .p-item-info {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            width: 100%;
+            gap: 1rem;
+        }
+
+        .p-item-info-text {
+            flex: 1;
+            transform: translateY(10px);
+            transition: transform 0.35s ease;
+        }
+
+        .p-item:hover .p-item-info-text {
+            transform: translateY(0);
         }
 
         .p-item-info h4 {
             font-size: 0.95rem;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.15rem;
         }
 
         .p-item-info p {
             font-size: 0.72rem;
-            color: rgba(255,255,255,0.65);
-            margin-bottom: 0.7rem;
+            color: rgba(255,255,255,0.7);
+            margin: 0;
         }
 
-        /* CTA inline abaixo do título */
+        /* CTA lado direito */
         .p-item-cta {
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            font-size: 0.68rem;
+            font-size: 0.65rem;
             font-weight: 600;
             letter-spacing: 0.08em;
             text-transform: uppercase;
             color: var(--amber);
+            white-space: nowrap;
+            flex-shrink: 0;
             opacity: 0;
-            transform: translateY(6px);
-            transition: opacity 0.3s, transform 0.3s;
+            transform: translateY(10px);
+            transition: opacity 0.3s 0.05s, transform 0.35s ease 0.05s;
         }
 
         .p-item:hover .p-item-cta {
@@ -912,11 +933,11 @@
             border-radius: 100px;
         }
 
-        /* Play button sempre visível */
+        /* Play button oculto por padrão, aparece no hover */
         .p-play-btn {
             position: absolute;
             top: 50%; left: 50%;
-            transform: translate(-50%, -50%) scale(0.85);
+            transform: translate(-50%, -50%) scale(0.7);
             width: 56px; height: 56px;
             background: rgba(255,255,255,0.18);
             border: 2px solid rgba(255,255,255,0.5);
@@ -927,12 +948,13 @@
             font-size: 1.1rem;
             color: #fff;
             z-index: 3;
-            opacity: 1;
+            opacity: 0;
             transition: opacity 0.3s, transform 0.3s, background 0.3s, border-color 0.3s;
             backdrop-filter: blur(4px);
         }
 
         .p-item:hover .p-play-btn {
+            opacity: 1;
             transform: translate(-50%, -50%) scale(1);
             background: rgba(255,255,255,0.95);
             color: var(--burn);
@@ -2248,11 +2270,7 @@
                     <div class="p-item-bg bg-nba"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>NBA House SP</h4>
-                            <p>Direção e cobertura audiovisual</p>
-                            <span class="p-item-cta">▶ Assistir vídeo</span>
-                        </div>
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>NBA House SP</h4><p>Direção e cobertura audiovisual</p></div><span class="p-item-cta">▶ Assistir vídeo</span></div>
                     </div>
                     <span class="p-tag">Evento</span>
                 </div>
@@ -2260,11 +2278,7 @@
                     <div class="p-item-bg bg-p9"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>P9 Beach Club com FEMSA</h4>
-                            <p>Cobertura audiovisual e edição final</p>
-                            <span class="p-item-cta">▶ Ver no Instagram</span>
-                        </div>
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>P9 Beach Club com FEMSA</h4><p>Cobertura audiovisual e edição final</p></div><span class="p-item-cta">▶ Ver no Instagram</span></div>
                     </div>
                     <span class="p-tag">Ativação</span>
                 </div>
@@ -2272,11 +2286,7 @@
                     <div class="p-item-bg bg-fam"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>FAM nas Alturas</h4>
-                            <p>Criação visual, gráfica e cenografia</p>
-                            <span class="p-item-cta">▶ Ver no Instagram</span>
-                        </div>
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>FAM nas Alturas</h4><p>Criação visual, gráfica e cenografia</p></div><span class="p-item-cta">▶ Ver no Instagram</span></div>
                     </div>
                     <span class="p-tag">Evento</span>
                 </div>
@@ -2285,11 +2295,7 @@
                     <div class="p-item-bg c4"></div>
                     <div class="p-play-btn"><span>↗</span></div>
                     <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>Sunglass Hut</h4>
-                            <p>Cenografia, direção de arte e ativação de marca</p>
-                            <span class="p-item-cta">↗ Ver mais</span>
-                        </div>
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Sunglass Hut</h4><p>Cenografia, direção de arte e ativação de marca</p></div><span class="p-item-cta">↗ Ver mais</span></div>
                     </div>
                     <span class="p-tag">Global</span>
                 </div>
@@ -2297,11 +2303,7 @@
                     <div class="p-item-bg bg-seph"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>Sephora Beauty Run</h4>
-                            <p>Direção e captação audiovisual</p>
-                            <span class="p-item-cta">▶ Assistir vídeo</span>
-                        </div>
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Sephora Beauty Run</h4><p>Direção e captação audiovisual</p></div><span class="p-item-cta">▶ Assistir vídeo</span></div>
                     </div>
                     <span class="p-tag">Global</span>
                 </div>
@@ -2309,11 +2311,7 @@
                     <div class="p-item-bg bg-cent"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>Centrum no Viva Mais Caraíva</h4>
-                            <p>Criação visual, gráfica e impressa</p>
-                            <span class="p-item-cta">▶ Assistir vídeo</span>
-                        </div>
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Centrum no Viva Mais Caraíva</h4><p>Criação visual, gráfica e impressa</p></div><span class="p-item-cta">▶ Assistir vídeo</span></div>
                     </div>
                     <span class="p-tag">Saúde</span>
                 </div>
@@ -2322,11 +2320,7 @@
                     <div class="p-item-bg bg-org"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>Go Organic Club</h4>
-                            <p>Planejamento estratégico e cobertura audiovisual</p>
-                            <span class="p-item-cta">▶ Assistir vídeo</span>
-                        </div>
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Go Organic Club</h4><p>Planejamento estratégico e cobertura audiovisual</p></div><span class="p-item-cta">▶ Assistir vídeo</span></div>
                     </div>
                     <span class="p-tag">Lifestyle</span>
                 </div>
@@ -2334,11 +2328,7 @@
                     <div class="p-item-bg c3"></div>
                     <div class="p-play-btn"><span>↗</span></div>
                     <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>Marujo Beach Bar</h4>
-                            <p>Fotografia gastronômica</p>
-                            <span class="p-item-cta">↗ Ver mais</span>
-                        </div>
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Marujo Beach Bar</h4><p>Fotografia gastronômica</p></div><span class="p-item-cta">↗ Ver mais</span></div>
                     </div>
                     <span class="p-tag">Gastronomia</span>
                 </div>
@@ -2346,11 +2336,7 @@
                     <div class="p-item-bg bg-mc"></div>
                     <div class="p-play-btn"><span>↗</span></div>
                     <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>MC Connections</h4>
-                            <p>Captação e identidade visual</p>
-                            <span class="p-item-cta">↗ Ver no Instagram</span>
-                        </div>
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>MC Connections</h4><p>Captação e identidade visual</p></div><span class="p-item-cta">↗ Ver no Instagram</span></div>
                     </div>
                     <span class="p-tag">Marca</span>
                 </div>
@@ -2359,11 +2345,7 @@
                     <div class="p-item-bg bg-aussie"></div>
                     <div class="p-play-btn pdf-icon"><span>▶</span></div>
                     <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>Aussie Verão</h4>
-                            <p>Proposta comercial</p>
-                            <span class="p-item-cta">📄 Ver apresentação</span>
-                        </div>
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Aussie Verão</h4><p>Proposta comercial</p></div><span class="p-item-cta">📄 Ver apresentação</span></div>
                     </div>
                     <span class="p-tag">Global</span>
                 </div>
@@ -2371,11 +2353,7 @@
                     <div class="p-item-bg bg-trulli"></div>
                     <div class="p-play-btn pdf-icon"><span>▶</span></div>
                     <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>Be Trulli</h4>
-                            <p>Interface aplicativo e proposta comercial</p>
-                            <span class="p-item-cta">📄 Ver apresentação</span>
-                        </div>
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Be Trulli</h4><p>Interface aplicativo e proposta comercial</p></div><span class="p-item-cta">📄 Ver apresentação</span></div>
                     </div>
                     <span class="p-tag">Branding</span>
                 </div>
@@ -2383,11 +2361,7 @@
                     <div class="p-item-bg c6"></div>
                     <div class="p-play-btn"><span>▶</span></div>
                     <div class="p-item-overlay">
-                        <div class="p-item-info">
-                            <h4>Cia do Vinho</h4>
-                            <p>Vídeo produto</p>
-                            <span class="p-item-cta">↗ Ver mais</span>
-                        </div>
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Cia do Vinho</h4><p>Vídeo produto</p></div><span class="p-item-cta">↗ Ver mais</span></div>
                     </div>
                     <span class="p-tag">Lifestyle</span>
                 </div>
