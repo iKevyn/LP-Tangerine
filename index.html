@@ -1358,20 +1358,21 @@
             .mc-intro { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
         }
 
-        /* ─── PORTFOLIO MOBILE SCROLL REVEAL ─── */
-        @media (hover: none) {
+        /* ─── PORTFOLIO MOBILE ─── */
+        @media (max-width: 768px) {
             .p-item-overlay {
-                background: linear-gradient(0deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+                opacity: 1 !important;
+                background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 38%, transparent 65%);
             }
-            .p-item.p-visible .p-item-overlay {
-                opacity: 1;
+            .p-item-info-text {
+                transform: translateY(0) !important;
             }
-            .p-item.p-visible .p-item-info-text {
-                transform: translateY(0);
+            .p-item-cta {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
             }
-            .p-item.p-visible .p-item-cta {
-                opacity: 1;
-                transform: translateY(0);
+            .p-play-btn {
+                display: none;
             }
         }
             background: var(--light);
@@ -1898,7 +1899,7 @@
             .svc-card { padding: 1.8rem; }
 
             /* Portfolio */
-            .portfolio-grid { grid-template-columns: 1fr; grid-template-rows: repeat(9, 220px); gap: 1rem; }
+            .portfolio-grid { grid-template-columns: 1fr; grid-template-rows: repeat(9, 260px); gap: 1rem; }
             .portfolio-grid .featured { grid-column: span 1; }
 
             /* Stats */
@@ -2705,23 +2706,6 @@
         }, { threshold: 0.5 });
 
         document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
-
-        // ─── PORTFOLIO MOBILE SCROLL REVEAL ───
-        if (window.matchMedia('(hover: none)').matches) {
-            const portfolioObserver = new IntersectionObserver((entries) => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) {
-                        e.target.classList.add('p-visible');
-                    } else {
-                        e.target.classList.remove('p-visible');
-                    }
-                });
-            }, {
-                threshold: 0,
-                rootMargin: '-28% 0px -28% 0px'
-            });
-            document.querySelectorAll('.p-item').forEach(el => portfolioObserver.observe(el));
-        }
 
         // ─── CURSOR GLOW ───
         const glow = document.createElement('div');
