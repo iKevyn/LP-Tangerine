@@ -20,7 +20,7 @@
             --light: #FDF8F2;
         }
 
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -163,19 +163,19 @@
 
         /* pricing cards no fundo laranja */
         .pricing-section .price-card {
-            background: rgba(255,255,255,0.12);
-            border-color: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.12);
         }
         .pricing-section .price-card:hover {
-            background: rgba(255,255,255,0.2);
-            border-color: rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.09);
+            border-color: rgba(255,255,255,0.25);
         }
         .pricing-section .price-card.featured {
-            background: var(--dark);
+            background: var(--burn);
             border-color: transparent;
         }
         .pricing-section .price-card.featured:hover {
-            background: #2a1f18;
+            background: #c44d2a;
         }
         .pricing-section .price-badge {
             color: #fff;
@@ -186,16 +186,20 @@
             color: #fff;
         }
         .pricing-section .price-cta {
-            background: rgba(255,255,255,0.15);
-            border-color: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.25);
             color: #fff;
         }
         .pricing-section .price-cta:hover {
-            background: rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.2);
         }
         .pricing-section .featured-cta {
             background: #fff;
             color: var(--burn) !important;
+            border-color: transparent;
+        }
+        .pricing-section .featured-cta:hover {
+            background: rgba(255,255,255,0.9);
         }
 
         /* deco-orange no fundo laranja: inverte p/ branco */
@@ -812,6 +816,39 @@
             grid-row: span 1;
         }
 
+        .portfolio-grid .p-brands {
+            grid-column: span 3;
+            height: 180px;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            background: var(--dark);
+            cursor: default;
+        }
+        .portfolio-grid .p-brands .p-item-bg {
+            position: absolute;
+            inset: 0;
+            background-color: var(--dark);
+            background-size: cover;
+            background-position: center;
+        }
+        .portfolio-grid .p-brands .p-brands-label {
+            position: absolute;
+            bottom: 1.2rem; left: 1.5rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+            z-index: 2;
+        }
+        @media (max-width: 900px) {
+            .portfolio-grid .p-brands { grid-column: span 2; }
+        }
+        @media (max-width: 600px) {
+            .portfolio-grid .p-brands { grid-column: span 1; }
+        }
+
         .p-item {
             border-radius: 18px;
             overflow: hidden;
@@ -1318,10 +1355,7 @@
             padding: 3rem 0 2.5rem;
             border-top: 1px solid rgba(223,93,56,0.15);
         }
-        .mc-intro .s-label {
-            margin: 0;
-            white-space: nowrap;
-        }
+        .mc-intro .s-label { margin: 0; white-space: nowrap; }
         .mc-subtitle {
             font-size: 0.9rem;
             color: var(--mid);
@@ -1333,29 +1367,51 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
         }
-        .mc-col {
-            background: rgba(255,255,255,0.6);
-            border: 1px solid rgba(223,93,56,0.1);
-            border-radius: 16px;
-            padding: 1.5rem 2rem;
+        /* card estilo portfólio */
+        .mc-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 220px;
+            cursor: default;
         }
-        .mc-col h5 {
+        .mc-card-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-color: var(--dark);
+            transition: transform 0.5s ease;
+        }
+        .mc-card:hover .mc-card-bg { transform: scale(1.04); }
+        .mc-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+        }
+        .mc-card-overlay h5 {
             font-size: 0.65rem;
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: var(--burn);
-            margin-bottom: 0.75rem;
+            color: var(--amber);
+            margin-bottom: 0.4rem;
         }
-        .mc-col p {
-            font-size: 0.85rem;
-            color: var(--mid);
-            line-height: 1.8;
+        .mc-card-overlay p {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.6;
+            margin: 0;
         }
         @media (max-width: 768px) {
             .mais-clientes { padding: 0 1.5rem 4rem; }
             .mc-grid { grid-template-columns: 1fr; gap: 1rem; }
             .mc-intro { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+            .mc-card { height: 200px; }
         }
 
         /* ─── PORTFOLIO MOBILE ─── */
@@ -1375,13 +1431,21 @@
                 display: none;
             }
         }
+        .cta-section {
             background: var(--light);
             text-align: center;
+            padding: 6rem 4rem;
+            position: relative;
+            overflow: hidden;
         }
 
         .cta-inner {
             max-width: 700px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         .cta-inner .s-title {
@@ -1403,7 +1467,7 @@
 
         /* ─── FOOTER ─── */
         footer {
-            background: var(--burn-deep);
+            background: var(--dark);
             color: rgba(255,255,255,0.6);
             padding: 4rem 4rem 2.5rem;
         }
@@ -1471,7 +1535,27 @@
 
         .footer-bottom a:hover { color: var(--amber); }
 
-        /* ─── SCROLL ANIMATIONS ─── */
+        /* ─── KEVYN ─── */
+        .kevyn-link {
+            color: rgba(255,255,255,0.35);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.75rem;
+        }
+        .kevyn-name {
+            color: rgba(255,255,255,0.5);
+            position: relative;
+        }
+        .kevyn-bubble {
+            position: absolute;
+            bottom: -2px; left: 0;
+            width: 0; height: 1px;
+            background: #fff;
+            transition: width 0.4s ease;
+            display: block;
+        }
+        .kevyn-link:hover .kevyn-bubble { width: 100%; }
+        .kevyn-link:hover { color: rgba(255,255,255,0.5); }
         .reveal {
             opacity: 0;
             transform: translateY(32px);
@@ -1487,9 +1571,11 @@
 
         /* ─── PRICING ─── */
         .pricing-section {
-            background: var(--burn-deep);
+            background: var(--dark);
             color: #fff;
             padding: 6rem 4rem;
+            position: relative;
+            overflow: hidden;
         }
 
         .pricing-inner {
@@ -1792,17 +1878,27 @@
         .nav-toggle {
             display: none;
             flex-direction: column;
-            gap: 5px;
+            gap: 4px;
             cursor: pointer;
-            padding: 4px;
+            padding: 8px 14px;
+            border: 1.5px solid rgba(223,93,56,0.3);
+            border-radius: 100px;
+            background: transparent;
+            transition: border-color 0.3s;
+        }
+        .nav-toggle:hover {
+            border-color: rgba(223,93,56,0.6);
         }
         .nav-toggle span {
             display: block;
-            width: 24px; height: 2px;
+            height: 1.5px;
             background: var(--dark);
             border-radius: 2px;
             transition: all 0.3s;
         }
+        .nav-toggle span:nth-child(1) { width: 18px; }
+        .nav-toggle span:nth-child(2) { width: 14px; }
+        .nav-toggle span:nth-child(3) { width: 18px; }
         .mobile-nav {
             display: none;
             position: fixed;
@@ -1956,7 +2052,7 @@
             <a href="#portfolio">Portfólio</a>
             <a href="#clientes">Clientes</a>
             <a href="#pacotes">Pacotes</a>
-            <a href="#contato" class="btn-nav">Falar no WhatsApp</a>
+            <a href="https://wa.me/5511934980464" target="_blank" class="btn-nav">Falar no WhatsApp</a>
         </nav>
         <button class="nav-toggle" id="navToggle" aria-label="Menu">
             <span></span><span></span><span></span>
@@ -1969,7 +2065,7 @@
         <a href="#portfolio">Portfólio</a>
         <a href="#clientes">Clientes</a>
         <a href="#pacotes">Pacotes</a>
-        <a href="#contato" class="btn-nav">Falar no WhatsApp</a>
+        <a href="https://wa.me/5511934980464" target="_blank" class="btn-nav">Falar no WhatsApp</a>
     </div>
 
     <!-- HERO -->
@@ -2162,113 +2258,6 @@
             </div>
         </div>
     </section>
-
-    <!-- PRICING -->
-    <section id="pacotes" class="pricing-section">
-        <div class="deco-orange"></div>
-        <div class="pricing-inner">
-            <div style="text-align:center; margin-bottom: 3.5rem;">
-                <p class="s-label">Investimento</p>
-                <h2 class="s-title">Pacotes personalizados<br>para cada momento da marca</h2>
-                <p class="s-sub" style="text-align:center; margin: 1rem auto 0;">Os pacotes são enviados de forma personalizada após diagnóstico inicial. Converse com a equipe para entender qual faz mais sentido para o seu negócio.</p>
-            </div>
-
-            <div class="pricing-grid">
-                <!-- Diária -->
-                <div class="price-card reveal">
-                    <div class="price-card-top">
-                        <span class="price-badge">Entrada</span>
-                        <h3>Diária de Captação</h3>
-                        <p>Para empresas que querem fortalecer presença com conteúdo visual de alto nível.</p>
-                    </div>
-                    <div class="price-value">
-                        <span class="price-cur">R$</span>
-                        <span class="price-num">800</span>
-                        <span class="price-period">/diária</span>
-                    </div>
-                    <ul class="price-features">
-                        <li class="active">Captação Audiovisual</li>
-                        <li class="active">4 vídeos de até 1 min</li>
-                        <li class="inactive">Planejamento & Diagnóstico</li>
-                        <li class="inactive">Design Gráfico</li>
-                        <li class="inactive">Veiculação e Gestão</li>
-                        <li class="inactive">Gestão de Performance</li>
-                    </ul>
-                    <a href="https://wa.me/5511934980464" target="_blank" class="price-cta">Solicitar proposta</a>
-                </div>
-
-                <!-- Audiovisual -->
-                <div class="price-card reveal delay-1">
-                    <div class="price-card-top">
-                        <span class="price-badge">Popular</span>
-                        <h3>Audiovisual Estratégico</h3>
-                        <p>Foco exclusivo em imagem, conteúdo e percepção de autoridade.</p>
-                    </div>
-                    <div class="price-value">
-                        <span class="price-cur">R$</span>
-                        <span class="price-num">1.800</span>
-                        <span class="price-period">/mês</span>
-                    </div>
-                    <ul class="price-features">
-                        <li class="active">Planejamento & Diagnóstico</li>
-                        <li class="active">Captação Audiovisual</li>
-                        <li class="active">Edição de Vídeo</li>
-                        <li class="inactive">Design Gráfico</li>
-                        <li class="inactive">Veiculação e Gestão</li>
-                        <li class="inactive">Gestão de Performance</li>
-                    </ul>
-                    <a href="https://wa.me/5511934980464" target="_blank" class="price-cta">Solicitar proposta</a>
-                </div>
-
-                <!-- Estrutura -->
-                <div class="price-card reveal delay-2">
-                    <div class="price-card-top">
-                        <span class="price-badge">Completo</span>
-                        <h3>Estrutura de Marca & Conteúdo</h3>
-                        <p>Criação dos materiais + captação audiovisual, mantendo gestão interna.</p>
-                    </div>
-                    <div class="price-value">
-                        <span class="price-cur">R$</span>
-                        <span class="price-num">2.200</span>
-                        <span class="price-period">/mês</span>
-                    </div>
-                    <ul class="price-features">
-                        <li class="active">Planejamento & Diagnóstico</li>
-                        <li class="active">Design Gráfico</li>
-                        <li class="active">Captação Audiovisual</li>
-                        <li class="active">Edição de Vídeo</li>
-                        <li class="active">Veiculação e Gestão</li>
-                        <li class="inactive">Gestão de Performance</li>
-                    </ul>
-                    <a href="https://wa.me/5511934980464" target="_blank" class="price-cta">Solicitar proposta</a>
-                </div>
-
-                <!-- Posicionamento Completo -->
-                <div class="price-card featured reveal delay-3">
-                    <div class="price-card-top">
-                        <span class="price-badge highlight-badge">Mais vendido ✦</span>
-                        <h3>Posicionamento Completo & Performance</h3>
-                        <p>Todos os pilares do posicionamento de marca, da base à gestão contínua.</p>
-                    </div>
-                    <div class="price-value">
-                        <span class="price-cur">R$</span>
-                        <span class="price-num">3.000</span>
-                        <span class="price-period">/mês</span>
-                    </div>
-                    <ul class="price-features">
-                        <li class="active">Planejamento & Diagnóstico</li>
-                        <li class="active">Design Gráfico</li>
-                        <li class="active">Captação Audiovisual</li>
-                        <li class="active">Edição de Vídeo</li>
-                        <li class="active">Veiculação e Gestão</li>
-                        <li class="active">Gestão de Performance</li>
-                    </ul>
-                    <a href="https://wa.me/5511934980464" target="_blank" class="price-cta featured-cta">Solicitar proposta</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- PORTFOLIO -->
     <section id="portfolio" class="portfolio">
         <div class="portfolio-inner">
@@ -2331,6 +2320,15 @@
                     <span class="p-tag">Saúde</span>
                 </div>
 
+                <div class="p-item reveal delay-2" data-href="https://www.instagram.com/tangerina.film">
+                    <div class="p-item-bg c6"></div>
+                    <div class="p-play-btn"><span>▶</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Cia do Vinho</h4><p>Vídeo produto</p></div><span class="p-item-cta">↗ Ver mais</span></div>
+                    </div>
+                    <span class="p-tag">Lifestyle</span>
+                </div>
+
                 <div class="p-item reveal" data-embed="https://drive.google.com/file/d/1YezR5WSzBNCM7t10gZZ4gpu6fftuMmC1/preview">
                     <div class="p-item-bg bg-org"></div>
                     <div class="p-play-btn"><span>▶</span></div>
@@ -2347,15 +2345,6 @@
                     </div>
                     <span class="p-tag">Gastronomia</span>
                 </div>
-                <div class="p-item reveal delay-2" data-href="https://www.instagram.com/p/Cj8vppnuij2/">
-                    <div class="p-item-bg bg-mc"></div>
-                    <div class="p-play-btn"><span>↗</span></div>
-                    <div class="p-item-overlay">
-                        <div class="p-item-info"><div class="p-item-info-text"><h4>MC Connections</h4><p>Captação e identidade visual</p></div><span class="p-item-cta">↗ Ver no Instagram</span></div>
-                    </div>
-                    <span class="p-tag">Marca</span>
-                </div>
-
                 <div class="p-item reveal" data-embed="https://drive.google.com/file/d/1z6ze-lV7y6Pf7h45QVDu9QB4EQd9jxD7/preview">
                     <div class="p-item-bg bg-aussie"></div>
                     <div class="p-play-btn pdf-icon"><span>▶</span></div>
@@ -2372,37 +2361,20 @@
                     </div>
                     <span class="p-tag">Branding</span>
                 </div>
-                <div class="p-item reveal delay-2" data-href="https://www.instagram.com/tangerina.film">
-                    <div class="p-item-bg c6"></div>
-                    <div class="p-play-btn"><span>▶</span></div>
-                    <div class="p-item-overlay">
-                        <div class="p-item-info"><div class="p-item-info-text"><h4>Cia do Vinho</h4><p>Vídeo produto</p></div><span class="p-item-cta">↗ Ver mais</span></div>
-                    </div>
-                    <span class="p-tag">Lifestyle</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- MAIS CLIENTES — continuação do portfólio -->
-    <section class="mais-clientes">
-        <div class="mais-clientes-inner">
-            <div class="mc-intro reveal">
-                <p class="s-label">Também atendemos</p>
-                <p class="mc-subtitle">Outras marcas que já confiaram na Tangerina</p>
-            </div>
-            <div class="mc-grid">
-                <div class="mc-col reveal">
-                    <h5>Nacionais</h5>
-                    <p>Aperol, Campari, Disney Brasil, Evento Body</p>
+                <div class="p-item reveal delay-2" data-href="https://www.instagram.com/tangerina.film">
+                    <div class="p-item-bg" style="background: linear-gradient(135deg, #1A1410 0%, #5C4A3A 100%);"></div>
+                    <div class="p-play-btn"><span>↗</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Body</h4><p>Direção criativa e produção visual</p></div><span class="p-item-cta">↗ Ver mais</span></div>
+                    </div>
+                    <span class="p-tag">Evento</span>
                 </div>
-                <div class="mc-col reveal delay-1">
-                    <h5>E-commerces</h5>
-                    <p>Blume Co, Mio Capelli, El Capitan, Vello, Lotus, Baby Penguin, Sevven Cosméticos, Rejuntei</p>
-                </div>
-                <div class="mc-col reveal delay-2">
-                    <h5>Locais</h5>
-                    <p>Seu Dito Restaurante e Bar, Espaço Boulevard, Bela Vista Eventos, Colégio Monteiro Lobato</p>
+
+                <!-- card marcas atendidas -->
+                <div class="p-brands reveal">
+                    <div class="p-item-bg" style="background-image: url('https://lp-tangerine.vercel.app/clientes-logos.png');"></div>
+                    <span class="p-brands-label">Também atendemos</span>
                 </div>
             </div>
         </div>
@@ -2527,6 +2499,112 @@
         </div>
     </section>
 
+    <!-- PRICING -->
+    <section id="pacotes" class="pricing-section">
+        <div class="deco-orange"></div>
+        <div class="pricing-inner">
+            <div style="text-align:center; margin-bottom: 3.5rem;">
+                <p class="s-label">Investimento</p>
+                <h2 class="s-title">Pacotes personalizados<br>para cada momento da marca</h2>
+                <p class="s-sub" style="text-align:center; margin: 1rem auto 0;">Os pacotes são enviados de forma personalizada após diagnóstico inicial. Converse com a equipe para entender qual faz mais sentido para o seu negócio.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Diária -->
+                <div class="price-card reveal">
+                    <div class="price-card-top">
+                        <span class="price-badge">Entrada</span>
+                        <h3>Diária de Captação</h3>
+                        <p>Para empresas que querem fortalecer presença com conteúdo visual de alto nível.</p>
+                    </div>
+                    <div class="price-value">
+                        <span class="price-cur">R$</span>
+                        <span class="price-num">800</span>
+                        <span class="price-period">/diária</span>
+                    </div>
+                    <ul class="price-features">
+                        <li class="active">Captação Audiovisual</li>
+                        <li class="active">4 vídeos de até 1 min</li>
+                        <li class="inactive">Planejamento & Diagnóstico</li>
+                        <li class="inactive">Design Gráfico</li>
+                        <li class="inactive">Veiculação dos Materiais Visuais</li>
+                        <li class="inactive">Gestão de Performance</li>
+                    </ul>
+                    <a href="https://wa.me/5511934980464" target="_blank" class="price-cta">Solicitar proposta</a>
+                </div>
+
+                <!-- Audiovisual -->
+                <div class="price-card reveal delay-1">
+                    <div class="price-card-top">
+                        <span class="price-badge">Popular</span>
+                        <h3>Audiovisual Estratégico</h3>
+                        <p>Foco exclusivo em imagem, conteúdo e percepção de autoridade.</p>
+                    </div>
+                    <div class="price-value">
+                        <span class="price-cur">R$</span>
+                        <span class="price-num">1.800</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                    <ul class="price-features">
+                        <li class="active">Planejamento & Diagnóstico</li>
+                        <li class="active">Captação Audiovisual</li>
+                        <li class="active">Relatório de Métricas</li>
+                        <li class="inactive">Design Gráfico</li>
+                        <li class="inactive">Veiculação dos Materiais Visuais</li>
+                        <li class="inactive">Gestão de Performance</li>
+                    </ul>
+                    <a href="https://wa.me/5511934980464" target="_blank" class="price-cta">Solicitar proposta</a>
+                </div>
+
+                <!-- Estrutura -->
+                <div class="price-card reveal delay-2">
+                    <div class="price-card-top">
+                        <span class="price-badge">Completo</span>
+                        <h3>Estrutura de Marca & Conteúdo</h3>
+                        <p>Criação dos materiais + captação audiovisual, mantendo gestão interna.</p>
+                    </div>
+                    <div class="price-value">
+                        <span class="price-cur">R$</span>
+                        <span class="price-num">2.200</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                    <ul class="price-features">
+                        <li class="active">Planejamento & Diagnóstico</li>
+                        <li class="active">Design Gráfico</li>
+                        <li class="active">Captação Audiovisual</li>
+                        <li class="active">Relatório de Métricas</li>
+                        <li class="active">Veiculação dos Materiais Visuais</li>
+                        <li class="inactive">Gestão de Performance</li>
+                    </ul>
+                    <a href="https://wa.me/5511934980464" target="_blank" class="price-cta">Solicitar proposta</a>
+                </div>
+
+                <!-- Posicionamento Completo -->
+                <div class="price-card featured reveal delay-3">
+                    <div class="price-card-top">
+                        <span class="price-badge highlight-badge">Mais vendido ✦</span>
+                        <h3>Posicionamento Completo & Performance</h3>
+                        <p>Todos os pilares do posicionamento de marca, da base à gestão contínua.</p>
+                    </div>
+                    <div class="price-value">
+                        <span class="price-cur">R$</span>
+                        <span class="price-num">3.000</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+                    <ul class="price-features">
+                        <li class="active">Planejamento & Diagnóstico</li>
+                        <li class="active">Design Gráfico</li>
+                        <li class="active">Captação Audiovisual</li>
+                        <li class="active">Relatório de Métricas</li>
+                        <li class="active">Veiculação dos Materiais Visuais</li>
+                        <li class="active">Gestão de Performance</li>
+                    </ul>
+                    <a href="https://wa.me/5511934980464" target="_blank" class="price-cta featured-cta">Solicitar proposta</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA -->
     <section id="contato" class="cta-section">
         <div class="deco-orange"></div>
@@ -2556,7 +2634,7 @@
                 <a href="#servicos">Planejamento & Diagnóstico</a>
                 <a href="#servicos">Design Gráfico</a>
                 <a href="#servicos">Captação Audiovisual</a>
-                <a href="#servicos">Edição de Vídeo</a>
+                <a href="#servicos">Relatório de Métricas</a>
                 <a href="#servicos">Gestão de Performance</a>
             </div>
             <div class="footer-col">
@@ -2576,8 +2654,8 @@
         <div class="footer-bottom">
             <span>© 2026 Tangerina Artes Visuais. Todos os direitos reservados.</span>
             <a href="https://instagram.com/tangerina.film" target="_blank">Instagram</a>
-            <a href="https://webdevkevyn.vercel.app" target="_blank" style="color:rgba(255,255,255,0.25); transition: color 0.3s; position: relative; text-decoration: none;">
-                Desenvolvido por <strong style="color:rgba(255,255,255,0.45); position:relative;">Kevyn.<span style="position:absolute; bottom:-2px; left:0; width:0; height:1px; background:#fff; transition: width 0.4s ease; display:block;" class="kevyn-line"></span></strong>
+            <a href="https://webdevkevyn.vercel.app" target="_blank" class="kevyn-link">
+                Desenvolvido por <strong class="kevyn-name">Kevyn.<span class="kevyn-bubble"></span></strong>
             </a>
         </div>
     </footer>
@@ -2650,19 +2728,6 @@
             a.addEventListener('click', () => mobileNav.classList.remove('open'));
         });
 
-        // Kevyn underline hover
-        const kevynLink = document.querySelector('a[href="https://webdevkevyn.vercel.app"]');
-        const kevynLine = document.querySelector('.kevyn-line');
-        if (kevynLink && kevynLine) {
-            kevynLink.addEventListener('mouseenter', () => {
-                kevynLine.style.width = '100%';
-                kevynLink.style.color = 'rgba(255,255,255,0.5)';
-            });
-            kevynLink.addEventListener('mouseleave', () => {
-                kevynLine.style.width = '0';
-                kevynLink.style.color = 'rgba(255,255,255,0.25)';
-            });
-        }
         const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => {
