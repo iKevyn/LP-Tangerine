@@ -20,7 +20,7 @@
             --light: #FDF8F2;
         }
 
-        html { scroll-behavior: smooth; overflow-x: hidden; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -76,9 +76,7 @@
             filter: brightness(0) invert(1);
         }
 
-        /* esconde fallback se logo carregar */
         .logo-img[src]:not([src=""]) + .logo-fallback { display: none; }
-        /* esconde img se src vazio */
         .logo-img:not([src]), .logo-img[src=""] { display: none; }
 
         .reel-deco-logo {
@@ -102,7 +100,6 @@
             z-index: 0;
         }
 
-        /* hero — canto superior direito, cortada */
         .hero .deco-orange {
             width: 420px; height: 420px;
             top: -80px; right: -100px;
@@ -110,7 +107,6 @@
             opacity: 0.06;
         }
 
-        /* about (dark) — canto inferior esquerdo */
         .about .deco-orange {
             width: 360px; height: 360px;
             bottom: -80px; left: -60px;
@@ -118,7 +114,6 @@
             filter: brightness(0) invert(1);
         }
 
-        /* cta — centralizada atrás */
         .cta-section .deco-orange {
             width: 500px; height: 500px;
             top: 50%; left: 50%;
@@ -126,7 +121,6 @@
             opacity: 0.06;
         }
 
-        /* pricing (dark) — canto superior direito */
         .pricing-section .deco-orange {
             width: 320px; height: 320px;
             top: -60px; right: -60px;
@@ -134,15 +128,12 @@
             filter: brightness(0) invert(1);
         }
 
-        /* ─── OVERRIDES P/ FUNDO LARANJA (about, pricing, footer) ─── */
-
-        /* s-label branco nas seções laranja */
+        /* ─── OVERRIDES P/ FUNDO LARANJA ─── */
         .about .s-label,
         .pricing-section .s-label {
             color: rgba(255,255,255,0.75);
         }
 
-        /* stats no about */
         .about .a-stat {
             background: rgba(255,255,255,0.12);
             border-color: rgba(255,255,255,0.2);
@@ -151,17 +142,10 @@
             background: rgba(255,255,255,0.22);
             border-color: rgba(255,255,255,0.4);
         }
-        .about .a-stat-num {
-            color: #fff;
-        }
-        .about .a-stat-label {
-            color: rgba(255,255,255,0.75);
-        }
-        .about .a-stat-num.counting {
-            color: rgba(255,255,255,0.8);
-        }
+        .about .a-stat-num { color: #fff; }
+        .about .a-stat-label { color: rgba(255,255,255,0.75); }
+        .about .a-stat-num.counting { color: rgba(255,255,255,0.8); }
 
-        /* pricing cards no fundo laranja */
         .pricing-section .price-card {
             background: rgba(255,255,255,0.05);
             border-color: rgba(255,255,255,0.12);
@@ -174,35 +158,26 @@
             background: var(--burn);
             border-color: transparent;
         }
-        .pricing-section .price-card.featured:hover {
-            background: #c44d2a;
-        }
+        .pricing-section .price-card.featured:hover { background: #c44d2a; }
         .pricing-section .price-badge {
             color: #fff;
             background: rgba(255,255,255,0.15);
             border-color: rgba(255,255,255,0.3);
         }
-        .pricing-section .price-features li.active::before {
-            color: #fff;
-        }
+        .pricing-section .price-features li.active::before { color: #fff; }
         .pricing-section .price-cta {
             background: rgba(255,255,255,0.1);
             border-color: rgba(255,255,255,0.25);
             color: #fff;
         }
-        .pricing-section .price-cta:hover {
-            background: rgba(255,255,255,0.2);
-        }
+        .pricing-section .price-cta:hover { background: rgba(255,255,255,0.2); }
         .pricing-section .featured-cta {
             background: #fff;
             color: var(--burn) !important;
             border-color: transparent;
         }
-        .pricing-section .featured-cta:hover {
-            background: rgba(255,255,255,0.9);
-        }
+        .pricing-section .featured-cta:hover { background: rgba(255,255,255,0.9); }
 
-        /* deco-orange no fundo laranja: inverte p/ branco */
         .about .deco-orange,
         .pricing-section .deco-orange,
         .cta-section .deco-orange {
@@ -210,12 +185,7 @@
             opacity: 0.06;
         }
 
-        /* footer links */
-        .footer-bottom a:hover { color: #fff; }
-
         /* ─── PREMIUM EFFECTS ─── */
-
-        /* Cursor glow */
         #cursor-glow {
             position: fixed;
             width: 320px; height: 320px;
@@ -227,13 +197,11 @@
             transition: opacity 0.3s;
         }
 
-        /* Stat count-up flash */
         .a-stat-num.counting, .st-num.counting {
             color: var(--burn);
             transition: color 0.1s;
         }
 
-        /* Price card shimmer on hover */
         .price-card {
             position: relative;
             overflow: hidden;
@@ -250,19 +218,16 @@
         }
         .price-card:hover::after { left: 130%; }
 
-        /* Service card tilt */
         .s-card {
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             will-change: transform;
         }
 
-        /* Testimonial card glow on hover */
         .t-card:hover {
             box-shadow: 0 8px 40px rgba(223,93,56,0.12);
             border-color: rgba(223,93,56,0.2) !important;
         }
 
-        /* Process step number pulse */
         .p-step-num {
             transition: transform 0.3s ease, color 0.3s ease;
         }
@@ -271,7 +236,6 @@
             color: var(--burn);
         }
 
-        /* Hero headline gradient animation */
         .hero-accent {
             background: linear-gradient(90deg, var(--burn), var(--amber), var(--burn));
             background-size: 200% auto;
@@ -285,16 +249,10 @@
             100% { background-position: 200% center; }
         }
 
-        /* Marquee text hover pop */
         .marquee-text:hover {
             color: var(--amber) !important;
             transform: scale(1.05);
             transition: all 0.2s;
-        }
-
-        /* ─── logo decorativo (tangerina 3 ou 4) ─── */
-        .deco-logo {
-            /* Logo decorativa: substitua src pelo Tangerina (3) ou (4).png */
         }
 
         .logo-text {
@@ -304,10 +262,7 @@
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
-
-        .logo-text span {
-            color: var(--burn);
-        }
+        .logo-text span { color: var(--burn); }
 
         nav {
             display: flex;
@@ -324,7 +279,6 @@
             color: var(--mid);
             transition: color 0.2s;
         }
-
         nav a:hover { color: var(--burn); }
 
         .btn-nav {
@@ -335,11 +289,7 @@
             font-weight: 600 !important;
             transition: background 0.3s, transform 0.2s !important;
         }
-
-        .btn-nav:hover {
-            background: #c44d2a !important;
-            transform: translateY(-2px);
-        }
+        .btn-nav:hover { background: #c44d2a !important; transform: translateY(-2px); }
 
         /* ─── HERO ─── */
         .hero {
@@ -487,7 +437,6 @@
             gap: 0.4rem;
             transition: color 0.2s;
         }
-
         .btn-ghost:hover { color: var(--burn); }
 
         .hero-visual {
@@ -510,7 +459,6 @@
             transform: rotate(2deg);
             transition: transform 0.4s ease;
         }
-
         .hero-reel:hover { transform: rotate(0deg) scale(1.02); }
 
         .hero-reel::before {
@@ -539,7 +487,6 @@
             bottom: 1.5rem; left: 1.5rem; right: 1.5rem;
             color: #fff;
         }
-
         .reel-label small {
             display: block;
             font-size: 0.7rem;
@@ -548,11 +495,7 @@
             opacity: 0.8;
             margin-bottom: 0.3rem;
         }
-
-        .reel-label strong {
-            font-size: 1rem;
-            font-weight: 600;
-        }
+        .reel-label strong { font-size: 1rem; font-weight: 600; }
 
         /* ─── CLIENTS STRIP ─── */
         .clients-strip {
@@ -583,7 +526,6 @@
             flex-shrink: 0;
             transition: color 0.2s;
         }
-
         .clients-strip span:hover { color: #fff; }
 
         .clients-strip .dot {
@@ -656,7 +598,6 @@
             line-height: 1.8;
             margin-bottom: 1.2rem;
         }
-
         .about-text p:last-child { margin-bottom: 0; }
 
         .about-stats {
@@ -672,7 +613,6 @@
             padding: 1.8rem;
             transition: all 0.3s;
         }
-
         .a-stat:hover {
             background: rgba(223, 93, 56, 0.1);
             border-color: rgba(223, 93, 56, 0.3);
@@ -694,19 +634,12 @@
         }
 
         /* ─── SERVICES ─── */
-        .services {
-            background: var(--dark);
-            max-width: 100%;
-        }
-
+        .services { background: var(--dark); max-width: 100%; }
         .services .s-label { color: var(--amber); }
         .services .s-title { color: #fff; }
         .services .s-sub { color: rgba(255,255,255,0.6); }
 
-        .services-inner {
-            max-width: 1300px;
-            margin: 0 auto;
-        }
+        .services-inner { max-width: 1300px; margin: 0 auto; }
 
         .services-header {
             display: flex;
@@ -743,7 +676,6 @@
             transform-origin: left;
             transition: transform 0.4s ease;
         }
-
         .svc-card:hover::before { transform: scaleX(1); }
 
         .svc-card:hover {
@@ -762,15 +694,6 @@
             margin-bottom: 1.5rem;
         }
 
-        .svc-card h3 { color: #fff; }
-        .svc-card p { color: rgba(255,255,255,0.6); }
-
-        .svc-icon {
-            font-size: 2rem;
-            margin-bottom: 1.2rem;
-            display: block;
-        }
-
         .svc-card h3 {
             font-size: 1rem;
             font-weight: 700;
@@ -785,15 +708,12 @@
             line-height: 1.7;
         }
 
-        /* ─── PORTFOLIO ─── */
-        .portfolio {
-            background: var(--cream);
-        }
+        .svc-icon { font-size: 2rem; margin-bottom: 1.2rem; display: block; }
 
-        .portfolio-inner {
-            max-width: 1300px;
-            margin: 0 auto;
-        }
+        /* ─── PORTFOLIO ─── */
+        .portfolio { background: var(--cream); }
+
+        .portfolio-inner { max-width: 1300px; margin: 0 auto; }
 
         .portfolio-header {
             display: flex;
@@ -816,195 +736,314 @@
             grid-row: span 1;
         }
 
-        .portfolio-grid .p-brands {
-            grid-column: span 3;
-            height: 350px;
-            border-radius: 18px;
-            overflow: hidden;
-            position: relative;
-            background: var(--dark);
-            cursor: default;
-        }
-        .portfolio-grid .p-brands .p-item-bg {
-            position: absolute;
-            inset: 0;
-            background-color: var(--dark);
-            background-image: url('https://lp-tangerine.vercel.app/testedesktop.png');
-            background-size: cover;
-            background-position: center;
-        }
-        @media (max-width: 768px) {
-            .portfolio-grid .p-brands .p-item-bg {
-                background-image: url('https://lp-tangerine.vercel.app/testemobile.png');
-            }
-            .portfolio-grid .p-brands { height: 480px; grid-column: span 1; }
-        }
-        .portfolio-grid .p-brands .p-brands-label {
-            position: absolute;
-            bottom: 1.2rem; left: 1.5rem;
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.3);
-            z-index: 2;
-        }
-        @media (max-width: 900px) {
-            .portfolio-grid .p-brands { grid-column: span 2; }
-        }
-
-        .p-item {
+        /* ─── CARD CTA DIREÇÃO CRIATIVA ─── */
+        .p-cta-card {
+            grid-column: span 1;
             border-radius: 18px;
             overflow: hidden;
             position: relative;
             background: var(--dark);
             cursor: pointer;
             transition: transform 0.4s ease;
-            height: 100%;
-            width: 100%;
+            text-decoration: none;
+            display: block;
         }
 
-        .p-item.featured { aspect-ratio: unset; }
-        .p-item.tall { aspect-ratio: unset; }
+        .p-cta-card:hover { transform: scale(1.02); }
 
-        .p-item:hover { transform: scale(1.02); }
-
-        .p-item-bg {
+        .p-cta-card-bg {
             position: absolute;
             inset: 0;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.6s ease;
+            background: linear-gradient(135deg, #1A1410 0%, #DF5D38 60%, #F49629 100%);
         }
 
-        .p-item:hover .p-item-bg { transform: scale(1.06); }
-
-        .p-item-bg.bg-nba    { background-image: url('https://lp-tangerine.vercel.app/NBA%20HOUSE.png'); background-size: cover; background-position: center; }
-        .p-item-bg.bg-p9     { background-image: url('https://lp-tangerine.vercel.app/P9%20FEMSA.png'); background-size: cover; background-position: center; }
-        .p-item-bg.bg-fam    { background-image: url('https://lp-tangerine.vercel.app/FAM%20NAS%20ALTURAS.png'); background-size: cover; background-position: center; }
-        .p-item-bg.bg-seph   { background-image: url('https://lp-tangerine.vercel.app/SEPHORA%20BEAUTY%20RUN.png'); background-size: cover; background-position: center; }
-        .p-item-bg.bg-cent   { background-image: url('https://lp-tangerine.vercel.app/CENTRUM%20VIVA%20%2B.png'); background-size: cover; background-position: center; }
-        .p-item-bg.bg-org    { background-image: url('https://lp-tangerine.vercel.app/GO%20ORGANIC.png'); background-size: cover; background-position: center; }
-        .p-item-bg.bg-mc     { background-image: url('https://lp-tangerine.vercel.app/MC%20CONNECTIONS.png'); background-size: cover; background-position: center; }
-        .p-item-bg.bg-aussie { background-image: url('https://lp-tangerine.vercel.app/AUSSIE.png'); background-size: cover; background-position: center; }
-        .p-item-bg.bg-trulli { background-image: url('https://lp-tangerine.vercel.app/TRULLI.png'); background-size: cover; background-position: center; }
-        .p-item-bg.c4 { background: linear-gradient(135deg, #1A1410 0%, #DF5D38 100%); }
-        .p-item-bg.c5 { background: linear-gradient(135deg, #FAECD8 0%, #F49629 100%); }
-        .p-item-bg.c6 { background: linear-gradient(135deg, #DF5D38 0%, #A5D8D7 100%); }
-
-        .p-item-overlay {
+        .p-cta-card-bg::after {
+            content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(0deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.2) 40%, transparent 100%);
+            background-image: url('https://lp-tangerine.vercel.app/LogoLaranja.png');
+            background-size: 60%;
+            background-repeat: no-repeat;
+            background-position: 110% 50%;
+            opacity: 0.12;
+        }
+
+        .p-cta-card-inner {
+            position: absolute;
+            inset: 0;
             display: flex;
-            align-items: flex-end;
-            padding: 1.2rem 1.5rem;
-            opacity: 0;
-            transition: opacity 0.35s ease;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.8rem;
+            z-index: 2;
         }
 
-        .p-item:hover .p-item-overlay {
-            opacity: 1;
-        }
-
-        .p-item-info {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            width: 100%;
-            gap: 1rem;
-        }
-
-        .p-item-info-text {
-            flex: 1;
-            transform: translateY(10px);
-            transition: transform 0.35s ease;
-        }
-
-        .p-item:hover .p-item-info-text {
-            transform: translateY(0);
-        }
-
-        .p-item-info h4 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.15rem;
-        }
-
-        .p-item-info p {
-            font-size: 0.72rem;
-            color: rgba(255,255,255,0.7);
-            margin: 0;
-        }
-
-        /* CTA lado direito */
-        .p-item-cta {
+        .p-cta-card-tag {
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 0.6rem;
+        }
+
+        .p-cta-card-tag::before {
+            content: '';
+            width: 5px; height: 5px;
+            background: var(--amber);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .p-cta-card h4 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.8rem;
+        }
+
+        .p-cta-card-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
             color: var(--amber);
-            white-space: nowrap;
-            flex-shrink: 0;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.3s 0.05s, transform 0.35s ease 0.05s;
+            transition: gap 0.2s;
         }
 
-        .p-item:hover .p-item-cta {
-            opacity: 1;
-            transform: translateY(0);
+        .p-cta-card:hover .p-cta-card-action { gap: 0.7rem; }
+
+        /* ─── BLOCO HERO DIREÇÃO CRIATIVA ─── */
+        .dc-hero {
+            background: var(--dark);
+            padding: 0;
+            overflow: hidden;
         }
 
-        .p-tag {
+        .dc-hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+            max-width: 100%;
+        }
+
+        .dc-hero-visual {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1A1410 0%, #2a1a0e 50%, #DF5D38 100%);
+        }
+
+        .dc-hero-visual-bg {
             position: absolute;
-            top: 1rem; right: 1rem;
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(8px);
-            color: #fff;
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            padding: 0.3rem 0.7rem;
-            border-radius: 100px;
+            inset: 0;
+            background-image: url('https://lp-tangerine.vercel.app/LogoLaranja.png');
+            background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.15;
+            transition: transform 0.8s ease, opacity 0.4s;
         }
 
-        /* Play button oculto por padrão, aparece no hover */
-        .p-play-btn {
+        .dc-hero:hover .dc-hero-visual-bg {
+            transform: scale(1.05) rotate(4deg);
+            opacity: 0.2;
+        }
+
+        .dc-hero-visual-grid {
             position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%) scale(0.7);
-            width: 56px; height: 56px;
-            background: rgba(255,255,255,0.18);
-            border: 2px solid rgba(255,255,255,0.5);
-            border-radius: 50%;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(223,93,56,0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(223,93,56,0.08) 1px, transparent 1px);
+            background-size: 48px 48px;
+        }
+
+        .dc-hero-visual-content {
+            position: absolute;
+            inset: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .dc-hero-tag-visual {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            padding: 0.4rem 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 100px;
+        }
+
+        .dc-hero-samples {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 2rem;
+        }
+
+        .dc-sample {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .dc-sample:nth-child(odd) { transform: rotate(-2deg); }
+        .dc-sample:nth-child(even) { transform: rotate(2deg) translateY(-6px); }
+
+        .dc-hero:hover .dc-sample { transform: rotate(0deg) translateY(0) !important; }
+
+        .dc-sample img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        .dc-sample-placeholder {
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(223,93,56,0.3), rgba(244,150,41,0.2));
+        }
+
+        .dc-hero-content {
+            padding: 5rem 5rem 5rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .dc-hero-content::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 15%; bottom: 15%;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, rgba(223,93,56,0.4) 40%, rgba(223,93,56,0.4) 60%, transparent);
+        }
+
+        .dc-hero-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .dc-hero-label::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--amber);
+        }
+
+        .dc-hero-title {
+            font-size: clamp(2rem, 3.5vw, 3.2rem);
+            font-weight: 900;
             color: #fff;
-            z-index: 3;
-            opacity: 0;
-            transition: opacity 0.3s, transform 0.3s, background 0.3s, border-color 0.3s;
-            backdrop-filter: blur(4px);
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.6rem;
         }
 
-        .p-item:hover .p-play-btn {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-            background: rgba(255,255,255,0.95);
-            color: var(--burn);
-            border-color: transparent;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        .dc-hero-title span {
+            background: linear-gradient(90deg, var(--burn), var(--amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .p-play-btn.pdf-icon::before { content: '📄'; font-size: 1.2rem; }
-        .p-play-btn.pdf-icon span { display: none; }
+        .dc-hero-desc {
+            font-size: 0.92rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 420px;
+        }
+
+        .dc-hero-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .dc-pill {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.4rem 0.9rem;
+            border-radius: 100px;
+            transition: all 0.2s;
+        }
+
+        .dc-pill:hover {
+            background: rgba(223,93,56,0.2);
+            border-color: rgba(223,93,56,0.4);
+            color: #fff;
+        }
+
+        .dc-hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--burn);
+            color: #fff;
+            padding: 0.85rem 2rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            transition: all 0.3s;
+            align-self: flex-start;
+            box-shadow: 0 8px 24px rgba(223,93,56,0.3);
+        }
+
+        .dc-hero-cta:hover {
+            background: #c44d2a;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px rgba(223,93,56,0.4);
+        }
+
+        /* ─── MOBILE: dc-hero ─── */
+        @media (max-width: 1024px) {
+            .dc-hero-inner { grid-template-columns: 1fr; min-height: auto; }
+            .dc-hero-visual { min-height: 280px; }
+            .dc-hero-content { padding: 3.5rem 2rem 4rem; }
+            .dc-hero-content::before { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .dc-hero-title { font-size: 2rem; }
+            .dc-hero-visual { min-height: 220px; }
+            .dc-hero-content { padding: 3rem 1.5rem 3.5rem; }
+            .dc-sample { width: 60px; height: 60px; }
+        }
+
+        /* ─── STATS ─── */
         .stats-section {
             background: var(--burn);
             padding: 5rem 4rem;
@@ -1018,10 +1057,7 @@
             gap: 2rem;
         }
 
-        .st-item {
-            text-align: center;
-            color: #fff;
-        }
+        .st-item { text-align: center; color: #fff; }
 
         .st-num {
             font-size: 3.5rem;
@@ -1032,21 +1068,11 @@
             letter-spacing: -0.03em;
         }
 
-        .st-label {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.7);
-            font-weight: 400;
-        }
+        .st-label { font-size: 0.8rem; color: rgba(255,255,255,0.7); font-weight: 400; }
 
         /* ─── PROCESS ─── */
-        .process {
-            background: var(--light);
-        }
-
-        .process-inner {
-            max-width: 1300px;
-            margin: 0 auto;
-        }
+        .process { background: var(--light); }
+        .process-inner { max-width: 1300px; margin: 0 auto; }
 
         .process-steps {
             display: flex;
@@ -1110,24 +1136,11 @@
             margin-bottom: 0.4rem;
         }
 
-        .p-step p {
-            font-size: 0.8rem;
-            color: var(--mid);
-            line-height: 1.6;
-        }
+        .p-step p { font-size: 0.8rem; color: var(--mid); line-height: 1.6; }
 
         /* ─── TESTIMONIALS ─── */
-        .testimonials {
-            background: var(--dark);
-            color: #fff;
-            padding: 6rem 4rem;
-        }
-
-        .testimonials-inner {
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
+        .testimonials { background: var(--dark); color: #fff; padding: 6rem 4rem; }
+        .testimonials-inner { max-width: 1300px; margin: 0 auto; }
         .testimonials .s-title { color: #fff; }
 
         .t-grid {
@@ -1169,11 +1182,7 @@
             font-style: italic;
         }
 
-        .t-author {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
+        .t-author { display: flex; align-items: center; gap: 0.8rem; }
 
         .t-avatar {
             width: 40px; height: 40px;
@@ -1188,47 +1197,24 @@
             flex-shrink: 0;
         }
 
-        .t-author-info strong {
-            display: block;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: #fff;
-        }
-
-        .t-author-info span {
-            font-size: 0.72rem;
-            color: rgba(255,255,255,0.45);
-        }
+        .t-author-info strong { display: block; font-size: 0.82rem; font-weight: 600; color: #fff; }
+        .t-author-info span { font-size: 0.72rem; color: rgba(255,255,255,0.45); }
 
         /* ─── CLIENTS ─── */
-        .clients-section {
-            background: var(--cream);
-            padding: 6rem 4rem;
-        }
+        .clients-section { background: var(--cream); padding: 6rem 4rem; }
+        .clients-inner { max-width: 1300px; margin: 0 auto; }
 
-        .clients-inner {
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .clients-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
+        .clients-header { text-align: center; margin-bottom: 3.5rem; }
         .clients-header .s-label, .clients-header .s-title, .clients-header .s-sub {
-            margin-left: auto; margin-right: auto;
-            text-align: center;
+            margin-left: auto; margin-right: auto; text-align: center;
         }
 
-        /* ─── LOGO CAROUSEL ─── */
         .logo-carousel-wrap {
             position: relative;
             overflow: hidden;
-            margin: 0 -4rem; /* sangra até as bordas */
+            margin: 0 -4rem;
         }
 
-        /* fade nas bordas */
         .logo-carousel-wrap::before,
         .logo-carousel-wrap::after {
             content: '';
@@ -1238,14 +1224,8 @@
             z-index: 2;
             pointer-events: none;
         }
-        .logo-carousel-wrap::before {
-            left: 0;
-            background: linear-gradient(90deg, var(--cream), transparent);
-        }
-        .logo-carousel-wrap::after {
-            right: 0;
-            background: linear-gradient(-90deg, var(--cream), transparent);
-        }
+        .logo-carousel-wrap::before { left: 0; background: linear-gradient(90deg, var(--cream), transparent); }
+        .logo-carousel-wrap::after  { right: 0; background: linear-gradient(-90deg, var(--cream), transparent); }
 
         .logo-carousel { overflow: hidden; }
 
@@ -1256,7 +1236,6 @@
             animation: logoScroll 28s linear infinite;
             width: max-content;
         }
-
         .logo-track:hover { animation-play-state: paused; }
 
         @keyframes logoScroll {
@@ -1266,8 +1245,7 @@
 
         .logo-item {
             flex-shrink: 0;
-            width: 140px;
-            height: 72px;
+            width: 140px; height: 72px;
             background: #fff;
             border-radius: 14px;
             display: flex;
@@ -1278,54 +1256,19 @@
             position: relative;
             overflow: hidden;
         }
-
         .logo-item:hover {
             border-color: var(--burn);
             transform: translateY(-3px);
             box-shadow: 0 8px 24px rgba(223, 93, 56, 0.12);
         }
-
         .logo-item img {
-            max-width: 100px;
-            max-height: 44px;
+            max-width: 100px; max-height: 44px;
             object-fit: contain;
             filter: grayscale(1) opacity(0.6);
             transition: filter 0.3s;
         }
-
-        .logo-item:hover img {
-            filter: grayscale(0) opacity(1);
-        }
-
-        /* placeholder enquanto não tem logo */
-        .logo-item img:not([src]), .logo-item img[src=""] {
-            display: none;
-        }
-        .logo-item img:not([src]) ~ .logo-placeholder,
-        .logo-item img[src=""] ~ .logo-placeholder {
-            display: flex;
-        }
-        .logo-item::after {
-            content: attr(data-label);
-        }
-        /* fallback: mostra o nome da marca como texto se não tiver imagem */
-        .logo-item:has(img:not([src])),
-        .logo-item:has(img[src=""]) {
-            flex-direction: column;
-            gap: 0.3rem;
-        }
-        .logo-item:has(img:not([src]))::after,
-        .logo-item:has(img[src=""])::after {
-            content: attr(data-name);
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: var(--mid);
-            letter-spacing: 0.04em;
-            text-align: center;
-            padding: 0 0.5rem;
-        }
-
-        /* nome via JS fallback */
+        .logo-item:hover img { filter: grayscale(0) opacity(1); }
+        .logo-item img:not([src]), .logo-item img[src=""] { display: none; }
         .logo-item .logo-name {
             font-size: 0.68rem;
             font-weight: 700;
@@ -1343,250 +1286,9 @@
             .logo-item { width: 110px; height: 60px; }
         }
 
-        /* ─── MAIS CLIENTES ─── */
-        .mais-clientes {
-            background: var(--cream);
-            padding: 0 4rem 6rem;
-        }
-        .mais-clientes-inner {
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-        .mc-intro {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 3rem 0 2.5rem;
-            border-top: 1px solid rgba(223,93,56,0.15);
-        }
-        .mc-intro .s-label { margin: 0; white-space: nowrap; }
-        .mc-subtitle {
-            font-size: 0.9rem;
-            color: var(--mid);
-            opacity: 0.8;
-            margin: 0;
-        }
-        .mc-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-        /* card estilo portfólio */
-        .mc-card {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            height: 220px;
-            cursor: default;
-        }
-        .mc-card-bg {
-            position: absolute;
-            inset: 0;
-            background-size: cover;
-            background-position: center;
-            background-color: var(--dark);
-            transition: transform 0.5s ease;
-        }
-        .mc-card:hover .mc-card-bg { transform: scale(1.04); }
-        .mc-card-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 1.5rem;
-        }
-        .mc-card-overlay h5 {
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--amber);
-            margin-bottom: 0.4rem;
-        }
-        .mc-card-overlay p {
-            font-size: 0.78rem;
-            color: rgba(255,255,255,0.75);
-            line-height: 1.6;
-            margin: 0;
-        }
-        @media (max-width: 768px) {
-            .mais-clientes { padding: 0 1.5rem 4rem; }
-            .mc-grid { grid-template-columns: 1fr; gap: 1rem; }
-            .mc-intro { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-            .mc-card { height: 200px; }
-        }
-
-        /* ─── PORTFOLIO MOBILE ─── */
-        @media (max-width: 768px) {
-            .p-item-overlay {
-                opacity: 1 !important;
-                background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 38%, transparent 65%);
-            }
-            .p-item-info-text {
-                transform: translateY(0) !important;
-            }
-            .p-item-cta {
-                opacity: 1 !important;
-                transform: translateY(0) !important;
-            }
-            .p-play-btn {
-                display: none;
-            }
-        }
-        .cta-section {
-            background: var(--light);
-            text-align: center;
-            padding: 6rem 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-inner {
-            max-width: 700px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .cta-inner .s-title {
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .cta-inner p {
-            font-size: 1rem;
-            color: var(--mid);
-            line-height: 1.7;
-            margin-bottom: 2.5rem;
-        }
-
-        .cta-inner .btn-primary {
-            font-size: 0.95rem;
-            padding: 1rem 2.6rem;
-        }
-
-        /* ─── FOOTER ─── */
-        footer {
-            background: var(--burn-deep);
-            color: rgba(255,255,255,0.6);
-            padding: 4rem 4rem 2.5rem;
-        }
-
-        .footer-inner {
-            max-width: 1300px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand .logo-wrap {
-            margin-bottom: 1.2rem;
-        }
-
-        .footer-brand .logo-text {
-            color: rgba(255,255,255,0.9);
-        }
-
-        .footer-brand p {
-            font-size: 0.82rem;
-            line-height: 1.75;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .footer-col h5 {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.65);
-            margin-bottom: 1.2rem;
-        }
-
-        .footer-col a {
-            display: block;
-            font-size: 0.82rem;
-            color: rgba(255,255,255,0.85);
-            text-decoration: none;
-            margin-bottom: 0.6rem;
-            transition: color 0.2s;
-        }
-
-        .footer-col a:hover { color: #fff; }
-
-        .footer-bottom {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.6);
-        }
-
-        .footer-bottom a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-bottom a:hover { color: var(--amber); }
-
-        /* ─── KEVYN ─── */
-        .kevyn-link {
-            color: rgba(255,255,255,0.35);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 0.75rem;
-        }
-        .kevyn-name {
-            color: rgba(255,255,255,0.5);
-            position: relative;
-        }
-        .kevyn-bubble {
-            position: absolute;
-            bottom: -2px; left: 0;
-            width: 0; height: 1px;
-            background: #fff;
-            transition: width 0.4s ease;
-            display: block;
-        }
-        .kevyn-link:hover .kevyn-bubble { width: 100%; }
-        .kevyn-link:hover { color: rgba(255,255,255,0.5); }
-        .reveal {
-            opacity: 0;
-            transform: translateY(32px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-
-        .reveal.in { opacity: 1; transform: translateY(0); }
-        .reveal.delay-1 { transition-delay: 0.1s; }
-        .reveal.delay-2 { transition-delay: 0.2s; }
-        .reveal.delay-3 { transition-delay: 0.3s; }
-        .reveal.delay-4 { transition-delay: 0.4s; }
-        .reveal.delay-5 { transition-delay: 0.5s; }
-
         /* ─── PRICING ─── */
-        .pricing-section {
-            background: var(--dark);
-            color: #fff;
-            padding: 6rem 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-inner {
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
+        .pricing-section { background: var(--dark); color: #fff; padding: 6rem 4rem; }
+        .pricing-inner { max-width: 1300px; margin: 0 auto; }
         .pricing-section .s-title { color: #fff; }
         .pricing-section .s-sub { color: rgba(255,255,255,0.8); }
 
@@ -1614,15 +1316,8 @@
             transform: translateY(-4px);
         }
 
-        .price-card.featured {
-            background: var(--burn);
-            border-color: transparent;
-        }
-
-        .price-card.featured:hover {
-            background: #c44d2a;
-            border-color: transparent;
-        }
+        .price-card.featured { background: var(--burn); border-color: transparent; }
+        .price-card.featured:hover { background: #c44d2a; border-color: transparent; }
 
         .price-badge {
             display: inline-block;
@@ -1638,305 +1333,324 @@
             margin-bottom: 0.8rem;
         }
 
-        .highlight-badge {
-            background: rgba(255,255,255,0.15);
-            border-color: rgba(255,255,255,0.3);
-            color: #fff;
-        }
+        .highlight-badge { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); color: #fff; }
 
         .price-card-top h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
+            font-size: 1rem; font-weight: 700; color: #fff;
+            margin-bottom: 0.5rem; line-height: 1.3;
         }
+        .price-card-top p { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+        .price-card.featured .price-card-top p { color: rgba(255,255,255,0.75); }
 
-        .price-card-top p {
-            font-size: 0.78rem;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.6;
-        }
+        .price-value { display: flex; align-items: baseline; gap: 0.2rem; }
+        .price-cur { font-size: 0.9rem; font-weight: 600; color: rgba(255,255,255,0.6); }
+        .price-num { font-size: 2.2rem; font-weight: 900; color: #fff; letter-spacing: -0.03em; line-height: 1; }
+        .price-period { font-size: 0.75rem; color: rgba(255,255,255,0.45); font-weight: 400; }
 
-        .price-card.featured .price-card-top p {
-            color: rgba(255,255,255,0.75);
-        }
-
-        .price-value {
-            display: flex;
-            align-items: baseline;
-            gap: 0.2rem;
-        }
-
-        .price-cur {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: rgba(255,255,255,0.6);
-        }
-
-        .price-num {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: #fff;
-            letter-spacing: -0.03em;
-            line-height: 1;
-        }
-
-        .price-period {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.45);
-            font-weight: 400;
-        }
-
-        .price-features {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            flex: 1;
-        }
-
-        .price-features li {
-            font-size: 0.78rem;
-            padding: 0 0 0 1.4rem;
-            position: relative;
-        }
-
-        .price-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            font-size: 0.7rem;
-            font-weight: 700;
-        }
-
-        .price-features li.active {
-            color: rgba(255,255,255,0.85);
-        }
-
+        .price-features { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+        .price-features li { font-size: 0.78rem; padding: 0 0 0 1.4rem; position: relative; }
+        .price-features li::before { content: '✓'; position: absolute; left: 0; font-size: 0.7rem; font-weight: 700; }
+        .price-features li.active { color: rgba(255,255,255,0.85); }
         .price-features li.active::before { color: var(--amber); }
-
-        .price-features li.inactive {
-            color: rgba(255,255,255,0.2);
-        }
-
-        .price-features li.inactive::before {
-            content: '–';
-            color: rgba(255,255,255,0.15);
-        }
-
+        .price-features li.inactive { color: rgba(255,255,255,0.2); }
+        .price-features li.inactive::before { content: '–'; color: rgba(255,255,255,0.15); }
         .price-card.featured .price-features li.active { color: rgba(255,255,255,0.95); }
         .price-card.featured .price-features li.active::before { color: #fff; }
         .price-card.featured .price-features li.inactive { color: rgba(255,255,255,0.3); }
 
         .price-cta {
-            display: block;
-            text-align: center;
-            padding: 0.75rem 1rem;
-            border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            display: block; text-align: center; padding: 0.75rem 1rem;
+            border-radius: 100px; font-size: 0.8rem; font-weight: 600;
             text-decoration: none;
             background: rgba(255,255,255,0.07);
             color: rgba(255,255,255,0.8);
             border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.2s;
-            margin-top: auto;
+            transition: all 0.2s; margin-top: auto;
+        }
+        .price-cta:hover { background: rgba(255,255,255,0.12); color: #fff; }
+        .featured-cta { background: #fff; color: var(--burn) !important; border-color: transparent; }
+        .featured-cta:hover { background: var(--cream) !important; transform: translateY(-2px); }
+
+        /* ─── CTA ─── */
+        .cta-section { background: var(--light); text-align: center; padding: 6rem 4rem; }
+        .cta-inner {
+            max-width: 700px; margin: 0 auto;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+            position: relative; z-index: 1;
+        }
+        .cta-inner .s-title { text-align: center; margin-bottom: 1rem; }
+        .cta-inner p { font-size: 1rem; color: var(--mid); line-height: 1.7; margin-bottom: 2.5rem; }
+        .cta-inner .btn-primary { font-size: 0.95rem; padding: 1rem 2.6rem; }
+
+        /* ─── FOOTER — LARANJA ─── */
+        footer {
+            background: var(--burn);
+            color: rgba(255,255,255,0.8);
+            padding: 4rem 4rem 2.5rem;
         }
 
-        .price-cta:hover {
-            background: rgba(255,255,255,0.12);
-            color: #fff;
+        .footer-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
         }
 
-        .featured-cta {
-            background: #fff;
-            color: var(--burn) !important;
-            border-color: transparent;
+        .footer-brand .logo-wrap { margin-bottom: 1.2rem; }
+        .footer-brand .logo-text { color: rgba(255,255,255,0.95); }
+        .footer-brand p { font-size: 0.82rem; line-height: 1.75; color: rgba(255,255,255,0.75); }
+
+        .footer-col h5 {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 1.2rem;
         }
 
-        .featured-cta:hover {
-            background: var(--cream) !important;
-            transform: translateY(-2px);
+        .footer-col a {
+            display: block;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            margin-bottom: 0.6rem;
+            transition: color 0.2s;
         }
+        .footer-col a:hover { color: #fff; }
 
-        .p-play-btn.pdf-icon::before { content: '📄'; font-size: 1.4rem; }
-        .p-play-btn.pdf-icon span { display: none; }
-
-        /* ─── PORTFOLIO PLAY BUTTON ─── */
-        .p-play-btn {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 52px; height: 52px;
-            background: rgba(255,255,255,0.92);
-            border-radius: 50%;
+        .footer-bottom {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.25);
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            color: var(--burn);
-            z-index: 3;
-            opacity: 0;
-            transition: opacity 0.3s, transform 0.3s;
-            pointer-events: none;
-            backdrop-filter: blur(4px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.65);
         }
 
-        .p-item:hover .p-play-btn {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1.08);
+        .footer-bottom a { color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
+        .footer-bottom a:hover { color: #fff; }
+
+        .kevyn-link {
+            color: rgba(255,255,255,0.45);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.75rem;
         }
+        .kevyn-name { color: rgba(255,255,255,0.6); position: relative; }
+        .kevyn-bubble { position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #fff; transition: width 0.4s ease; display: block; }
+        .kevyn-link:hover .kevyn-bubble { width: 100%; }
+        .kevyn-link:hover { color: rgba(255,255,255,0.6); }
+
+        /* ─── REVEAL ─── */
+        .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.in { opacity: 1; transform: translateY(0); }
+        .reveal.delay-1 { transition-delay: 0.1s; }
+        .reveal.delay-2 { transition-delay: 0.2s; }
+        .reveal.delay-3 { transition-delay: 0.3s; }
+        .reveal.delay-4 { transition-delay: 0.4s; }
+        .reveal.delay-5 { transition-delay: 0.5s; }
+
+        /* ─── PORTFOLIO ITEMS ─── */
+        .portfolio-grid .p-brands {
+            grid-column: span 1;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            background: var(--dark);
+            cursor: default;
+        }
+        .portfolio-grid .p-brands .p-item-bg {
+            position: absolute;
+            inset: 0;
+            background-color: var(--dark);
+            background-size: cover;
+            background-position: center;
+        }
+        .portfolio-grid .p-brands .p-brands-label {
+            position: absolute;
+            bottom: 1.2rem; left: 1.5rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            .p-item-overlay {
+                opacity: 1 !important;
+                background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 38%, transparent 65%);
+            }
+            .p-item-info-text { transform: translateY(0) !important; }
+            .p-item-cta { opacity: 1 !important; transform: translateY(0) !important; }
+            .p-play-btn { display: none; }
+        }
+
+        .p-item {
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            background: var(--dark);
+            cursor: pointer;
+            transition: transform 0.4s ease;
+            height: 100%;
+            width: 100%;
+        }
+        .p-item:hover { transform: scale(1.02); }
+
+        .p-item-bg {
+            position: absolute; inset: 0;
+            background-size: cover; background-position: center;
+            transition: transform 0.6s ease;
+        }
+        .p-item:hover .p-item-bg { transform: scale(1.06); }
+
+        .p-item-bg.bg-nba    { background-image: url('https://lp-tangerine.vercel.app/NBA%20HOUSE.png'); }
+        .p-item-bg.bg-p9     { background-image: url('https://lp-tangerine.vercel.app/P9%20FEMSA.png'); }
+        .p-item-bg.bg-fam    { background-image: url('https://lp-tangerine.vercel.app/FAM%20NAS%20ALTURAS.png'); }
+        .p-item-bg.bg-seph   { background-image: url('https://lp-tangerine.vercel.app/SEPHORA%20BEAUTY%20RUN.png'); }
+        .p-item-bg.bg-cent   { background-image: url('https://lp-tangerine.vercel.app/CENTRUM%20VIVA%20%2B.png'); }
+        .p-item-bg.bg-org    { background-image: url('https://lp-tangerine.vercel.app/GO%20ORGANIC.png'); }
+        .p-item-bg.bg-mc     { background-image: url('https://lp-tangerine.vercel.app/MC%20CONNECTIONS.png'); }
+        .p-item-bg.bg-aussie { background-image: url('https://lp-tangerine.vercel.app/AUSSIE.png'); }
+        .p-item-bg.bg-trulli { background-image: url('https://lp-tangerine.vercel.app/TRULLI.png'); }
+        .p-item-bg.c4 { background: linear-gradient(135deg, #1A1410 0%, #DF5D38 100%); }
+        .p-item-bg.c5 { background: linear-gradient(135deg, #FAECD8 0%, #F49629 100%); }
+        .p-item-bg.c6 { background: linear-gradient(135deg, #DF5D38 0%, #A5D8D7 100%); }
+
+        .p-item-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.2) 40%, transparent 100%);
+            display: flex; align-items: flex-end;
+            padding: 1.2rem 1.5rem;
+            opacity: 0; transition: opacity 0.35s ease;
+        }
+        .p-item:hover .p-item-overlay { opacity: 1; }
+
+        .p-item-info { display: flex; align-items: flex-end; justify-content: space-between; width: 100%; gap: 1rem; }
+        .p-item-info-text { flex: 1; transform: translateY(10px); transition: transform 0.35s ease; }
+        .p-item:hover .p-item-info-text { transform: translateY(0); }
+        .p-item-info h4 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.15rem; }
+        .p-item-info p { font-size: 0.72rem; color: rgba(255,255,255,0.7); margin: 0; }
+
+        .p-item-cta {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em;
+            text-transform: uppercase; color: var(--amber);
+            white-space: nowrap; flex-shrink: 0;
+            opacity: 0; transform: translateY(10px);
+            transition: opacity 0.3s 0.05s, transform 0.35s ease 0.05s;
+        }
+        .p-item:hover .p-item-cta { opacity: 1; transform: translateY(0); }
+
+        .p-tag {
+            position: absolute; top: 1rem; right: 1rem;
+            background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
+            color: #fff; font-size: 0.65rem; font-weight: 600;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            padding: 0.3rem 0.7rem; border-radius: 100px;
+        }
+
+        .p-play-btn {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%) scale(0.7);
+            width: 56px; height: 56px;
+            background: rgba(255,255,255,0.18);
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; color: #fff; z-index: 3;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s, background 0.3s, border-color 0.3s;
+            backdrop-filter: blur(4px);
+        }
+        .p-item:hover .p-play-btn {
+            opacity: 1; transform: translate(-50%, -50%) scale(1);
+            background: rgba(255,255,255,0.95);
+            color: var(--burn); border-color: transparent;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .p-play-btn.pdf-icon::before { content: '📄'; font-size: 1.2rem; }
+        .p-play-btn.pdf-icon span { display: none; }
 
         /* ─── INSTAGRAM MODAL ─── */
         .ig-modal {
-            position: fixed;
-            inset: 0;
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
+            position: fixed; inset: 0; z-index: 10000;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
         }
-
-        .ig-modal.open {
-            opacity: 1;
-            pointer-events: all;
-        }
+        .ig-modal.open { opacity: 1; pointer-events: all; }
 
         .ig-modal-backdrop {
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(8px);
+            position: absolute; inset: 0;
+            background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
         }
 
         .ig-modal-box {
-            position: relative;
-            z-index: 1;
-            background: #000;
-            border-radius: 16px;
-            overflow: hidden;
-            width: 400px;
-            max-width: calc(100vw - 2rem);
-            max-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            transform: scale(0.95);
-            transition: transform 0.3s ease;
+            position: relative; z-index: 1;
+            background: #000; border-radius: 16px; overflow: hidden;
+            width: 400px; max-width: calc(100vw - 2rem); max-height: 90vh;
+            display: flex; flex-direction: column;
+            transform: scale(0.95); transition: transform 0.3s ease;
             box-shadow: 0 32px 80px rgba(0,0,0,0.6);
         }
-
-        .ig-modal.open .ig-modal-box {
-            transform: scale(1);
-        }
+        .ig-modal.open .ig-modal-box { transform: scale(1); }
 
         .ig-modal-close {
-            position: absolute;
-            top: 0.8rem; right: 0.8rem;
+            position: absolute; top: 0.8rem; right: 0.8rem;
             width: 32px; height: 32px;
-            background: rgba(255,255,255,0.1);
-            border: none;
-            border-radius: 50%;
-            color: #fff;
-            font-size: 0.85rem;
-            cursor: pointer;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: rgba(255,255,255,0.1); border: none; border-radius: 50%;
+            color: #fff; font-size: 0.85rem; cursor: pointer; z-index: 10;
+            display: flex; align-items: center; justify-content: center;
             transition: background 0.2s;
         }
-
         .ig-modal-close:hover { background: rgba(255,255,255,0.2); }
 
         .ig-modal-embed {
-            width: 100%;
-            flex: 1;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 100%; flex: 1; overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
             min-height: 500px;
         }
-
-        .ig-modal-embed iframe {
-            width: 100%;
-            height: 680px;
-            border: none;
-            display: block;
-        }
+        .ig-modal-embed iframe { width: 100%; height: 680px; border: none; display: block; }
 
         .ig-loading {
-            color: rgba(255,255,255,0.5);
-            font-size: 0.8rem;
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            padding: 2rem;
+            color: rgba(255,255,255,0.5); font-size: 0.8rem;
+            font-family: 'Poppins', sans-serif; text-align: center; padding: 2rem;
         }
 
         /* ─── MOBILE MENU TOGGLE ─── */
         .nav-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            cursor: pointer;
-            padding: 8px 14px;
-            border: 1.5px solid rgba(223,93,56,0.3);
-            border-radius: 100px;
-            background: transparent;
-            transition: border-color 0.3s;
+            display: none; flex-direction: column; gap: 5px;
+            cursor: pointer; padding: 4px;
         }
-        .nav-toggle:hover {
-            border-color: rgba(223,93,56,0.6);
-        }
-        .nav-toggle span {
-            display: block;
-            height: 1.5px;
-            background: var(--dark);
-            border-radius: 2px;
-            transition: all 0.3s;
-        }
-        .nav-toggle span:nth-child(1) { width: 18px; }
-        .nav-toggle span:nth-child(2) { width: 14px; }
-        .nav-toggle span:nth-child(3) { width: 18px; }
+        .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; transition: all 0.3s; }
         .mobile-nav {
-            display: none;
-            position: fixed;
+            display: none; position: fixed;
             top: 64px; left: 0; right: 0;
             background: rgba(253, 248, 242, 0.98);
             backdrop-filter: blur(20px);
             padding: 1.5rem 1.5rem 2rem;
-            flex-direction: column;
-            gap: 0;
-            z-index: 99;
+            flex-direction: column; gap: 0; z-index: 99;
             border-bottom: 1px solid rgba(223,93,56,0.12);
             box-shadow: 0 8px 32px rgba(0,0,0,0.08);
         }
         .mobile-nav.open { display: flex; }
         .mobile-nav a {
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--mid);
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-            transition: color 0.2s;
+            text-decoration: none; font-size: 1rem; font-weight: 500; color: var(--mid);
+            padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); transition: color 0.2s;
         }
         .mobile-nav a:last-child { border-bottom: none; }
         .mobile-nav a:hover { color: var(--burn); }
         .mobile-nav .btn-nav {
-            margin-top: 1rem;
-            background: var(--burn);
-            color: #fff !important;
-            text-align: center;
-            padding: 0.9rem;
-            border-radius: 100px;
-            border: none;
-            font-weight: 600;
+            margin-top: 1rem; background: var(--burn); color: #fff !important;
+            text-align: center; padding: 0.9rem; border-radius: 100px; border: none; font-weight: 600;
         }
 
         /* ─── RESPONSIVE ─── */
@@ -1955,7 +1669,7 @@
             .about-stats { grid-template-columns: repeat(2, 1fr); }
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-            .portfolio-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 260px 240px 240px 240px 240px; }
+            .portfolio-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 260px 240px 240px 240px 240px 240px; }
             .portfolio-grid .featured { grid-column: span 2; }
             .stats-section { padding: 4rem 2rem; }
             .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
@@ -1970,7 +1684,6 @@
             header { padding: 1rem 1.5rem; }
             nav { display: none; }
             .nav-toggle { display: flex; }
-
             section { padding: 4rem 1.5rem; }
             .about { padding: 4rem 1.5rem; }
             .testimonials { padding: 4rem 1.5rem; }
@@ -1978,58 +1691,32 @@
             .pricing-section { padding: 4rem 1.5rem; }
             .clients-strip { padding: 1.5rem 0; }
             .stats-section { padding: 3.5rem 1.5rem; }
-
-            /* Hero */
             .hero { padding: 6rem 1.5rem 4rem; min-height: auto; text-align: center; }
             .hero h1 { font-size: 2rem; }
             .hero p { font-size: 0.95rem; }
             .hero-tag { font-size: 0.65rem; }
             .hero-ctas { flex-direction: column; align-items: center; gap: 0.8rem; }
             .btn-primary { width: 100%; text-align: center; justify-content: center; }
-
-            /* About */
             .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
             .about-stats { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
             .a-stat { padding: 1.4rem; }
             .a-stat-num { font-size: 2rem; }
-
-            /* Services */
             .services-grid { grid-template-columns: 1fr; gap: 1rem; }
             .services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
             .svc-card { padding: 1.8rem; }
-
-            /* Portfolio */
-            .portfolio-grid { grid-template-columns: 1fr; grid-template-rows: repeat(9, 260px); gap: 1rem; }
+            .portfolio-grid { grid-template-columns: 1fr; grid-auto-rows: 260px; gap: 1rem; }
             .portfolio-grid .featured { grid-column: span 1; }
-
-            /* Stats */
+            .p-cta-card { height: 260px; }
             .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
             .st-num { font-size: 2.5rem; }
-
-            /* Process */
             .process-steps { max-width: 100%; }
-            .process-steps::before { display: block; }
-
-            /* Testimonials */
             .t-grid { grid-template-columns: 1fr; gap: 1rem; }
-
-            /* Pricing */
             .pricing-grid { grid-template-columns: 1fr; gap: 1rem; }
             .price-card { gap: 1.2rem; }
-
-            /* Clients */
-            .brands-grid { gap: 0.6rem; }
-            .brand-pill { font-size: 0.72rem; padding: 0.5rem 1rem; }
-
-            /* CTA */
             .cta-inner .s-title { font-size: 1.8rem; }
-
-            /* Footer */
             .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
             footer { padding: 3rem 1.5rem 2rem; }
             .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
-
-            /* Section titles */
             .s-title { font-size: 1.7rem; }
         }
 
@@ -2046,9 +1733,7 @@
     <!-- HEADER -->
     <header>
         <a href="#" class="logo-wrap">
-            <!-- Logo principal: substitua src pelo caminho do Tangerina (21).png -->
             <img src="https://lp-tangerine.vercel.app/LogoPrincipal.png" alt="Tangerina" class="logo-img" id="logoMain">
-            <!-- Fallback texto enquanto não tiver o logo -->
             <span class="logo-text logo-fallback">Tangeri<span>na</span></span>
         </a>
         <nav>
@@ -2075,23 +1760,18 @@
     <!-- HERO -->
     <section class="hero">
         <div class="hero-bg"></div>
-
         <div class="hero-content">
             <div class="hero-tag">Posicionamento Estratégico Digital</div>
             <h1>Posicionamento estratégico<br class="mobile-br"> para marcas que querem<br class="mobile-br"> <em class="hero-accent">crescer</em>.</h1>
             <p>Unimos análise, direção criativa<br class="mobile-br"> e performance para transformar marcas<br class="mobile-br"> em autoridade no digital.</p>
             <div class="hero-ctas">
-                <a href="https://wa.me/5511934980464" target="_blank" class="btn-primary">
-                    Falar com a equipe →
-                </a>
+                <a href="https://wa.me/5511934980464" target="_blank" class="btn-primary">Falar com a equipe →</a>
             </div>
         </div>
-
         <div class="hero-visual">
             <div class="hero-reel">
                 <div class="reel-play">▶</div>
-                    <!-- Logo decorativa: substitua src pelo Tangerina (3) ou (4).png -->
-                    <img src="https://lp-tangerine.vercel.app/LogoLaranja.png" alt="" class="reel-deco-logo" id="logoDeco">
+                <img src="https://lp-tangerine.vercel.app/LogoLaranja.png" alt="" class="reel-deco-logo" id="logoDeco">
                 <div class="reel-label">
                     <small>Nosso trabalho</small>
                     <strong>Reel Tangerina 2025</strong>
@@ -2113,7 +1793,6 @@
             <span>FEMSA</span><div class="dot"></div>
             <span class="highlight">Centrum</span><div class="dot"></div>
             <span>Aussie</span><div class="dot"></div>
-            <!-- duplicate for infinite scroll -->
             <span class="highlight">Sephora</span><div class="dot"></div>
             <span>NBA House</span><div class="dot"></div>
             <span class="highlight">Disney Brasil</span><div class="dot"></div>
@@ -2168,7 +1847,6 @@
                 </div>
                 <p class="s-sub">Do planejamento à performance, atuação de ponta a ponta com coerência estética e foco em resultados.</p>
             </div>
-
             <div class="services-grid">
                 <div class="svc-card reveal">
                     <div class="svc-num">01</div>
@@ -2210,6 +1888,7 @@
         </div>
     </section>
 
+    <!-- PROCESSO -->
     <section id="processo" class="process">
         <div class="process-inner">
             <div style="text-align:center; margin-bottom: 0;">
@@ -2219,49 +1898,32 @@
             <div class="process-steps">
                 <div class="p-step reveal">
                     <div class="p-step-num">01</div>
-                    <div class="p-step-content">
-                        <h4>Briefing</h4>
-                        <p>Entendemos seus objetivos, público e posicionamento atual</p>
-                    </div>
+                    <div class="p-step-content"><h4>Briefing</h4><p>Entendemos seus objetivos, público e posicionamento atual</p></div>
                 </div>
                 <div class="p-step reveal delay-1">
                     <div class="p-step-num">02</div>
-                    <div class="p-step-content">
-                        <h4>Planejamento</h4>
-                        <p>Diagnóstico, estratégia e direção criativa personalizados</p>
-                    </div>
+                    <div class="p-step-content"><h4>Planejamento</h4><p>Diagnóstico, estratégia e direção criativa personalizados</p></div>
                 </div>
                 <div class="p-step reveal delay-2">
                     <div class="p-step-num">03</div>
-                    <div class="p-step-content">
-                        <h4>Captação Audiovisual</h4>
-                        <p>Produção audiovisual de alto padrão alinhada ao posicionamento</p>
-                    </div>
+                    <div class="p-step-content"><h4>Captação Audiovisual</h4><p>Produção audiovisual de alto padrão alinhada ao posicionamento</p></div>
                 </div>
                 <div class="p-step reveal delay-3">
                     <div class="p-step-num">04</div>
-                    <div class="p-step-content">
-                        <h4>Artes Gráficas</h4>
-                        <p>Criação de materiais visuais com identidade e foco em conversão</p>
-                    </div>
+                    <div class="p-step-content"><h4>Artes Gráficas</h4><p>Criação de materiais visuais com identidade e foco em conversão</p></div>
                 </div>
                 <div class="p-step reveal delay-4">
                     <div class="p-step-num">05</div>
-                    <div class="p-step-content">
-                        <h4>Gestão do Orgânico e Performance</h4>
-                        <p>Publicação, gestão de conteúdo e otimização de campanhas pagas</p>
-                    </div>
+                    <div class="p-step-content"><h4>Gestão do Orgânico e Performance</h4><p>Publicação, gestão de conteúdo e otimização de campanhas pagas</p></div>
                 </div>
                 <div class="p-step reveal delay-5">
                     <div class="p-step-num">06</div>
-                    <div class="p-step-content">
-                        <h4>Entrega</h4>
-                        <p>Relatório de resultados e acompanhamento contínuo da marca</p>
-                    </div>
+                    <div class="p-step-content"><h4>Entrega</h4><p>Relatório de resultados e acompanhamento contínuo da marca</p></div>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- PORTFOLIO -->
     <section id="portfolio" class="portfolio">
         <div class="portfolio-inner">
@@ -2363,26 +2025,21 @@
                     <div class="p-item-overlay">
                         <div class="p-item-info"><div class="p-item-info-text"><h4>Be Trulli</h4><p>Interface aplicativo e proposta comercial</p></div><span class="p-item-cta">📄 Ver apresentação</span></div>
                     </div>
-                    <span class="p-tag">Branding</span>
-                </div>
-
-                <div class="p-item reveal delay-2" data-href="https://www.instagram.com/tangerina.film">
-                    <div class="p-item-bg" style="background: linear-gradient(135deg, #1A1410 0%, #5C4A3A 100%);"></div>
-                    <div class="p-play-btn"><span>↗</span></div>
-                    <div class="p-item-overlay">
-                        <div class="p-item-info"><div class="p-item-info-text"><h4>Body</h4><p>Direção criativa e produção visual</p></div><span class="p-item-cta">↗ Ver mais</span></div>
-                    </div>
                     <span class="p-tag">Evento</span>
                 </div>
-
-                <!-- card marcas atendidas -->
-                <div class="p-brands reveal">
-                    <div class="p-item-bg" style="background-image: url('https://lp-tangerine.vercel.app/clientes-logos.png');"></div>
-                    <span class="p-brands-label">Também atendemos</span>
+                <div class="p-item reveal delay-1" data-embed="ttps://drive.google.com/file/d/1GxEKwfl1EOmrRV0VGomcVoKkePLPgj6A/preview">
+                    <div class="p-item-bg bg-body"></div>
+                    <div class="p-play-btn pdf-icon"><span>▶</span></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Body</h4><p>Direção criativa e produção visual</p></div><span class="p-item-cta">📄 Ver apresentação</span></div>
+                    </div>
+                    <span class="p-tag">Evento</span>
                 </div>
             </div>
         </div>
     </section>
+
+    
 
     <!-- INSTAGRAM MODAL -->
     <div class="ig-modal" id="igModal">
@@ -2426,10 +2083,7 @@
                     <p class="t-text">Vocês conseguiram deixar a marca com muito mais cara de posicionamento mesmo, não só post bonito. Depois dos conteúdos, a percepção mudou muito e começamos a receber mais mensagens perguntando sobre pedidos.</p>
                     <div class="t-author">
                         <div class="t-avatar">JP</div>
-                        <div class="t-author-info">
-                            <strong>Joyce Pansutti</strong>
-                            <span>Joy Cookie</span>
-                        </div>
+                        <div class="t-author-info"><strong>Joyce Pansutti</strong><span>Joy Cookie</span></div>
                     </div>
                 </div>
                 <div class="t-card reveal delay-1">
@@ -2437,10 +2091,7 @@
                     <p class="t-text">A captação e os materiais ficaram exatamente como eu imaginava, mas mais profissional. A marca ficou mais madura e alinhada com o público que eu quero atingir.</p>
                     <div class="t-author">
                         <div class="t-avatar">AS</div>
-                        <div class="t-author-info">
-                            <strong>Andressa Silva</strong>
-                            <span>Savannah</span>
-                        </div>
+                        <div class="t-author-info"><strong>Andressa Silva</strong><span>Savannah</span></div>
                     </div>
                 </div>
                 <div class="t-card reveal delay-2">
@@ -2448,10 +2099,7 @@
                     <p class="t-text">Vocês realmente entenderam o que a gente precisava comunicar. A edição trouxe mais força pra marca e deixou tudo com uma unidade que antes não tinha.</p>
                     <div class="t-author">
                         <div class="t-avatar">JB</div>
-                        <div class="t-author-info">
-                            <strong>Juliana</strong>
-                            <span>Blume</span>
-                        </div>
+                        <div class="t-author-info"><strong>Juliana</strong><span>Blume</span></div>
                     </div>
                 </div>
             </div>
@@ -2469,34 +2117,33 @@
             <div class="logo-carousel-wrap">
                 <div class="logo-carousel">
                     <div class="logo-track">
-                        <!-- Troque o src de cada img pelo logo real da marca -->
-                        <div class="logo-item"><img src="" alt="Sephora" data-label="Sephora"></div>
-                        <div class="logo-item"><img src="" alt="Disney Brasil" data-label="Disney Brasil"></div>
-                        <div class="logo-item"><img src="" alt="Aperol" data-label="Aperol"></div>
-                        <div class="logo-item"><img src="" alt="Campari" data-label="Campari"></div>
-                        <div class="logo-item"><img src="" alt="Sunglass Hut" data-label="Sunglass Hut"></div>
-                        <div class="logo-item"><img src="" alt="FEMSA" data-label="FEMSA"></div>
-                        <div class="logo-item"><img src="" alt="Centrum" data-label="Centrum"></div>
-                        <div class="logo-item"><img src="" alt="Aussie" data-label="Aussie"></div>
-                        <div class="logo-item"><img src="" alt="NBA House" data-label="NBA House"></div>
-                        <div class="logo-item"><img src="" alt="P9 Beach Club" data-label="P9 Beach Club"></div>
-                        <div class="logo-item"><img src="" alt="FAM nas Alturas" data-label="FAM nas Alturas"></div>
-                        <div class="logo-item"><img src="" alt="Marujo Beach Bar" data-label="Marujo Beach Bar"></div>
-                        <div class="logo-item"><img src="" alt="Go Organic Club" data-label="Go Organic Club"></div>
-                        <!-- duplicado para loop infinito -->
-                        <div class="logo-item"><img src="" alt="Sephora" data-label="Sephora"></div>
-                        <div class="logo-item"><img src="" alt="Disney Brasil" data-label="Disney Brasil"></div>
-                        <div class="logo-item"><img src="" alt="Aperol" data-label="Aperol"></div>
-                        <div class="logo-item"><img src="" alt="Campari" data-label="Campari"></div>
-                        <div class="logo-item"><img src="" alt="Sunglass Hut" data-label="Sunglass Hut"></div>
-                        <div class="logo-item"><img src="" alt="FEMSA" data-label="FEMSA"></div>
-                        <div class="logo-item"><img src="" alt="Centrum" data-label="Centrum"></div>
-                        <div class="logo-item"><img src="" alt="Aussie" data-label="Aussie"></div>
-                        <div class="logo-item"><img src="" alt="NBA House" data-label="NBA House"></div>
-                        <div class="logo-item"><img src="" alt="P9 Beach Club" data-label="P9 Beach Club"></div>
-                        <div class="logo-item"><img src="" alt="FAM nas Alturas" data-label="FAM nas Alturas"></div>
-                        <div class="logo-item"><img src="" alt="Marujo Beach Bar" data-label="Marujo Beach Bar"></div>
-                        <div class="logo-item"><img src="" alt="Go Organic Club" data-label="Go Organic Club"></div>
+                        <div class="logo-item"><img src="" alt="Sephora"></div>
+                        <div class="logo-item"><img src="" alt="Disney Brasil"></div>
+                        <div class="logo-item"><img src="" alt="Aperol"></div>
+                        <div class="logo-item"><img src="" alt="Campari"></div>
+                        <div class="logo-item"><img src="" alt="Sunglass Hut"></div>
+                        <div class="logo-item"><img src="" alt="FEMSA"></div>
+                        <div class="logo-item"><img src="" alt="Centrum"></div>
+                        <div class="logo-item"><img src="" alt="Aussie"></div>
+                        <div class="logo-item"><img src="" alt="NBA House"></div>
+                        <div class="logo-item"><img src="" alt="P9 Beach Club"></div>
+                        <div class="logo-item"><img src="" alt="FAM nas Alturas"></div>
+                        <div class="logo-item"><img src="" alt="Marujo Beach Bar"></div>
+                        <div class="logo-item"><img src="" alt="Go Organic Club"></div>
+                        <!-- duplicado -->
+                        <div class="logo-item"><img src="" alt="Sephora"></div>
+                        <div class="logo-item"><img src="" alt="Disney Brasil"></div>
+                        <div class="logo-item"><img src="" alt="Aperol"></div>
+                        <div class="logo-item"><img src="" alt="Campari"></div>
+                        <div class="logo-item"><img src="" alt="Sunglass Hut"></div>
+                        <div class="logo-item"><img src="" alt="FEMSA"></div>
+                        <div class="logo-item"><img src="" alt="Centrum"></div>
+                        <div class="logo-item"><img src="" alt="Aussie"></div>
+                        <div class="logo-item"><img src="" alt="NBA House"></div>
+                        <div class="logo-item"><img src="" alt="P9 Beach Club"></div>
+                        <div class="logo-item"><img src="" alt="FAM nas Alturas"></div>
+                        <div class="logo-item"><img src="" alt="Marujo Beach Bar"></div>
+                        <div class="logo-item"><img src="" alt="Go Organic Club"></div>
                     </div>
                 </div>
             </div>
@@ -2512,9 +2159,7 @@
                 <h2 class="s-title">Pacotes personalizados<br>para cada momento da marca</h2>
                 <p class="s-sub" style="text-align:center; margin: 1rem auto 0;">Os pacotes são enviados de forma personalizada após diagnóstico inicial. Converse com a equipe para entender qual faz mais sentido para o seu negócio.</p>
             </div>
-
             <div class="pricing-grid">
-                <!-- Diária -->
                 <div class="price-card reveal">
                     <div class="price-card-top">
                         <span class="price-badge">Entrada</span>
@@ -2536,8 +2181,6 @@
                     </ul>
                     <a href="https://wa.me/5511934980464" target="_blank" class="price-cta">Solicitar proposta</a>
                 </div>
-
-                <!-- Audiovisual -->
                 <div class="price-card reveal delay-1">
                     <div class="price-card-top">
                         <span class="price-badge">Popular</span>
@@ -2559,8 +2202,6 @@
                     </ul>
                     <a href="https://wa.me/5511934980464" target="_blank" class="price-cta">Solicitar proposta</a>
                 </div>
-
-                <!-- Estrutura -->
                 <div class="price-card reveal delay-2">
                     <div class="price-card-top">
                         <span class="price-badge">Completo</span>
@@ -2582,8 +2223,6 @@
                     </ul>
                     <a href="https://wa.me/5511934980464" target="_blank" class="price-cta">Solicitar proposta</a>
                 </div>
-
-                <!-- Posicionamento Completo -->
                 <div class="price-card featured reveal delay-3">
                     <div class="price-card-top">
                         <span class="price-badge highlight-badge">Mais vendido ✦</span>
@@ -2616,20 +2255,17 @@
             <p class="s-label" style="text-align:center;">Vamos conversar</p>
             <h2 class="s-title">Pronto para transformar<br>sua marca em autoridade?</h2>
             <p>Os pacotes são enviados de forma personalizada conforme o perfil e necessidade da sua marca. Entre em contato para um diagnóstico inicial sem compromisso.</p>
-            <a href="https://wa.me/5511934980464" target="_blank" class="btn-primary">
-                Falar no WhatsApp →
-            </a>
+            <a href="https://wa.me/5511934980464" target="_blank" class="btn-primary">Falar no WhatsApp →</a>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER — LARANJA -->
     <footer>
         <div class="footer-inner">
             <div class="footer-brand">
                 <a href="#" class="logo-wrap">
-                    <!-- Logo principal branca: substitua src pelo caminho do Tangerina (21).png versão branca -->
                     <img src="https://lp-tangerine.vercel.app/LogoPrincipal.png" alt="Tangerina" class="logo-img logo-img-footer" id="logoFooter">
-                    <span class="logo-text logo-fallback" style="color:rgba(255,255,255,0.85)">Tangerina</span>
+                    <span class="logo-text logo-fallback" style="color:rgba(255,255,255,0.95)">Tangerina</span>
                 </a>
                 <p>Posicionamento digital e estruturação estratégica de marcas. Diagnóstico, criação, produção e gestão integrados com propósito.</p>
             </div>
@@ -2675,7 +2311,6 @@
             igEmbed.innerHTML = '<p class="ig-loading">Carregando...</p>';
             igModal.classList.add('open');
             document.body.style.overflow = 'hidden';
-            // small delay to avoid layout flash
             setTimeout(() => {
                 igEmbed.innerHTML = `<iframe src="${embedUrl}" scrolling="no" allowtransparency="true" allowfullscreen="true"></iframe>`;
             }, 150);
@@ -2694,12 +2329,11 @@
         document.querySelectorAll('.p-item[data-embed]').forEach(item => {
             item.addEventListener('click', () => openModal(item.dataset.embed));
         });
-
         document.querySelectorAll('.p-item[data-href]').forEach(item => {
             item.addEventListener('click', () => window.open(item.dataset.href, '_blank'));
         });
 
-        // Logo carousel fallback: mostra nome se não tiver imagem
+        // Logo carousel fallback
         document.querySelectorAll('.logo-item').forEach(item => {
             const img = item.querySelector('img');
             const label = img ? img.getAttribute('alt') : '';
@@ -2721,43 +2355,27 @@
             });
         });
 
-        // Mobile nav toggle
+        // Mobile nav
         const toggle = document.getElementById('navToggle');
         const mobileNav = document.getElementById('mobileNav');
-        toggle.addEventListener('click', () => {
-            mobileNav.classList.toggle('open');
-        });
-        // Close mobile nav on link click
+        toggle.addEventListener('click', () => mobileNav.classList.toggle('open'));
         mobileNav.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', () => mobileNav.classList.remove('open'));
         });
 
+        // Reveal on scroll
         const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.classList.add('in');
-                    // dispara count-up em filhos com data-count
-                    e.target.querySelectorAll('[data-count]').forEach(num => {
-                        if (!num.dataset.counted) {
-                            num.dataset.counted = '1';
-                            const delay = ({
-                                'delay-1': 150, 'delay-2': 300, 'delay-3': 450
-                            }[e.target.className.match(/delay-\d/)?.[0]] || 0) + 600;
-                            setTimeout(() => countUp(num), delay);
-                        }
-                    });
-                }
-            });
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
         reveals.forEach(el => observer.observe(el));
 
-        // ─── COUNT-UP ───
+        // Count-up
         function countUp(el) {
             const target = parseInt(el.dataset.count);
             const suffix = el.dataset.suffix || '';
             if (!target) return;
-            const duration = 1200;
+            const duration = 1400;
             const start = performance.now();
             el.classList.add('counting');
             const tick = (now) => {
@@ -2765,17 +2383,22 @@
                 const progress = Math.min(elapsed / duration, 1);
                 const ease = 1 - Math.pow(1 - progress, 3);
                 el.textContent = Math.floor(ease * target) + suffix;
-                if (progress < 1) {
-                    requestAnimationFrame(tick);
-                } else {
-                    el.textContent = target + suffix;
-                    el.classList.remove('counting');
-                }
+                if (progress < 1) requestAnimationFrame(tick);
+                else { el.textContent = target + suffix; el.classList.remove('counting'); }
             };
             requestAnimationFrame(tick);
         }
+        const countObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting && !e.target.dataset.counted) {
+                    e.target.dataset.counted = '1';
+                    countUp(e.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
 
-        // ─── CURSOR GLOW ───
+        // Cursor glow
         const glow = document.createElement('div');
         glow.id = 'cursor-glow';
         document.body.appendChild(glow);
@@ -2784,7 +2407,7 @@
             glow.style.top = e.clientY + 'px';
         });
 
-        // ─── CARD TILT ───
+        // Card tilt
         document.querySelectorAll('.s-card, .t-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
@@ -2792,27 +2415,20 @@
                 const y = (e.clientY - rect.top) / rect.height - 0.5;
                 card.style.transform = `perspective(600px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) scale(1.02)`;
             });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = '';
-            });
+            card.addEventListener('mouseleave', () => { card.style.transform = ''; });
         });
 
         // Header shadow on scroll
         const header = document.querySelector('header');
         window.addEventListener('scroll', () => {
-            header.style.boxShadow = window.scrollY > 40
-                ? '0 4px 24px rgba(0,0,0,0.08)'
-                : 'none';
+            header.style.boxShadow = window.scrollY > 40 ? '0 4px 24px rgba(0,0,0,0.08)' : 'none';
         });
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(a => {
             a.addEventListener('click', e => {
                 const target = document.querySelector(a.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
             });
         });
     </script>
