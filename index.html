@@ -102,6 +102,7 @@
             z-index: 0;
         }
 
+        /* hero — canto superior direito, cortada */
         .hero .deco-orange {
             width: 420px; height: 420px;
             top: -80px; right: -100px;
@@ -109,6 +110,7 @@
             opacity: 0.06;
         }
 
+        /* about (dark) — canto inferior esquerdo */
         .about .deco-orange {
             width: 360px; height: 360px;
             bottom: -80px; left: -60px;
@@ -116,6 +118,7 @@
             filter: brightness(0) invert(1);
         }
 
+        /* cta — centralizada atrás */
         .cta-section .deco-orange {
             width: 500px; height: 500px;
             top: 50%; left: 50%;
@@ -123,6 +126,7 @@
             opacity: 0.06;
         }
 
+        /* pricing (dark) — canto superior direito */
         .pricing-section .deco-orange {
             width: 320px; height: 320px;
             top: -60px; right: -60px;
@@ -130,12 +134,15 @@
             filter: brightness(0) invert(1);
         }
 
-        /* ─── OVERRIDES P/ FUNDO LARANJA ─── */
+        /* ─── OVERRIDES P/ FUNDO LARANJA (about, pricing, footer) ─── */
+
+        /* s-label branco nas seções laranja */
         .about .s-label,
         .pricing-section .s-label {
             color: rgba(255,255,255,0.75);
         }
 
+        /* stats no about */
         .about .a-stat {
             background: rgba(255,255,255,0.12);
             border-color: rgba(255,255,255,0.2);
@@ -154,6 +161,7 @@
             color: rgba(255,255,255,0.8);
         }
 
+        /* pricing cards no fundo laranja */
         .pricing-section .price-card {
             background: rgba(255,255,255,0.05);
             border-color: rgba(255,255,255,0.12);
@@ -194,6 +202,7 @@
             background: rgba(255,255,255,0.9);
         }
 
+        /* deco-orange no fundo laranja: inverte p/ branco */
         .about .deco-orange,
         .pricing-section .deco-orange,
         .cta-section .deco-orange {
@@ -201,10 +210,12 @@
             opacity: 0.06;
         }
 
+        /* footer links */
         .footer-bottom a:hover { color: #fff; }
 
         /* ─── PREMIUM EFFECTS ─── */
 
+        /* Cursor glow */
         #cursor-glow {
             position: fixed;
             width: 320px; height: 320px;
@@ -216,16 +227,13 @@
             transition: opacity 0.3s;
         }
 
-        /* ── FIX: count-up separado por contexto de fundo ── */
-        .a-stat-num.counting {
+        /* Stat count-up flash */
+        .a-stat-num.counting, .st-num.counting {
             color: var(--burn);
             transition: color 0.1s;
         }
-        .st-num.counting {
-            color: rgba(255, 255, 255, 0.75);
-            transition: color 0.1s;
-        }
 
+        /* Price card shimmer on hover */
         .price-card {
             position: relative;
             overflow: hidden;
@@ -242,16 +250,19 @@
         }
         .price-card:hover::after { left: 130%; }
 
+        /* Service card tilt */
         .s-card {
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             will-change: transform;
         }
 
+        /* Testimonial card glow on hover */
         .t-card:hover {
             box-shadow: 0 8px 40px rgba(223,93,56,0.12);
             border-color: rgba(223,93,56,0.2) !important;
         }
 
+        /* Process step number pulse */
         .p-step-num {
             transition: transform 0.3s ease, color 0.3s ease;
         }
@@ -260,6 +271,7 @@
             color: var(--burn);
         }
 
+        /* Hero headline gradient animation */
         .hero-accent {
             background: linear-gradient(90deg, var(--burn), var(--amber), var(--burn));
             background-size: 200% auto;
@@ -273,10 +285,16 @@
             100% { background-position: 200% center; }
         }
 
+        /* Marquee text hover pop */
         .marquee-text:hover {
             color: var(--amber) !important;
             transform: scale(1.05);
             transition: all 0.2s;
+        }
+
+        /* ─── logo decorativo (tangerina 3 ou 4) ─── */
+        .deco-logo {
+            /* Logo decorativa: substitua src pelo Tangerina (3) ou (4).png */
         }
 
         .logo-text {
@@ -811,8 +829,15 @@
             position: absolute;
             inset: 0;
             background-color: var(--dark);
+            background-image: url('https://lp-tangerine.vercel.app/testedesktop.png');
             background-size: cover;
             background-position: center;
+        }
+        @media (max-width: 768px) {
+            .portfolio-grid .p-brands .p-item-bg {
+                background-image: url('https://lp-tangerine.vercel.app/testemobile.png');
+            }
+            .portfolio-grid .p-brands { height: 320px; grid-column: span 1; }
         }
         .portfolio-grid .p-brands .p-brands-label {
             position: absolute;
@@ -826,9 +851,6 @@
         }
         @media (max-width: 900px) {
             .portfolio-grid .p-brands { grid-column: span 2; }
-        }
-        @media (max-width: 600px) {
-            .portfolio-grid .p-brands { grid-column: span 1; }
         }
 
         .p-item {
@@ -881,7 +903,9 @@
             transition: opacity 0.35s ease;
         }
 
-        .p-item:hover .p-item-overlay { opacity: 1; }
+        .p-item:hover .p-item-overlay {
+            opacity: 1;
+        }
 
         .p-item-info {
             display: flex;
@@ -897,7 +921,9 @@
             transition: transform 0.35s ease;
         }
 
-        .p-item:hover .p-item-info-text { transform: translateY(0); }
+        .p-item:hover .p-item-info-text {
+            transform: translateY(0);
+        }
 
         .p-item-info h4 {
             font-size: 0.95rem;
@@ -912,6 +938,7 @@
             margin: 0;
         }
 
+        /* CTA lado direito */
         .p-item-cta {
             display: inline-flex;
             align-items: center;
@@ -947,6 +974,7 @@
             border-radius: 100px;
         }
 
+        /* Play button oculto por padrão, aparece no hover */
         .p-play-btn {
             position: absolute;
             top: 50%; left: 50%;
@@ -977,8 +1005,6 @@
 
         .p-play-btn.pdf-icon::before { content: '📄'; font-size: 1.2rem; }
         .p-play-btn.pdf-icon span { display: none; }
-
-        /* ─── STATS ─── */
         .stats-section {
             background: var(--burn);
             padding: 5rem 4rem;
@@ -1195,12 +1221,14 @@
             text-align: center;
         }
 
+        /* ─── LOGO CAROUSEL ─── */
         .logo-carousel-wrap {
             position: relative;
             overflow: hidden;
-            margin: 0 -4rem;
+            margin: 0 -4rem; /* sangra até as bordas */
         }
 
+        /* fade nas bordas */
         .logo-carousel-wrap::before,
         .logo-carousel-wrap::after {
             content: '';
@@ -1265,10 +1293,22 @@
             transition: filter 0.3s;
         }
 
-        .logo-item:hover img { filter: grayscale(0) opacity(1); }
+        .logo-item:hover img {
+            filter: grayscale(0) opacity(1);
+        }
 
-        .logo-item img:not([src]), .logo-item img[src=""] { display: none; }
-
+        /* placeholder enquanto não tem logo */
+        .logo-item img:not([src]), .logo-item img[src=""] {
+            display: none;
+        }
+        .logo-item img:not([src]) ~ .logo-placeholder,
+        .logo-item img[src=""] ~ .logo-placeholder {
+            display: flex;
+        }
+        .logo-item::after {
+            content: attr(data-label);
+        }
+        /* fallback: mostra o nome da marca como texto se não tiver imagem */
         .logo-item:has(img:not([src])),
         .logo-item:has(img[src=""]) {
             flex-direction: column;
@@ -1285,6 +1325,7 @@
             padding: 0 0.5rem;
         }
 
+        /* nome via JS fallback */
         .logo-item .logo-name {
             font-size: 0.68rem;
             font-weight: 700;
@@ -1302,18 +1343,98 @@
             .logo-item { width: 110px; height: 60px; }
         }
 
+        /* ─── MAIS CLIENTES ─── */
+        .mais-clientes {
+            background: var(--cream);
+            padding: 0 4rem 6rem;
+        }
+        .mais-clientes-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .mc-intro {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 3rem 0 2.5rem;
+            border-top: 1px solid rgba(223,93,56,0.15);
+        }
+        .mc-intro .s-label { margin: 0; white-space: nowrap; }
+        .mc-subtitle {
+            font-size: 0.9rem;
+            color: var(--mid);
+            opacity: 0.8;
+            margin: 0;
+        }
+        .mc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        /* card estilo portfólio */
+        .mc-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 220px;
+            cursor: default;
+        }
+        .mc-card-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-color: var(--dark);
+            transition: transform 0.5s ease;
+        }
+        .mc-card:hover .mc-card-bg { transform: scale(1.04); }
+        .mc-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+        }
+        .mc-card-overlay h5 {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 0.4rem;
+        }
+        .mc-card-overlay p {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.6;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .mais-clientes { padding: 0 1.5rem 4rem; }
+            .mc-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .mc-intro { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+            .mc-card { height: 200px; }
+        }
+
         /* ─── PORTFOLIO MOBILE ─── */
         @media (max-width: 768px) {
             .p-item-overlay {
                 opacity: 1 !important;
                 background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.55) 38%, transparent 65%);
             }
-            .p-item-info-text { transform: translateY(0) !important; }
-            .p-item-cta { opacity: 1 !important; transform: translateY(0) !important; }
-            .p-play-btn { display: none; }
+            .p-item-info-text {
+                transform: translateY(0) !important;
+            }
+            .p-item-cta {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+            }
+            .p-play-btn {
+                display: none;
+            }
         }
-
-        /* ─── CTA ─── */
         .cta-section {
             background: var(--light);
             text-align: center;
@@ -1350,7 +1471,7 @@
 
         /* ─── FOOTER ─── */
         footer {
-            background: var(--dark);
+            background: var(--burn-deep);
             color: rgba(255,255,255,0.6);
             padding: 4rem 4rem 2.5rem;
         }
@@ -1364,8 +1485,14 @@
             margin-bottom: 3rem;
         }
 
-        .footer-brand .logo-wrap { margin-bottom: 1.2rem; }
-        .footer-brand .logo-text { color: rgba(255,255,255,0.9); }
+        .footer-brand .logo-wrap {
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-brand .logo-text {
+            color: rgba(255,255,255,0.9);
+        }
+
         .footer-brand p {
             font-size: 0.82rem;
             line-height: 1.75;
@@ -1412,6 +1539,7 @@
 
         .footer-bottom a:hover { color: var(--amber); }
 
+        /* ─── KEVYN ─── */
         .kevyn-link {
             color: rgba(255,255,255,0.35);
             text-decoration: none;
@@ -1432,8 +1560,6 @@
         }
         .kevyn-link:hover .kevyn-bubble { width: 100%; }
         .kevyn-link:hover { color: rgba(255,255,255,0.5); }
-
-        /* ─── REVEAL ─── */
         .reveal {
             opacity: 0;
             transform: translateY(32px);
@@ -1456,7 +1582,11 @@
             overflow: hidden;
         }
 
-        .pricing-inner { max-width: 1300px; margin: 0 auto; }
+        .pricing-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
         .pricing-section .s-title { color: #fff; }
         .pricing-section .s-sub { color: rgba(255,255,255,0.8); }
 
@@ -1528,7 +1658,9 @@
             line-height: 1.6;
         }
 
-        .price-card.featured .price-card-top p { color: rgba(255,255,255,0.75); }
+        .price-card.featured .price-card-top p {
+            color: rgba(255,255,255,0.75);
+        }
 
         .price-value {
             display: flex;
@@ -1578,10 +1710,20 @@
             font-weight: 700;
         }
 
-        .price-features li.active { color: rgba(255,255,255,0.85); }
+        .price-features li.active {
+            color: rgba(255,255,255,0.85);
+        }
+
         .price-features li.active::before { color: var(--amber); }
-        .price-features li.inactive { color: rgba(255,255,255,0.2); }
-        .price-features li.inactive::before { content: '–'; color: rgba(255,255,255,0.15); }
+
+        .price-features li.inactive {
+            color: rgba(255,255,255,0.2);
+        }
+
+        .price-features li.inactive::before {
+            content: '–';
+            color: rgba(255,255,255,0.15);
+        }
 
         .price-card.featured .price-features li.active { color: rgba(255,255,255,0.95); }
         .price-card.featured .price-features li.active::before { color: #fff; }
@@ -1602,7 +1744,10 @@
             margin-top: auto;
         }
 
-        .price-cta:hover { background: rgba(255,255,255,0.12); color: #fff; }
+        .price-cta:hover {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+        }
 
         .featured-cta {
             background: #fff;
@@ -1657,7 +1802,10 @@
             transition: opacity 0.3s ease;
         }
 
-        .ig-modal.open { opacity: 1; pointer-events: all; }
+        .ig-modal.open {
+            opacity: 1;
+            pointer-events: all;
+        }
 
         .ig-modal-backdrop {
             position: absolute;
@@ -1682,7 +1830,9 @@
             box-shadow: 0 32px 80px rgba(0,0,0,0.6);
         }
 
-        .ig-modal.open .ig-modal-box { transform: scale(1); }
+        .ig-modal.open .ig-modal-box {
+            transform: scale(1);
+        }
 
         .ig-modal-close {
             position: absolute;
@@ -1740,7 +1890,9 @@
             background: transparent;
             transition: border-color 0.3s;
         }
-        .nav-toggle:hover { border-color: rgba(223,93,56,0.6); }
+        .nav-toggle:hover {
+            border-color: rgba(223,93,56,0.6);
+        }
         .nav-toggle span {
             display: block;
             height: 1.5px;
@@ -1751,7 +1903,6 @@
         .nav-toggle span:nth-child(1) { width: 18px; }
         .nav-toggle span:nth-child(2) { width: 14px; }
         .nav-toggle span:nth-child(3) { width: 18px; }
-
         .mobile-nav {
             display: none;
             position: fixed;
@@ -1828,6 +1979,7 @@
             .clients-strip { padding: 1.5rem 0; }
             .stats-section { padding: 3.5rem 1.5rem; }
 
+            /* Hero */
             .hero { padding: 6rem 1.5rem 4rem; min-height: auto; text-align: center; }
             .hero h1 { font-size: 2rem; }
             .hero p { font-size: 0.95rem; }
@@ -1835,35 +1987,49 @@
             .hero-ctas { flex-direction: column; align-items: center; gap: 0.8rem; }
             .btn-primary { width: 100%; text-align: center; justify-content: center; }
 
+            /* About */
             .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
             .about-stats { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
             .a-stat { padding: 1.4rem; }
             .a-stat-num { font-size: 2rem; }
 
+            /* Services */
             .services-grid { grid-template-columns: 1fr; gap: 1rem; }
             .services-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
             .svc-card { padding: 1.8rem; }
 
+            /* Portfolio */
             .portfolio-grid { grid-template-columns: 1fr; grid-template-rows: repeat(9, 260px); gap: 1rem; }
             .portfolio-grid .featured { grid-column: span 1; }
 
+            /* Stats */
             .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
             .st-num { font-size: 2.5rem; }
 
+            /* Process */
             .process-steps { max-width: 100%; }
             .process-steps::before { display: block; }
 
+            /* Testimonials */
             .t-grid { grid-template-columns: 1fr; gap: 1rem; }
 
+            /* Pricing */
             .pricing-grid { grid-template-columns: 1fr; gap: 1rem; }
             .price-card { gap: 1.2rem; }
 
+            /* Clients */
+            .brands-grid { gap: 0.6rem; }
+            .brand-pill { font-size: 0.72rem; padding: 0.5rem 1rem; }
+
+            /* CTA */
             .cta-inner .s-title { font-size: 1.8rem; }
 
+            /* Footer */
             .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
             footer { padding: 3rem 1.5rem 2rem; }
             .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
 
+            /* Section titles */
             .s-title { font-size: 1.7rem; }
         }
 
@@ -1880,7 +2046,9 @@
     <!-- HEADER -->
     <header>
         <a href="#" class="logo-wrap">
+            <!-- Logo principal: substitua src pelo caminho do Tangerina (21).png -->
             <img src="https://lp-tangerine.vercel.app/LogoPrincipal.png" alt="Tangerina" class="logo-img" id="logoMain">
+            <!-- Fallback texto enquanto não tiver o logo -->
             <span class="logo-text logo-fallback">Tangeri<span>na</span></span>
         </a>
         <nav>
@@ -1907,18 +2075,23 @@
     <!-- HERO -->
     <section class="hero">
         <div class="hero-bg"></div>
+
         <div class="hero-content">
             <div class="hero-tag">Posicionamento Estratégico Digital</div>
             <h1>Posicionamento estratégico<br class="mobile-br"> para marcas que querem<br class="mobile-br"> <em class="hero-accent">crescer</em>.</h1>
             <p>Unimos análise, direção criativa<br class="mobile-br"> e performance para transformar marcas<br class="mobile-br"> em autoridade no digital.</p>
             <div class="hero-ctas">
-                <a href="https://wa.me/5511934980464" target="_blank" class="btn-primary">Falar com a equipe →</a>
+                <a href="https://wa.me/5511934980464" target="_blank" class="btn-primary">
+                    Falar com a equipe →
+                </a>
             </div>
         </div>
+
         <div class="hero-visual">
             <div class="hero-reel">
                 <div class="reel-play">▶</div>
-                <img src="https://lp-tangerine.vercel.app/LogoLaranja.png" alt="" class="reel-deco-logo" id="logoDeco">
+                    <!-- Logo decorativa: substitua src pelo Tangerina (3) ou (4).png -->
+                    <img src="https://lp-tangerine.vercel.app/LogoLaranja.png" alt="" class="reel-deco-logo" id="logoDeco">
                 <div class="reel-label">
                     <small>Nosso trabalho</small>
                     <strong>Reel Tangerina 2025</strong>
@@ -1940,6 +2113,7 @@
             <span>FEMSA</span><div class="dot"></div>
             <span class="highlight">Centrum</span><div class="dot"></div>
             <span>Aussie</span><div class="dot"></div>
+            <!-- duplicate for infinite scroll -->
             <span class="highlight">Sephora</span><div class="dot"></div>
             <span>NBA House</span><div class="dot"></div>
             <span class="highlight">Disney Brasil</span><div class="dot"></div>
@@ -1994,6 +2168,7 @@
                 </div>
                 <p class="s-sub">Do planejamento à performance, atuação de ponta a ponta com coerência estética e foco em resultados.</p>
             </div>
+
             <div class="services-grid">
                 <div class="svc-card reveal">
                     <div class="svc-num">01</div>
@@ -2035,7 +2210,6 @@
         </div>
     </section>
 
-    <!-- PROCESSO -->
     <section id="processo" class="process">
         <div class="process-inner">
             <div style="text-align:center; margin-bottom: 0;">
@@ -2088,7 +2262,6 @@
             </div>
         </div>
     </section>
-
     <!-- PORTFOLIO -->
     <section id="portfolio" class="portfolio">
         <div class="portfolio-inner">
@@ -2099,79 +2272,110 @@
                 </div>
                 <a href="https://www.instagram.com/tangerina.film" target="_blank" class="btn-ghost">Ver mais no Instagram →</a>
             </div>
+
             <div class="portfolio-grid">
                 <div class="p-item reveal" data-embed="https://drive.google.com/file/d/1lyHijEjdESyxH3VIuATJ69RLgAdr2zXp/preview">
                     <div class="p-item-bg bg-nba"></div>
                     <div class="p-play-btn"><span>▶</span></div>
-                    <div class="p-item-overlay"><div class="p-item-info"><div class="p-item-info-text"><h4>NBA House SP</h4><p>Direção e cobertura audiovisual</p></div><span class="p-item-cta">▶ Assistir vídeo</span></div></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>NBA House SP</h4><p>Direção e cobertura audiovisual</p></div><span class="p-item-cta">▶ Assistir vídeo</span></div>
+                    </div>
                     <span class="p-tag">Evento</span>
                 </div>
                 <div class="p-item reveal delay-1" data-href="https://www.instagram.com/reel/DI1iOjXxEjE/">
                     <div class="p-item-bg bg-p9"></div>
                     <div class="p-play-btn"><span>▶</span></div>
-                    <div class="p-item-overlay"><div class="p-item-info"><div class="p-item-info-text"><h4>P9 Beach Club com FEMSA</h4><p>Cobertura audiovisual e edição final</p></div><span class="p-item-cta">▶ Ver no Instagram</span></div></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>P9 Beach Club com FEMSA</h4><p>Cobertura audiovisual e edição final</p></div><span class="p-item-cta">▶ Ver no Instagram</span></div>
+                    </div>
                     <span class="p-tag">Ativação</span>
                 </div>
                 <div class="p-item reveal delay-2" data-href="https://www.instagram.com/reel/DMnKBDMM7XK/">
                     <div class="p-item-bg bg-fam"></div>
                     <div class="p-play-btn"><span>▶</span></div>
-                    <div class="p-item-overlay"><div class="p-item-info"><div class="p-item-info-text"><h4>FAM nas Alturas</h4><p>Criação visual, gráfica e cenografia</p></div><span class="p-item-cta">▶ Ver no Instagram</span></div></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>FAM nas Alturas</h4><p>Criação visual, gráfica e cenografia</p></div><span class="p-item-cta">▶ Ver no Instagram</span></div>
+                    </div>
                     <span class="p-tag">Evento</span>
                 </div>
+
                 <div class="p-item reveal" data-href="https://www.instagram.com/tangerina.film">
                     <div class="p-item-bg c4"></div>
                     <div class="p-play-btn"><span>↗</span></div>
-                    <div class="p-item-overlay"><div class="p-item-info"><div class="p-item-info-text"><h4>Sunglass Hut</h4><p>Cenografia, direção de arte e ativação de marca</p></div><span class="p-item-cta">↗ Ver mais</span></div></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Sunglass Hut</h4><p>Cenografia, direção de arte e ativação de marca</p></div><span class="p-item-cta">↗ Ver mais</span></div>
+                    </div>
                     <span class="p-tag">Global</span>
                 </div>
                 <div class="p-item reveal delay-1" data-embed="https://drive.google.com/file/d/1-kl-XF3U_2t7VETUv2PGvEXNPzNTOgD7/preview">
                     <div class="p-item-bg bg-seph"></div>
                     <div class="p-play-btn"><span>▶</span></div>
-                    <div class="p-item-overlay"><div class="p-item-info"><div class="p-item-info-text"><h4>Sephora Beauty Run</h4><p>Direção e captação audiovisual</p></div><span class="p-item-cta">▶ Assistir vídeo</span></div></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Sephora Beauty Run</h4><p>Direção e captação audiovisual</p></div><span class="p-item-cta">▶ Assistir vídeo</span></div>
+                    </div>
                     <span class="p-tag">Global</span>
                 </div>
                 <div class="p-item reveal delay-2" data-embed="https://drive.google.com/file/d/1lSFIZhVvgrNx3KpGiA45N5X2eSxs3bZJ/preview">
                     <div class="p-item-bg bg-cent"></div>
                     <div class="p-play-btn"><span>▶</span></div>
-                    <div class="p-item-overlay"><div class="p-item-info"><div class="p-item-info-text"><h4>Centrum no Viva Mais Caraíva</h4><p>Criação visual, gráfica e impressa</p></div><span class="p-item-cta">▶ Assistir vídeo</span></div></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Centrum no Viva Mais Caraíva</h4><p>Criação visual, gráfica e impressa</p></div><span class="p-item-cta">▶ Assistir vídeo</span></div>
+                    </div>
                     <span class="p-tag">Saúde</span>
                 </div>
+
                 <div class="p-item reveal delay-2" data-href="https://www.instagram.com/tangerina.film">
                     <div class="p-item-bg c6"></div>
                     <div class="p-play-btn"><span>▶</span></div>
-                    <div class="p-item-overlay"><div class="p-item-info"><div class="p-item-info-text"><h4>Cia do Vinho</h4><p>Vídeo produto</p></div><span class="p-item-cta">↗ Ver mais</span></div></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Cia do Vinho</h4><p>Vídeo produto</p></div><span class="p-item-cta">↗ Ver mais</span></div>
+                    </div>
                     <span class="p-tag">Lifestyle</span>
                 </div>
+
                 <div class="p-item reveal" data-embed="https://drive.google.com/file/d/1YezR5WSzBNCM7t10gZZ4gpu6fftuMmC1/preview">
                     <div class="p-item-bg bg-org"></div>
                     <div class="p-play-btn"><span>▶</span></div>
-                    <div class="p-item-overlay"><div class="p-item-info"><div class="p-item-info-text"><h4>Go Organic Club</h4><p>Planejamento estratégico e cobertura audiovisual</p></div><span class="p-item-cta">▶ Assistir vídeo</span></div></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Go Organic Club</h4><p>Planejamento estratégico e cobertura audiovisual</p></div><span class="p-item-cta">▶ Assistir vídeo</span></div>
+                    </div>
                     <span class="p-tag">Lifestyle</span>
                 </div>
                 <div class="p-item reveal delay-1" data-href="https://www.instagram.com/tangerina.film">
                     <div class="p-item-bg c3"></div>
                     <div class="p-play-btn"><span>↗</span></div>
-                    <div class="p-item-overlay"><div class="p-item-info"><div class="p-item-info-text"><h4>Marujo Beach Bar</h4><p>Fotografia gastronômica</p></div><span class="p-item-cta">↗ Ver mais</span></div></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Marujo Beach Bar</h4><p>Fotografia gastronômica</p></div><span class="p-item-cta">↗ Ver mais</span></div>
+                    </div>
                     <span class="p-tag">Gastronomia</span>
                 </div>
                 <div class="p-item reveal" data-embed="https://drive.google.com/file/d/1z6ze-lV7y6Pf7h45QVDu9QB4EQd9jxD7/preview">
                     <div class="p-item-bg bg-aussie"></div>
                     <div class="p-play-btn pdf-icon"><span>▶</span></div>
-                    <div class="p-item-overlay"><div class="p-item-info"><div class="p-item-info-text"><h4>Aussie Verão</h4><p>Proposta comercial</p></div><span class="p-item-cta">📄 Ver apresentação</span></div></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Aussie Verão</h4><p>Proposta comercial</p></div><span class="p-item-cta">📄 Ver apresentação</span></div>
+                    </div>
                     <span class="p-tag">Global</span>
                 </div>
                 <div class="p-item reveal delay-1" data-embed="https://drive.google.com/file/d/1GxEKwfl1EOmrRV0VGomcVoKkePLPgj6A/preview">
                     <div class="p-item-bg bg-trulli"></div>
                     <div class="p-play-btn pdf-icon"><span>▶</span></div>
-                    <div class="p-item-overlay"><div class="p-item-info"><div class="p-item-info-text"><h4>Be Trulli</h4><p>Interface aplicativo e proposta comercial</p></div><span class="p-item-cta">📄 Ver apresentação</span></div></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Be Trulli</h4><p>Interface aplicativo e proposta comercial</p></div><span class="p-item-cta">📄 Ver apresentação</span></div>
+                    </div>
                     <span class="p-tag">Branding</span>
                 </div>
+
                 <div class="p-item reveal delay-2" data-href="https://www.instagram.com/tangerina.film">
                     <div class="p-item-bg" style="background: linear-gradient(135deg, #1A1410 0%, #5C4A3A 100%);"></div>
                     <div class="p-play-btn"><span>↗</span></div>
-                    <div class="p-item-overlay"><div class="p-item-info"><div class="p-item-info-text"><h4>Body</h4><p>Direção criativa e produção visual</p></div><span class="p-item-cta">↗ Ver mais</span></div></div>
+                    <div class="p-item-overlay">
+                        <div class="p-item-info"><div class="p-item-info-text"><h4>Body</h4><p>Direção criativa e produção visual</p></div><span class="p-item-cta">↗ Ver mais</span></div>
+                    </div>
                     <span class="p-tag">Evento</span>
                 </div>
+
+                <!-- card marcas atendidas -->
                 <div class="p-brands reveal">
                     <div class="p-item-bg" style="background-image: url('https://lp-tangerine.vercel.app/clientes-logos.png');"></div>
                     <span class="p-brands-label">Também atendemos</span>
@@ -2222,7 +2426,10 @@
                     <p class="t-text">Vocês conseguiram deixar a marca com muito mais cara de posicionamento mesmo, não só post bonito. Depois dos conteúdos, a percepção mudou muito e começamos a receber mais mensagens perguntando sobre pedidos.</p>
                     <div class="t-author">
                         <div class="t-avatar">JP</div>
-                        <div class="t-author-info"><strong>Joyce Pansutti</strong><span>Joy Cookie</span></div>
+                        <div class="t-author-info">
+                            <strong>Joyce Pansutti</strong>
+                            <span>Joy Cookie</span>
+                        </div>
                     </div>
                 </div>
                 <div class="t-card reveal delay-1">
@@ -2230,7 +2437,10 @@
                     <p class="t-text">A captação e os materiais ficaram exatamente como eu imaginava, mas mais profissional. A marca ficou mais madura e alinhada com o público que eu quero atingir.</p>
                     <div class="t-author">
                         <div class="t-avatar">AS</div>
-                        <div class="t-author-info"><strong>Andressa Silva</strong><span>Savannah</span></div>
+                        <div class="t-author-info">
+                            <strong>Andressa Silva</strong>
+                            <span>Savannah</span>
+                        </div>
                     </div>
                 </div>
                 <div class="t-card reveal delay-2">
@@ -2238,7 +2448,10 @@
                     <p class="t-text">Vocês realmente entenderam o que a gente precisava comunicar. A edição trouxe mais força pra marca e deixou tudo com uma unidade que antes não tinha.</p>
                     <div class="t-author">
                         <div class="t-avatar">JB</div>
-                        <div class="t-author-info"><strong>Juliana</strong><span>Blume</span></div>
+                        <div class="t-author-info">
+                            <strong>Juliana</strong>
+                            <span>Blume</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2256,6 +2469,7 @@
             <div class="logo-carousel-wrap">
                 <div class="logo-carousel">
                     <div class="logo-track">
+                        <!-- Troque o src de cada img pelo logo real da marca -->
                         <div class="logo-item"><img src="" alt="Sephora" data-label="Sephora"></div>
                         <div class="logo-item"><img src="" alt="Disney Brasil" data-label="Disney Brasil"></div>
                         <div class="logo-item"><img src="" alt="Aperol" data-label="Aperol"></div>
@@ -2269,6 +2483,7 @@
                         <div class="logo-item"><img src="" alt="FAM nas Alturas" data-label="FAM nas Alturas"></div>
                         <div class="logo-item"><img src="" alt="Marujo Beach Bar" data-label="Marujo Beach Bar"></div>
                         <div class="logo-item"><img src="" alt="Go Organic Club" data-label="Go Organic Club"></div>
+                        <!-- duplicado para loop infinito -->
                         <div class="logo-item"><img src="" alt="Sephora" data-label="Sephora"></div>
                         <div class="logo-item"><img src="" alt="Disney Brasil" data-label="Disney Brasil"></div>
                         <div class="logo-item"><img src="" alt="Aperol" data-label="Aperol"></div>
@@ -2297,7 +2512,9 @@
                 <h2 class="s-title">Pacotes personalizados<br>para cada momento da marca</h2>
                 <p class="s-sub" style="text-align:center; margin: 1rem auto 0;">Os pacotes são enviados de forma personalizada após diagnóstico inicial. Converse com a equipe para entender qual faz mais sentido para o seu negócio.</p>
             </div>
+
             <div class="pricing-grid">
+                <!-- Diária -->
                 <div class="price-card reveal">
                     <div class="price-card-top">
                         <span class="price-badge">Entrada</span>
@@ -2319,6 +2536,8 @@
                     </ul>
                     <a href="https://wa.me/5511934980464" target="_blank" class="price-cta">Solicitar proposta</a>
                 </div>
+
+                <!-- Audiovisual -->
                 <div class="price-card reveal delay-1">
                     <div class="price-card-top">
                         <span class="price-badge">Popular</span>
@@ -2340,6 +2559,8 @@
                     </ul>
                     <a href="https://wa.me/5511934980464" target="_blank" class="price-cta">Solicitar proposta</a>
                 </div>
+
+                <!-- Estrutura -->
                 <div class="price-card reveal delay-2">
                     <div class="price-card-top">
                         <span class="price-badge">Completo</span>
@@ -2361,6 +2582,8 @@
                     </ul>
                     <a href="https://wa.me/5511934980464" target="_blank" class="price-cta">Solicitar proposta</a>
                 </div>
+
+                <!-- Posicionamento Completo -->
                 <div class="price-card featured reveal delay-3">
                     <div class="price-card-top">
                         <span class="price-badge highlight-badge">Mais vendido ✦</span>
@@ -2393,7 +2616,9 @@
             <p class="s-label" style="text-align:center;">Vamos conversar</p>
             <h2 class="s-title">Pronto para transformar<br>sua marca em autoridade?</h2>
             <p>Os pacotes são enviados de forma personalizada conforme o perfil e necessidade da sua marca. Entre em contato para um diagnóstico inicial sem compromisso.</p>
-            <a href="https://wa.me/5511934980464" target="_blank" class="btn-primary">Falar no WhatsApp →</a>
+            <a href="https://wa.me/5511934980464" target="_blank" class="btn-primary">
+                Falar no WhatsApp →
+            </a>
         </div>
     </section>
 
@@ -2402,6 +2627,7 @@
         <div class="footer-inner">
             <div class="footer-brand">
                 <a href="#" class="logo-wrap">
+                    <!-- Logo principal branca: substitua src pelo caminho do Tangerina (21).png versão branca -->
                     <img src="https://lp-tangerine.vercel.app/LogoPrincipal.png" alt="Tangerina" class="logo-img logo-img-footer" id="logoFooter">
                     <span class="logo-text logo-fallback" style="color:rgba(255,255,255,0.85)">Tangerina</span>
                 </a>
@@ -2449,6 +2675,7 @@
             igEmbed.innerHTML = '<p class="ig-loading">Carregando...</p>';
             igModal.classList.add('open');
             document.body.style.overflow = 'hidden';
+            // small delay to avoid layout flash
             setTimeout(() => {
                 igEmbed.innerHTML = `<iframe src="${embedUrl}" scrolling="no" allowtransparency="true" allowfullscreen="true"></iframe>`;
             }, 150);
@@ -2472,7 +2699,7 @@
             item.addEventListener('click', () => window.open(item.dataset.href, '_blank'));
         });
 
-        // Logo carousel fallback
+        // Logo carousel fallback: mostra nome se não tiver imagem
         document.querySelectorAll('.logo-item').forEach(item => {
             const img = item.querySelector('img');
             const label = img ? img.getAttribute('alt') : '';
@@ -2497,24 +2724,40 @@
         // Mobile nav toggle
         const toggle = document.getElementById('navToggle');
         const mobileNav = document.getElementById('mobileNav');
-        toggle.addEventListener('click', () => { mobileNav.classList.toggle('open'); });
+        toggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+        });
+        // Close mobile nav on link click
         mobileNav.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', () => mobileNav.classList.remove('open'));
         });
 
-        // Reveal on scroll
         const reveals = document.querySelectorAll('.reveal');
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in');
+                    // dispara count-up em filhos com data-count
+                    e.target.querySelectorAll('[data-count]').forEach(num => {
+                        if (!num.dataset.counted) {
+                            num.dataset.counted = '1';
+                            const delay = ({
+                                'delay-1': 150, 'delay-2': 300, 'delay-3': 450
+                            }[e.target.className.match(/delay-\d/)?.[0]] || 0) + 600;
+                            setTimeout(() => countUp(num), delay);
+                        }
+                    });
+                }
+            });
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
         reveals.forEach(el => observer.observe(el));
 
-        // Count-up
+        // ─── COUNT-UP ───
         function countUp(el) {
             const target = parseInt(el.dataset.count);
             const suffix = el.dataset.suffix || '';
             if (!target) return;
-            const duration = 1400;
+            const duration = 1200;
             const start = performance.now();
             el.classList.add('counting');
             const tick = (now) => {
@@ -2532,18 +2775,7 @@
             requestAnimationFrame(tick);
         }
 
-        const countObserver = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting && !e.target.dataset.counted) {
-                    e.target.dataset.counted = '1';
-                    countUp(e.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
-
-        // Cursor glow
+        // ─── CURSOR GLOW ───
         const glow = document.createElement('div');
         glow.id = 'cursor-glow';
         document.body.appendChild(glow);
@@ -2552,7 +2784,7 @@
             glow.style.top = e.clientY + 'px';
         });
 
-        // Card tilt
+        // ─── CARD TILT ───
         document.querySelectorAll('.s-card, .t-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
@@ -2560,7 +2792,9 @@
                 const y = (e.clientY - rect.top) / rect.height - 0.5;
                 card.style.transform = `perspective(600px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) scale(1.02)`;
             });
-            card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
         });
 
         // Header shadow on scroll
