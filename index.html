@@ -20,22 +20,13 @@
             --light: #FDF8F2;
         }
 
-        html {
-            scroll-behavior: smooth;
-            overflow-x: hidden; /* fallback */
-            overflow-x: clip; /* impede scroll horizontal (quando suportado) */
-            overscroll-behavior-x: none; /* impede “puxar” horizontal */
-        }
+        html { scroll-behavior: smooth; }
 
-        html, body {
+        body {
             font-family: 'Poppins', sans-serif;
             background: var(--light);
             color: var(--dark);
-            overflow-x: hidden; /* fallback */
-            overflow-x: clip; /* impede scroll horizontal (quando suportado) */
-            width: 100%;
-            position: relative;
-            max-width: 100%;
+            overflow-x: hidden;
         }
 
         /* ─── NOISE TEXTURE OVERLAY ─── */
@@ -111,14 +102,14 @@
 
         .hero .deco-orange {
             width: 420px; height: 420px;
-            top: -80px; right: -60px;
+            top: -80px; right: -100px;
             background-position: center;
             opacity: 0.06;
         }
 
         .about .deco-orange {
             width: 360px; height: 360px;
-            bottom: -80px; left: -40px;
+            bottom: -80px; left: -60px;
             opacity: 0.08;
             filter: brightness(0) invert(1);
         }
@@ -132,7 +123,7 @@
 
         .pricing-section .deco-orange {
             width: 320px; height: 320px;
-            top: -60px; right: -40px;
+            top: -60px; right: -60px;
             opacity: 0.06;
             filter: brightness(0) invert(1);
         }
@@ -1221,9 +1212,7 @@
         .logo-carousel-wrap {
             position: relative;
             overflow: hidden;
-            margin: 0;
-            width: 100%;
-            max-width: 100%;
+            margin: 0 -4rem;
         }
 
         .logo-carousel-wrap::before,
@@ -1291,11 +1280,7 @@
         }
 
         @media (max-width: 768px) {
-            .logo-carousel-wrap { 
-                margin: 0; 
-                width: 100%; 
-                max-width: 100%;
-            }
+            .logo-carousel-wrap { margin: 0 -1.5rem; }
             .logo-carousel-wrap::before,
             .logo-carousel-wrap::after { width: 60px; }
             .logo-item { width: 110px; height: 60px; }
@@ -1611,7 +1596,7 @@
         .ig-modal-box {
             position: relative; z-index: 1;
             background: #000; border-radius: 16px; overflow: hidden;
-            width: 400px; max-width: calc(100% - 2rem); max-height: 90vh;
+            width: 400px; max-width: calc(100vw - 2rem); max-height: 90vh;
             display: flex; flex-direction: column;
             transform: scale(0.95); transition: transform 0.3s ease;
             box-shadow: 0 32px 80px rgba(0,0,0,0.6);
@@ -1696,18 +1681,10 @@
         }
 
         @media (max-width: 768px) {
-            html, body {
-                width: 100%;
-                max-width: 100%;
-                overflow-x: hidden;
-                overflow-x: clip;
-                overscroll-behavior-x: none;
-                touch-action: pan-y;
-            }
             header { padding: 1rem 1.5rem; }
             nav { display: none; }
             .nav-toggle { display: flex; }
-            section { padding: 4rem 1.5rem; overflow: hidden; }
+            section { padding: 4rem 1.5rem; }
             .about { padding: 4rem 1.5rem; }
             .testimonials { padding: 4rem 1.5rem; }
             .clients-section { padding: 4rem 1.5rem; }
@@ -1748,125 +1725,6 @@
             .about-stats { grid-template-columns: 1fr 1fr; }
             .stats-inner { grid-template-columns: 1fr 1fr; }
             .process-steps { max-width: 100%; padding: 0 0.5rem; }
-        }
-
-        /* ─────────────────────────────────────────────
-           GLOBAL FIX
-        ───────────────────────────────────────────── */
-        html, body {
-            width: 100%;
-            max-width: 100%;
-            overflow-x: hidden;
-        }
-
-        /* Evita qualquer elemento ultrapassar viewport */
-        * {
-            box-sizing: border-box;
-        }
-
-        /* ─────────────────────────────────────────────
-           CLIENTS STRIP (MARQUEE FIX)
-        ───────────────────────────────────────────── */
-        .clients-strip {
-            padding: 1.5rem 0;
-            overflow: hidden;
-            width: 100%;
-            max-width: 100%;
-        }
-
-        .clients-strip-inner {
-            display: flex;
-            gap: 1.5rem;
-            animation: marquee 22s linear infinite;
-            white-space: nowrap;
-
-            width: max-content;
-            min-width: 100%;
-        }
-
-        /* ─────────────────────────────────────────────
-           LOGO CAROUSEL FIX
-        ───────────────────────────────────────────── */
-        .logo-carousel,
-        .logo-carousel-wrap {
-            overflow: hidden;
-            width: 100%;
-            max-width: 100%;
-        }
-
-        .logo-carousel-wrap {
-            margin: 0; /* remove negativo */
-        }
-
-        .logo-track {
-            display: flex;
-            width: max-content;
-        }
-
-        /* ─────────────────────────────────────────────
-           ELEMENTOS ABSOLUTOS (ANTI OVERFLOW)
-        ───────────────────────────────────────────── */
-        .hero,
-        section,
-        div,
-        header,
-        footer {
-            max-width: 100%;
-        }
-
-        /* ─────────────────────────────────────────────
-           MOBILE FIX
-        ───────────────────────────────────────────── */
-        @media (max-width: 768px) {
-
-            html, body {
-                overflow-x: hidden;
-                overscroll-behavior-x: none;
-                touch-action: pan-y;
-            }
-
-            /* garante que nada vaze */
-            .clients-strip,
-            .clients-strip-inner,
-            .logo-carousel,
-            .logo-carousel-wrap {
-                overflow: hidden;
-                max-width: 100%;
-            }
-
-            .clients-strip-inner {
-                gap: 1.5rem;
-            }
-
-            /* remove elementos decorativos problemáticos */
-            .deco-orange,
-            .hero-blob {
-                display: none !important;
-            }
-
-            /* segurança extra */
-            body > * {
-                max-width: 100%;
-                overflow-x: hidden;
-            }
-        }
-
-        /* ─────────────────────────────────────────────
-           EXTRA HARD FIX (SAFARI / BUGS CHATOS)
-        ───────────────────────────────────────────── */
-        body {
-            position: relative;
-        }
-
-        /* impede micro overflow invisível */
-        body::after {
-            content: '';
-            position: fixed;
-            right: 0;
-            top: 0;
-            width: 1px;
-            height: 100%;
-            pointer-events: none;
         }
     </style>
 </head>
