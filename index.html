@@ -1726,6 +1726,13 @@
             .stats-inner { grid-template-columns: 1fr 1fr; }
             .process-steps { max-width: 100%; padding: 0 0.5rem; }
         }
+
+        /* iOS Safari: reforço anti "rubber-band" horizontal */
+        @supports (-webkit-touch-callout: none) {
+            html, body {
+                overflow-x: hidden !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2431,6 +2438,43 @@
                 if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
             });
         });
+
+        // iOS Safari: bloqueia "puxar" horizontal (rubber-band)
+        (function () {
+            const ua = navigator.userAgent || '';
+            const isIOS = /iP(hone|od|ad)/.test(ua);
+            const isWebKit = /WebKit/.test(ua);
+            const isSafari = isWebKit && /Safari/.test(ua) && !/(CriOS|FxiOS|EdgiOS|OPiOS)/.test(ua);
+            if (!(isIOS && isSafari)) return;
+
+            let startX = 0;
+            let startY = 0;
+            let locked = false;
+
+            document.addEventListener('touchstart', (e) => {
+                if (!e.touches || e.touches.length !== 1) return;
+                const t = e.touches[0];
+                startX = t.clientX;
+                startY = t.clientY;
+                locked = false;
+            }, { passive: true });
+
+            document.addEventListener('touchmove', (e) => {
+                if (!e.touches || e.touches.length !== 1) return;
+                const t = e.touches[0];
+                const dx = t.clientX - startX;
+                const dy = t.clientY - startY;
+
+                // Só decide uma vez por gesto
+                if (!locked) {
+                    // se o gesto é mais horizontal que vertical, travamos
+                    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 6) locked = true;
+                    else if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 6) locked = false;
+                }
+
+                if (locked) e.preventDefault();
+            }, { passive: false });
+        })();
     </script>
 </body>
 </html>
