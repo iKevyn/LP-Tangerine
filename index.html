@@ -26,62 +26,6 @@
             overflow-x: clip; /* impede scroll horizontal (quando suportado) */
             overscroll-behavior-x: none; /* impede “puxar” horizontal */
         }
-        /* ─────────────────────────────────────────────
-   FIX GLOBAL: REMOVE SCROLL HORIZONTAL MOBILE
-───────────────────────────────────────────── */
-html, body {
-    overflow-x: hidden !important;
-    max-width: 100%;
-}
-
-/* Evita qualquer elemento ultrapassar viewport */
-* {
-    max-width: 100%;
-}
-
-/* ─────────────────────────────────────────────
-   FIX: LOGO CAROUSEL (PRINCIPAL CULPADO)
-───────────────────────────────────────────── */
-.logo-carousel-wrap {
-    overflow: hidden;
-}
-
-@media (max-width: 768px) {
-    .logo-carousel-wrap {
-        margin: 0 !important;
-        width: 100% !important;
-        overflow: hidden;
-    }
-}
-
-/* ─────────────────────────────────────────────
-   FIX: ELEMENTOS ABSOLUTOS VAZANDO
-───────────────────────────────────────────── */
-@media (max-width: 768px) {
-    .deco-orange,
-    .hero-blob {
-        display: none !important;
-    }
-}
-
-/* ─────────────────────────────────────────────
-   FIX: GARANTE QUE NADA “EMPURRE” LATERAL
-───────────────────────────────────────────── */
-section,
-div,
-header,
-footer {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-/* ─────────────────────────────────────────────
-   EXTRA HARD FIX (casos chatos de iOS)
-───────────────────────────────────────────── */
-body {
-    position: relative;
-    touch-action: pan-y;
-}
 
         html, body {
             font-family: 'Poppins', sans-serif;
@@ -567,14 +511,20 @@ body {
             background: var(--dark);
             padding: 2rem 0;
             overflow: hidden;
+            padding: 1.5rem 0;
+            width: 100%;
+            max-width: 100%;
         }
 
         .clients-strip-inner {
             display: flex;
-            gap: 3rem;
             align-items: center;
             animation: marquee 22s linear infinite;
             white-space: nowrap;
+            display: flex;
+            gap: 1.5rem; /* reduzido no mobile */
+            width: max-content;
+            min-width: 100%; /* ADICIONA ISSO */
         }
 
         @keyframes marquee {
