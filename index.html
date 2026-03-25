@@ -20,13 +20,20 @@
             --light: #FDF8F2;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden; /* impede scroll horizontal */
+            overscroll-behavior-x: none; /* impede “puxar” horizontal */
+        }
 
         html, body {
             font-family: 'Poppins', sans-serif;
             background: var(--light);
             color: var(--dark);
-            overflow-x: hidden;
+            overflow-x: hidden; /* impede scroll horizontal */
+            width: 100%;
+            position: relative;
+            max-width: 100%;
         }
 
         /* ─── NOISE TEXTURE OVERLAY ─── */
@@ -102,14 +109,14 @@
 
         .hero .deco-orange {
             width: 420px; height: 420px;
-            top: -80px; right: -100px;
+            top: -80px; right: -60px;
             background-position: center;
             opacity: 0.06;
         }
 
         .about .deco-orange {
             width: 360px; height: 360px;
-            bottom: -80px; left: -60px;
+            bottom: -80px; left: -40px;
             opacity: 0.08;
             filter: brightness(0) invert(1);
         }
@@ -123,7 +130,7 @@
 
         .pricing-section .deco-orange {
             width: 320px; height: 320px;
-            top: -60px; right: -60px;
+            top: -60px; right: -40px;
             opacity: 0.06;
             filter: brightness(0) invert(1);
         }
@@ -1213,6 +1220,8 @@
             position: relative;
             overflow: hidden;
             margin: 0 -4rem;
+            width: calc(100% + 8rem);
+            max-width: 100vw;
         }
 
         .logo-carousel-wrap::before,
@@ -1280,7 +1289,11 @@
         }
 
         @media (max-width: 768px) {
-            .logo-carousel-wrap { margin: 0 -1.5rem; }
+            .logo-carousel-wrap { 
+                margin: 0; 
+                width: 100%; 
+                max-width: 100vw; 
+            }
             .logo-carousel-wrap::before,
             .logo-carousel-wrap::after { width: 60px; }
             .logo-item { width: 110px; height: 60px; }
@@ -1681,10 +1694,17 @@
         }
 
         @media (max-width: 768px) {
+            html, body {
+                width: 100vw;
+                max-width: 100vw;
+                overflow-x: hidden;
+                overscroll-behavior-x: none;
+                touch-action: pan-y;
+            }
             header { padding: 1rem 1.5rem; }
             nav { display: none; }
             .nav-toggle { display: flex; }
-            section { padding: 4rem 1.5rem; }
+            section { padding: 4rem 1.5rem; overflow: hidden; }
             .about { padding: 4rem 1.5rem; }
             .testimonials { padding: 4rem 1.5rem; }
             .clients-section { padding: 4rem 1.5rem; }
