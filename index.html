@@ -1727,6 +1727,41 @@
             .stats-inner { grid-template-columns: 1fr 1fr; }
             .process-steps { max-width: 100%; padding: 0 0.5rem; }
         }
+
+        /* 🔒 TRAVA overflow horizontal */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Garante que nada passe da largura da tela */
+body {
+    position: relative;
+}
+
+/* Imagens nunca estouram */
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Remove o vazamento lateral do carrossel */
+.logo-carousel-wrap {
+    margin: 0;
+}
+
+/* Evita que elementos absolutos empurrem a tela */
+.deco-orange,
+.hero-blob {
+    right: 0 !important;
+    left: auto !important;
+    max-width: 100%;
+}
+
+/* Segurança extra */
+section, header {
+    overflow-x: hidden;
+}
     </style>
 </head>
 <body>
