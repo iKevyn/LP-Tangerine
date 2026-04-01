@@ -1436,7 +1436,7 @@
 
         .footer-bottom a { color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
         .footer-bottom a:hover { color: #fff; }
-
+/*coment
         .kevyn-link {
     color: rgba(255,255,255,0.85);
     text-decoration: none;
@@ -1467,6 +1467,88 @@
   .kevyn-link:hover {
     color: rgba(255,255,255,1);
   }
+        */
+        .kevyn-link {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 0.75rem;
+  position: relative;
+}
+
+.kevyn-name {
+  color: rgba(255,255,255,0.9);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.kevyn-bubble {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #fff;
+  transition: width 0.4s ease;
+  display: block;
+}
+
+.kevyn-link:hover .kevyn-bubble {
+  width: 100%;
+}
+
+.kevyn-link:hover {
+  color: rgba(255,255,255,1);
+}
+
+/* Bolinha pulsante branca */
+.kevyn-pulse {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fff;
+  flex-shrink: 0;
+  animation: pulse-white 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
+}
+
+@keyframes pulse-white {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.9);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.4);
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1);
+    opacity: 1;
+  }
+}
+
+.kevyn-link:hover .kevyn-pulse {
+  animation: pulse-white-hover 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-white-hover {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+    opacity: 1;
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.5);
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.1);
+    opacity: 1;
+  }
+}
+
 
         /* ─── REVEAL ─── */
         .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
