@@ -1438,15 +1438,35 @@
         .footer-bottom a:hover { color: #fff; }
 
         .kevyn-link {
-            color: rgba(255,255,255,0.45);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-size: 0.75rem;
-        }
-        .kevyn-name { color: rgba(255,255,255,0.6); position: relative; }
-        .kevyn-bubble { position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: #fff; transition: width 0.4s ease; display: block; }
-        .kevyn-link:hover .kevyn-bubble { width: 100%; }
-        .kevyn-link:hover { color: rgba(255,255,255,0.6); }
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.75rem;
+  }
+
+  .kevyn-name {
+    color: rgba(255,255,255,0.9);
+    position: relative;
+  }
+
+  .kevyn-bubble {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #fff;
+    transition: width 0.4s ease;
+    display: block;
+  }
+
+  .kevyn-link:hover .kevyn-bubble {
+    width: 100%;
+  }
+
+  .kevyn-link:hover {
+    color: rgba(255,255,255,1);
+  }
 
         /* ─── REVEAL ─── */
         .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
